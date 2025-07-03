@@ -1,3 +1,8 @@
+<script setup>
+import headerView from '@/components/headerView.vue'
+</script>
+
 <template>
-  <RouterView />
+  <headerView />
+  <RouterView class="font-Roboto px-[130px]" />
 </template>
