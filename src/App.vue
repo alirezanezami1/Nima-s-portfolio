@@ -4,5 +4,5 @@ import headerView from '@/components/headerView.vue'
 
 <template>
   <headerView />
-  <RouterView class="font-Roboto px-[130px]" />
+  <RouterView class="font-Roboto px-[130px] bg-mainBg" />
 </template>

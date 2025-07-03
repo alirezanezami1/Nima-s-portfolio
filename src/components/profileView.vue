@@ -24,7 +24,12 @@ onMounted(() => {
     <img
       :src="profile.avatar_url"
       alt="Profile Picture"
-      class="w-[72px] h-[72px] rounded-3xl object-cover border-4 border-white shadow-lg"
+      class="w-[72px] h-[72px] rounded-3xl object-cover border-4 border-white shadow-profShadow"
     />
+  </div>
+  <div class="flex items-center justify-center" v-else>
+    <div
+      class="border-2 border-textColor border-solid rounded-full border-t-transparent w-5 h-5 animate-spin"
+    ></div>
   </div>
 </template>
