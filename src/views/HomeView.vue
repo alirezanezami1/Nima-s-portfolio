@@ -1,3 +1,3 @@
 <template>
-  <div class="text-red-800">hi</div>
+  <div class="px-[130px] font-Roboto">hiiii</div>
 </template>
