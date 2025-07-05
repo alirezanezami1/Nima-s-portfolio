@@ -65,6 +65,6 @@ const navLinks = ref([
     <resumeView />
   </div>
   <div class="flex md:hidden w-full p-6">
-    <headerMobile />
+    <headerMobile :navLinks="navLinks" />
   </div>
 </template>
