@@ -2,6 +2,13 @@
 import { ref, onMounted } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 
+defineProps({
+  size: {
+    type: String,
+    default: 'w-[72px] h-[72px] rounded-3xl border-4',
+  },
+})
+
 const profile = ref(null)
 
 async function getProfile() {
@@ -24,7 +31,7 @@ onMounted(() => {
     <img
       :src="profile.avatar_url"
       alt="Profile Picture"
-      class="w-[72px] h-[72px] rounded-3xl object-cover border-4 border-white shadow-profShadow"
+      :class="[` object-cover  border-white shadow-profShadow`, size]"
     />
   </div>
   <div class="flex items-center justify-center" v-else>

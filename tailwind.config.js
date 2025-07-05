@@ -8,11 +8,13 @@ export default {
       },
       colors: {
         mainBg: '#F7F8F9',
+        mainBg2: '#FFF',
 
         textColor: '#868686',
         textColor2: '#212121',
 
         borderColor: '#FAFAFA',
+        borderColor2: '#E2E2E2',
       },
       boxShadow: {
         profShadow: '0px 16px 40px -8px rgba(51, 17, 51, 0.16)',

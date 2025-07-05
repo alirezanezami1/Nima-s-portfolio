@@ -1,4 +1,5 @@
 <script setup>
+import headerMobile from './headerMobile.vue'
 import profileView from './profileView.vue'
 import resumeView from './resumeView.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -39,7 +40,9 @@ const navLinks = ref([
 </script>
 
 <template>
-  <div class="px-[130px] py-[52px] flex justify-center items-center gap-[152px] w-full bg-mainBg">
+  <div
+    class="hidden md:flex md:px-[30px] xl:px-[130px] py-[52px] justify-center items-center md:gap-[35px] xl:gap-[152px] bg-mainBg"
+  >
     <!-- /// profile  -->
     <profileView />
 
@@ -51,8 +54,8 @@ const navLinks = ref([
         v-for="item in navLinks"
         :key="item"
         :href="`#${item.id}`"
-        class="text-textColor font-normal leading-[140%]"
-        :class="{ 'text-textColor2 font-medium': activeSection === item.id }"
+        class="text-textColor font-normal md:text-[15px] xl:text-[18px] leading-[140%]"
+        :class="{ 'text-textColor2 font-semibold': activeSection === item.id }"
         @click="activeSection = item.id"
       >
         {{ item.name }}
@@ -60,5 +63,8 @@ const navLinks = ref([
     </div>
     <!-- /// downloadResume  -->
     <resumeView />
+  </div>
+  <div class="flex md:hidden w-full p-6">
+    <headerMobile />
   </div>
 </template>
