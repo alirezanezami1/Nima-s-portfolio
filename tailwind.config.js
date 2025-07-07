@@ -13,6 +13,8 @@ export default {
         textColor: '#868686',
         textColor2: '#212121',
 
+        textBlack: '#030303',
+
         borderColor: '#FAFAFA',
         borderColor2: '#E2E2E2',
 
