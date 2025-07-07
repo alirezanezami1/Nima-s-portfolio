@@ -15,10 +15,16 @@ export default {
 
         borderColor: '#FAFAFA',
         borderColor2: '#E2E2E2',
+
+        waveColorG: '#0ACF83',
+        waveColorG2: '#0ACF8314',
       },
       boxShadow: {
         profShadow: '0px 16px 40px -8px rgba(51, 17, 51, 0.16)',
         menuShadow: '0px 16px 40px -8px rgba(112, 144, 176, 0.16)',
+      },
+      animation: {
+        'ping-fast': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
     },
   },

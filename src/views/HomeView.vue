@@ -1,3 +1,9 @@
+<script setup>
+import AboutmeView from '@/components/AboutmeView.vue'
+</script>
+
 <template>
-  <div></div>
+  <div>
+    <AboutmeView />
+  </div>
 </template>
