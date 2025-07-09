@@ -25,7 +25,7 @@ onMounted(() => {
   <div
     class="inline-flex justify-center items-center gap-2 p-3 pr-5 rounded-full border-[1px] border-borderColor2"
   >
-    <waveBtn colorWave="bg-waveColorO" colorWave2="bg-waveColorO2" />
+    <waveBtn />
     <div class="text-[16px] font-medium text-textBlack flex justify-center items-center">
       <div v-if="isLoading">
         <p>Loading status...</p>
@@ -33,6 +33,9 @@ onMounted(() => {
 
       <div v-else-if="status">
         <h2>{{ status.title }}</h2>
+      </div>
+      <div v-else-if="!status">
+        <h2>open to work</h2>
       </div>
     </div>
   </div>
