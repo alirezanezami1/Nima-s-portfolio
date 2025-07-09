@@ -20,6 +20,8 @@ export default {
 
         waveColorG: '#0ACF83',
         waveColorG2: '#0ACF8314',
+        waveColorO: '#FA6B11',
+        waveColorO2: 'rgba(250,107,17,0.08)',
       },
       boxShadow: {
         profShadow: '0px 16px 40px -8px rgba(51, 17, 51, 0.16)',
