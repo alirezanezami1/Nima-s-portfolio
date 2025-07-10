@@ -13,11 +13,7 @@ import statusBtn from './statusBtn.vue'
         >
           <p class="flex justify-center items-center self-stretch h-[112px]">
             <span class="text-textColor font-light">Hi I’m</span>
-            <img
-              src="../assets/images/Frame 1.png"
-              class="w-[56px] h-[56px] mx-[10px]"
-              alt="logo"
-            />
+            <img src="../assets/images/Frame 1.png" class="w-[56px] h-[56px] mx-3" alt="logo" />
             <span class="text-textColor2 font-semibold">
               Nima <span class="hidden md:inline">masoumi !</span>
             </span>
