@@ -20,6 +20,13 @@ import statusBtn from './statusBtn.vue'
           </p>
           <p class="text-textColor2 font-semibold block md:hidden -mt-5">masoumi !</p>
         </div>
+
+        <p
+          class="text-[24px] md:text-[40px] leading-[140%] flex justify-center items-center gap-2 text-textColor font-light text-center"
+        >
+          I’m a <span class="text-textColor2 font-normal">freelance</span>
+          <span class="text-textColor3 font-bold">UIUX Designer</span>
+        </p>
       </div>
     </div>
 
