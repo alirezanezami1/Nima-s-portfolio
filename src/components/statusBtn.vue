@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 <template>
   <div
-    class="inline-flex justify-center items-center gap-1 p-3 pr-5 rounded-full border-[1px] border-borderColor2"
+    class="flex justify-center items-center gap-1 p-3 pr-5 rounded-full border-[1px] border-borderColor2"
   >
     <waveBtn />
     <div class="text-[16px] font-medium text-textBlack flex justify-center items-center">

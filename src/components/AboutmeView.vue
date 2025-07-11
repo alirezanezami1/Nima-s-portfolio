@@ -2,9 +2,9 @@
 import statusBtn from './statusBtn.vue'
 </script>
 <template>
-  <div class="flex flex-col justify-center items-center gap-8 pt-10">
+  <div class="flex flex-col justify-center items-center gap-8 pt-3">
     <!-- /// intro  -->
-    <div class="flex flex-col justify-center items-center gap-6">
+    <div class="flex flex-col justify-center items-center">
       <statusBtn />
 
       <div class="flex flex-col justify-center items-center gap-2 md:gap-8 self-stretch">
@@ -18,7 +18,7 @@ import statusBtn from './statusBtn.vue'
               Nima <span class="hidden md:inline">masoumi !</span>
             </span>
           </p>
-          <p class="text-textColor2 font-semibold block md:hidden -mt-5">masoumi !</p>
+          <p class="text-textColor2 font-semibold block md:hidden -mt-7">masoumi !</p>
         </div>
 
         <p
