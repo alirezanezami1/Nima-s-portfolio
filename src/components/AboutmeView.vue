@@ -14,7 +14,7 @@ const slicedTxt = computed(() => {
 })
 </script>
 <template>
-  <div class="flex flex-col justify-center items-center gap-8 pt-3">
+  <div class="flex flex-col justify-center items-center gap-8 pt-3 md:pt-[186px]">
     <!-- /// intro  -->
     <div class="flex flex-col justify-center items-center">
       <statusBtn />
