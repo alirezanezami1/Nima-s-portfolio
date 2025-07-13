@@ -47,19 +47,25 @@ const slicedTxt = computed(() => {
       class="flex flex-col justify-center items-start gap-[10px] rounded-2xl border-[1px] border-borderColor2 px-6 pt-6 pb-3"
     >
       <div class="flex justify-center items-center flex-col self-stretch gap-4">
-        <div class="flex flex-col justify-center items-center self-stretch gap-4">
+        <div class="flex flex-col justify-center items-center self-stretch gap-4 text-center">
           <p class="text-textColor2 text-ellipsis text-[20px] leading-7 font-semibold">About me</p>
-          <p class="text-textColor text-ellipsis text-[20px] leading-7 font-normal" v-if="showMore">
+          <p class="text-textColor text-ellipsis text-[20px] leading-7 font-normal hidden md:block">
             {{ txtAboutMe }}
           </p>
           <p
-            class="text-textColor text-ellipsis text-[20px] leading-7 font-normal"
+            class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block md:hidden"
+            v-if="showMore"
+          >
+            {{ txtAboutMe }}
+          </p>
+          <p
+            class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block md:hidden"
             v-if="!showMore"
           >
             {{ slicedTxt }}
           </p>
           <div
-            class="flex justify-center items-center gap-1 h-[40px] rounded-full text-textColor3 text-[16px] font-medium leading-[140%]"
+            class="flex md:hidden justify-center items-center gap-1 h-[40px] rounded-full text-textColor3 text-[16px] font-medium leading-[140%]"
             @click="showMore = !showMore"
           >
             Show <span v-if="!showMore">More</span> <span v-if="showMore">less</span>
