@@ -59,7 +59,7 @@ const slicedTxt = computed(() => {
             {{ slicedTxt }}
           </p>
           <div
-            class="flex justify-center items-center gap-2 h-[40px] rounded-full text-textColor3 text-[16px] font-medium leading-[140%]"
+            class="flex justify-center items-center gap-1 h-[40px] rounded-full text-textColor3 text-[16px] font-medium leading-[140%]"
             @click="showMore = !showMore"
           >
             Show <span v-if="!showMore">More</span> <span v-if="showMore">less</span>
