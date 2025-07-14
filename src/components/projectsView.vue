@@ -3,6 +3,8 @@ import waveBtn from './waveBtn.vue'
 import ArrowBottom from './icons/ArrowBottom.vue'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
 
 // برای نگهداری لیست کامل پروژه‌ها و کیس استادی‌ها
 const allProjects = ref([])
@@ -28,7 +30,6 @@ async function fetchData() {
   }
 
   isLoading.value = false
-  console.log(allCaseStudies.value)
 }
 
 onMounted(() => {
@@ -96,9 +97,35 @@ const displayedProjects = computed(() => {
         <div
           v-for="project in displayedProjects"
           :key="project.id"
-          class="flex justify-center items-center"
+          class="flex flex-col justify-center items-center gap-2"
         >
-          <img :src="project.image_url" :alt="project.title" class="w-full h-auto" />
+          <div class="relative">
+            <img :src="project.image_url" :alt="project.title" class="w-full h-auto" />
+          </div>
+          <div class="flex flex-col justify-center items-start gap-3 w-full">
+            <!-- //// title  -->
+            <div class="flex justify-between items-center self-stretch">
+              <div
+                class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
+              >
+                <p class="text-textColor3">{{ project.title }}</p>
+                <p class="text-textColor2">Website</p>
+              </div>
+              <p class="text-[12px] font-normal leading-[140%] text-textColor">
+                {{ project.project_type }}
+              </p>
+            </div>
+            <!-- //// slider  -->
+            <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
+              <SwiperSlide v-for="tag in project.tags" :key="tag" class="!w-auto">
+                <div
+                  class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[14px] font-normal leading-[140%] text-textColor2"
+                >
+                  {{ tag }}
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
 
         <!-- //// coming soon  -->
