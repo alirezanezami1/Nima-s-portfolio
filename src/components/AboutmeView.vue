@@ -14,18 +14,22 @@ const slicedTxt = computed(() => {
 })
 </script>
 <template>
-  <div class="flex flex-col justify-center items-center gap-8 pt-3 md:pt-[186px]">
+  <div class="flex flex-col justify-center items-center gap-8 md:gap-12 pt-3 md:pt-[186px]">
     <!-- /// intro  -->
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center gap-6 md:gap-[40px]">
       <statusBtn />
 
-      <div class="flex flex-col justify-center items-center gap-2 md:gap-8 self-stretch">
+      <div class="flex flex-col justify-center items-center gap-2 md:gap-0 self-stretch">
         <div
-          class="px-1 flex flex-col justify-center items-center text-center text-[32px] md:text-[48px] leading-[175%] md:leading-none"
+          class="px-1 md:px-0 flex flex-col justify-center items-center text-center text-[32px] md:text-[48px] leading-[175%] md:leading-none"
         >
           <p class="flex justify-center items-center self-stretch h-[112px]">
             <span class="text-textColor font-light">Hi I’m</span>
-            <img src="../assets/images/Frame 1.png" class="w-[56px] h-[56px] mx-3" alt="logo" />
+            <img
+              src="../assets/images/Frame 1.png"
+              class="w-[56px] md:w-[80px] h-[56px] md:h-[80px] mx-4"
+              alt="logo"
+            />
             <span class="text-textColor2 font-semibold">
               Nima <span class="hidden md:inline">masoumi !</span>
             </span>
