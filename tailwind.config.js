@@ -23,6 +23,7 @@ export default {
 
         waveColorG: '#0ACF83',
         waveColorG2: '#0ACF8314',
+        waveColorG3: '#0ACF8324',
         waveColorO: '#FA6B11',
         waveColorO2: 'rgba(250,107,17,0.08)',
       },

@@ -63,7 +63,7 @@ const displayedProjects = computed(() => {
           @click="activeTab = 'projects'"
           :class="[
             'flex py-3 px-5 justify-center items-center gap-[10px] rounded-full border-[1px] border-borderColor2 text-[16px] font-medium leading-[140%] bg-mainBg2 text-textColor2',
-            { 'text-mainBg2 bg-textColor2 border-borderColor3': activeTab === 'projects' },
+            { 'text-white bg-textColor2 border-borderColor3': activeTab === 'projects' },
           ]"
         >
           Projects
@@ -72,7 +72,7 @@ const displayedProjects = computed(() => {
           @click="activeTab = 'case_studies'"
           :class="[
             'flex py-3 px-5 justify-center items-center gap-[10px] rounded-full border-[1px] border-borderColor2 text-[16px] font-medium leading-[140%] bg-mainBg2 text-textColor2',
-            { 'text-mainBg2 bg-textColor2 border-borderColor3': activeTab === 'case_studies' },
+            { 'text-white bg-textColor2 border-borderColor3': activeTab === 'case_studies' },
           ]"
         >
           Case Studies
@@ -90,11 +90,32 @@ const displayedProjects = computed(() => {
         >
           <img :src="project.image_url" :alt="project.title" class="w-full h-auto" />
         </div>
+
+        <!-- //// coming soon  -->
+        <div
+          class="w-full h-auto flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
+          v-if="showAllProjects"
+        >
+          <div class="flex flex-col gap-8">
+            <!-- /// -->
+            <div class="relative flex items-center justify-center p-[5px]">
+              <img src="../assets/images/Frame 48097816.png" class="w-[32px] h-[32px]" alt="img" />
+              <span class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"></span>
+            </div>
+            <!-- //// -->
+            <div class="flex flex-col gap-4 justify-center items-center text-center">
+              <p class="text-[16px] leading-[140%] font-medium text-textColor2">Comming soon</p>
+              <p class="text-[14px] leading-[140%] font-normal text-textColor">
+                New projects will be released soon, so stay tuned.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div v-if="allProjects.length > 3" class="mt-8 flex justify-center items-center">
+      <div v-if="allProjects.length > 3" class="mt-8 hidden md:flex justify-center items-center">
         <button
           @click="showAllProjects = !showAllProjects"
-          class="inline-flex justify-center items-center gap-1 py-3 pr-3 pl-[18px] rounded-full border-[1px] border-borderColor2"
+          class="inline-flex justify-center items-center font-medium gap-1 py-3 pr-3 pl-[18px] rounded-full border-[1px] border-borderColor2"
         >
           Show <span v-if="!showAllProjects">More</span> <span v-if="showAllProjects">Less</span>
           <ArrowBottom color="#212121" :class="{ 'transform rotate-180': showAllProjects }" />
