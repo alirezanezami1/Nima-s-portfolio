@@ -103,6 +103,7 @@ const displayedProjects = computed(() => {
         >
           <div class="relative">
             <img :src="project.image_url" :alt="project.title" class="w-full h-auto" />
+            <!-- //// link  -->
             <div
               class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
             >
