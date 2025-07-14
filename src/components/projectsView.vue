@@ -28,6 +28,7 @@ async function fetchData() {
   }
 
   isLoading.value = false
+  console.log(allCaseStudies.value)
 }
 
 onMounted(() => {
@@ -50,7 +51,7 @@ const displayedProjects = computed(() => {
   <div
     class="flex flex-col justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 w-full bg-mainBg2"
   >
-    <!-- ////  -->
+    <!-- //// head -->
     <div class="flex justify-between items-center w-full">
       <div
         class="flex justify-center items-center py-2 pr-4 pl-3 gap-2 rounded-full shadow-menuShadow"
@@ -80,8 +81,17 @@ const displayedProjects = computed(() => {
       </div>
     </div>
 
-    <!-- ////  -->
+    <!-- //// main -->
+
+    <!-- //// loader  -->
+    <div class="flex items-center justify-center mt-5" v-if="isLoading">
+      <div
+        class="border-2 border-textColor border-solid rounded-full border-t-transparent w-5 h-5 animate-spin"
+      ></div>
+    </div>
+
     <div v-if="activeTab === 'projects'">
+      <!-- //// info  -->
       <div class="grid md:grid-cols-4 gap-5">
         <div
           v-for="project in displayedProjects"
@@ -112,6 +122,8 @@ const displayedProjects = computed(() => {
           </div>
         </div>
       </div>
+
+      <!-- //// btn  -->
       <div v-if="allProjects.length > 3" class="mt-8 hidden md:flex justify-center items-center">
         <button
           @click="showAllProjects = !showAllProjects"
