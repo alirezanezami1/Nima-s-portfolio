@@ -16,7 +16,7 @@ const slicedTxt = computed(() => {
 <template>
   <div class="flex flex-col justify-center items-center gap-8 md:gap-12 pt-3 md:pt-[186px]">
     <!-- /// intro  -->
-    <div class="flex flex-col justify-center items-center gap-6 md:gap-[40px]">
+    <div class="flex flex-col justify-center items-center md:gap-[40px]">
       <statusBtn />
 
       <div class="flex flex-col justify-center items-center gap-2 md:gap-0 self-stretch">

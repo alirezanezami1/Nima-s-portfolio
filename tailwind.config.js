@@ -9,6 +9,7 @@ export default {
       colors: {
         mainBg: '#F7F8F9',
         mainBg2: '#FFF',
+        mainBg3: '#FFFFFF',
 
         textColor: '#868686',
         textColor2: '#212121',
@@ -18,6 +19,7 @@ export default {
 
         borderColor: '#FAFAFA',
         borderColor2: '#E2E2E2',
+        borderColor3: 'rgba(134, 134, 134, 0.14)',
 
         waveColorG: '#0ACF83',
         waveColorG2: '#0ACF8314',
