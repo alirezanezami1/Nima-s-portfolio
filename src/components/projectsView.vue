@@ -1,6 +1,8 @@
 <script setup>
 import waveBtn from './waveBtn.vue'
+import ArrowRightUp from './icons/ArrowRightUp.vue'
 import ArrowBottom from './icons/ArrowBottom.vue'
+import { RouterLink } from 'vue-router'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -101,6 +103,16 @@ const displayedProjects = computed(() => {
         >
           <div class="relative">
             <img :src="project.image_url" :alt="project.title" class="w-full h-auto" />
+            <div
+              class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
+            >
+              <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
+                <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
+                  See More
+                </p>
+                <ArrowRightUp class="w-[24px]" />
+              </a>
+            </div>
           </div>
           <div class="flex flex-col justify-center items-start gap-3 w-full">
             <!-- //// title  -->
