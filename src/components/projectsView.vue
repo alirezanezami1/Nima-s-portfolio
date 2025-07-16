@@ -99,10 +99,14 @@ const displayedProjects = computed(() => {
         <div
           v-for="project in displayedProjects"
           :key="project.id"
-          class="flex flex-col justify-center items-center gap-2"
+          class="flex flex-col justify-center items-center gap-2 rounded-2xl"
         >
           <div class="relative">
-            <img :src="project.image_url" :alt="project.title" class="w-full h-auto" />
+            <img
+              :src="project.image_url"
+              :alt="project.title"
+              class="w-full h-auto bg-orange-200 rounded-2xl"
+            />
             <!-- //// link  -->
             <div
               class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
