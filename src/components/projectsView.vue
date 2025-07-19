@@ -179,6 +179,39 @@ const displayedProjects = computed(() => {
       </div>
     </div>
 
+    <div v-if="activeTab === 'case_studies'">
+      <div class="flex justify-center items-center gap-8">
+        <!-- //// slide  -->
+        <div
+          v-for="caseStudy in allCaseStudies"
+          :key="caseStudy.id"
+          class="flex justify-center items-center gap-6"
+        >
+          <!-- //// img  -->
+          <div class="relative">
+            <img
+              :src="caseStudy.cover_image_url"
+              :alt="caseStudy.title"
+              class="w-full h-auto bg-mainBg3"
+            />
+            <!-- //// link  -->
+            <div
+              class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
+            >
+              <a target="_blank" :href="caseStudy.project_link" class="flex items-center gap-2">
+                <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
+                  See More
+                </p>
+                <ArrowRightUp class="w-[24px]" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- //// pagination  -->
+      </div>
+    </div>
+
     <!-- ////  -->
   </div>
 </template>
