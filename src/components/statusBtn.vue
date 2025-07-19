@@ -13,6 +13,7 @@ async function getFreelanceStatus() {
     console.error('Error fetching status:', error.message)
   } else {
     status.value = data
+    console.log(status.value)
   }
   isLoading.value = false
 }
@@ -25,7 +26,10 @@ onMounted(() => {
   <div
     class="flex justify-center items-center gap-1 p-3 pr-5 rounded-full border-[1px] border-borderColor2"
   >
-    <waveBtn />
+    <waveBtn
+      :color-wave="[status?.status === 'BUSY' ? 'bg-waveColorP' : 'bg-waveColorG']"
+      :color-wave2="[status?.status === 'BUSY' ? 'bg-waveColorP2' : 'bg-waveColorG2']"
+    />
     <div class="text-[16px] font-medium text-textBlack flex justify-center items-center">
       <div v-if="isLoading">
         <p>Loading status...</p>
