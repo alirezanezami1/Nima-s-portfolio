@@ -192,7 +192,7 @@ const displayedProjects = computed(() => {
             <img
               :src="caseStudy.cover_image_url"
               :alt="caseStudy.title"
-              class="w-full h-auto bg-mainBg3"
+              class="bg-mainBg3 w-[264px] h-[330px]"
             />
             <!-- //// link  -->
             <div
@@ -205,6 +205,58 @@ const displayedProjects = computed(() => {
                 <ArrowRightUp class="w-[24px]" />
               </a>
             </div>
+          </div>
+
+          <!-- //// info  -->
+          <div class="flex flex-col items-start gap-20 flex-1-0-0">
+            <div class="flex flex-col items-start gap-6 self-stretch">
+              <div class="flex items-center gap-4 self-stretch">
+                <p class="text-textColor2 text-[24px] font-semibold leading-[140%]">
+                  {{ caseStudy.title }}
+                </p>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="34"
+                    viewBox="0 0 2 34"
+                    fill="none"
+                  >
+                    <path d="M1 1V33" stroke="#E2E2E2" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <p class="text-textColor text-[18px] font-normal leading-[140%]">
+                  {{ caseStudy.project_name }}
+                </p>
+              </div>
+              <div class="flex flex-col items-start self-stretch gap-3">
+                <p class="text-[18px] leading-[140%] font-medium text-textColor2">Designers :</p>
+                <div class="flex items-center self-stretch gap-[11px]">
+                  <div
+                    class="flex items-center -mr-5"
+                    v-for="designer in caseStudy.designers"
+                    :key="designer"
+                  >
+                    <img
+                      :src="designer.avatar_url"
+                      alt=""
+                      class="w-[32px] h-[32px] object-cover rounded-full"
+                    />
+                  </div>
+                  <div class="ml-6 flex items-center gap-2">
+                    <div v-for="(designer, index) in caseStudy.designers" :key="designer">
+                      <p class="text-textColor text-[18px] font-normal leading-[140%]">
+                        {{ designer.name
+                        }}{{ index !== caseStudy.designers.length - 1 ? ' , ' : '' }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="self-stretch text-[18px] text-textColor font-normal">
+              {{ caseStudy.description }}
+            </p>
           </div>
         </div>
 

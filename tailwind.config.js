@@ -36,6 +36,9 @@ export default {
       animation: {
         'ping-fast': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
+      flex: {
+        '1-0-0': '1 0 0%',
+      },
     },
   },
   plugins: [],
