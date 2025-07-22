@@ -13,7 +13,6 @@ async function getFreelanceStatus() {
     console.error('Error fetching status:', error.message)
   } else {
     status.value = data
-    console.log(status.value)
   }
   isLoading.value = false
 }
