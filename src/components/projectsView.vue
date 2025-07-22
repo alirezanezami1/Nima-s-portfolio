@@ -1,9 +1,7 @@
 <script setup>
-import waveBtn from './waveBtn.vue'
 import ArrowRightUp from './icons/ArrowRightUp.vue'
 import ArrowBottom from './icons/ArrowBottom.vue'
 import BtnTitle from './BtnTitle.vue'
-import { RouterLink } from 'vue-router'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 import { Swiper, SwiperSlide } from 'swiper/vue'
