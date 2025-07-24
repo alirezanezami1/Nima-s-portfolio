@@ -67,7 +67,7 @@ const {
   width: 100%;
   height: 164px;
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
 </style>

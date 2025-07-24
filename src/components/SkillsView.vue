@@ -58,7 +58,7 @@ const {
 .skills-cloud > *:nth-child(1) {
   position: absolute;
   top: 55px;
-  left: 30px;
+  left: 25px;
   transform: rotate(-6deg);
 }
 .skills-cloud > *:nth-child(4) {

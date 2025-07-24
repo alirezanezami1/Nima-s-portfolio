@@ -16,7 +16,7 @@ defineProps({
     <header>
       <slot name="header"></slot>
     </header>
-    <main class="w-full">
+    <main class="w-full h-full">
       <slot></slot>
     </main>
   </div>
