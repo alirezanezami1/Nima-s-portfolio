@@ -3,7 +3,7 @@
     <img
       src="../assets/images/Tools/2P.png"
       alt="tool"
-      class="w-[72px] absolute right-[0px] bottom-[135px]"
+      class="w-[72px] absolute right-[20px] bottom-[135px]"
     />
     <img
       src="../assets/images/Tools/3P.png"
