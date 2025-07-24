@@ -20,7 +20,7 @@ const {
       <div
         v-for="(item, index) in experiences"
         :key="item.id"
-        class="flex justify-center items-start gap-6 min-w-full"
+        class="flex justify-center items-start gap-6 min-w-full w-full"
         :class="{ '-mt-2': index !== 0 }"
       >
         <ExperienceIcon />

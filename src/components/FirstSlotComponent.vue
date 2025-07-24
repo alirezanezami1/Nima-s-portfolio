@@ -5,7 +5,7 @@
     <header>
       <slot name="header"></slot>
     </header>
-    <main>
+    <main class="w-full">
       <slot></slot>
     </main>
   </div>
