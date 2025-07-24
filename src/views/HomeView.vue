@@ -6,6 +6,7 @@ import FirstSlotComponent from '@/components/FirstSlotComponent.vue'
 import SecondSlotComponent from '@/components/SecondSlotComponent.vue'
 import SkillsView from '@/components/SkillsView.vue'
 import ToolsView from '@/components/ToolsView.vue'
+import HowIWork from '@/components/HowIWork.vue'
 import ExperienceView from '@/components/ExperienceView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 </script>
@@ -36,7 +37,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div class="flex justify-between items-center gap-5 w-full h-[365px]">
-      <SecondSlotComponent width="w-[364px]" class="h-[365px]">
+      <SecondSlotComponent width="w-[380px]" class="h-[380px]">
         <template #header>
           <BtnTitle title="Tools" />
         </template>
@@ -44,11 +45,13 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <ToolsView />
         </template>
       </SecondSlotComponent>
-      <FirstSlotComponent>
+      <FirstSlotComponent class="h-[380px]">
         <template #header>
           <BtnTitle title="How I Work" />
         </template>
-        <template #default> hi </template>
+        <template #default>
+          <HowIWork />
+        </template>
       </FirstSlotComponent>
     </div>
   </div>
