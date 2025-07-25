@@ -14,6 +14,7 @@ export default {
         textColor: '#868686',
         textColor2: '#212121',
         textColor3: '#FA6B11',
+        textColor4: 'rgba(33, 33, 33, 0.12)',
 
         textBlack: '#030303',
 

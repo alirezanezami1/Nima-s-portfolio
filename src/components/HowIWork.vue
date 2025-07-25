@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const active = ref('Getting to know')
 
@@ -45,6 +45,10 @@ const items = ref([
     svg: '<svg xmlns="http://www.w3.org/2000/svg" width="285" height="3" viewBox="0 0 285 3" fill="none"><path d="M4 0H0V8H4V0ZM285 8C287.209 8 289 6.20914 289 4C289 1.79086 287.209 0 285 0V8ZM4 4V8H285V4V0H4V4Z" fill="url(#paint0_linear_50_2768)"/><defs><linearGradient id="paint0_linear_50_2768" x1="4" y1="4.5" x2="285" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
   },
 ])
+
+const filtered = computed(() => {
+  return items.value.filter((item) => item.title === active.value)
+})
 </script>
 
 <template>
@@ -63,6 +67,19 @@ const items = ref([
       >
         {{ item.title }}
       </button>
+    </div>
+    <div class="flex flex-col justify-center items-start gap-5">
+      <div class="relative h-[64px] w-full flex items-end">
+        <span class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-1">{{
+          filtered[0].id
+        }}</span>
+        <p class="text-[24px] font-bold leading-[140%] text-textColor2 text-start">
+          {{ filtered[0].name }}
+        </p>
+      </div>
+      <p class="text-[18px] font-medium leading-[140%] text-textColor">
+        {{ filtered[0].description }}
+      </p>
     </div>
   </div>
 
