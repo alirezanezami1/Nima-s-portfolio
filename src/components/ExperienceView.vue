@@ -14,8 +14,14 @@ const {
 
 <template>
   <section id="experience">
-    <div v-if="isLoading">Loading...</div>
-    <div v-else-if="error">{{ error }}</div>
+    <div v-if="isLoading">
+      <div class="flex items-center justify-center">
+        <div
+          class="border-2 border-textColor border-solid rounded-full border-t-transparent w-5 h-5 animate-spin"
+        ></div>
+      </div>
+    </div>
+    <div v-else-if="error">مشکل در ارتباط با سرور</div>
     <div v-else class="relative h-[300px] overflow-y-auto w-full" style="scrollbar-width: none">
       <div
         v-for="(item, index) in experiences"

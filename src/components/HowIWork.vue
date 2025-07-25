@@ -17,7 +17,7 @@ const items = ref([
     title: 'Research',
     name: 'Research & Analysis',
     description:
-      'At this stage, I conduct research on the market, competitors, and user behavior to gain insights into the project’s context. These findings guide future design decisions.',
+      'Here, we define the structure and user experience. Using wireframes, we plan user flows, content hierarchy, and overall layout without focusing on visual details yet.',
     svg: '<svg xmlns="http://www.w3.org/2000/svg" width="132" height="3" viewBox="0 0 132 3" fill="none"><path d="M4 0H0V8H4V0ZM128 8C130.209 8 132 6.20914 132 4C132 1.79086 130.209 0 128 0V8ZM4 4V8H128V4V0H4V4Z" fill="url(#paint0_linear_49_2756)"/><defs><linearGradient id="paint0_linear_49_2756" x1="4" y1="4.5" x2="128" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
   },
   {

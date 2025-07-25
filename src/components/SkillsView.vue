@@ -12,8 +12,14 @@ const {
 </script>
 
 <template>
-  <div v-if="isLoading">Loading...</div>
-  <div v-else-if="error">{{ error }}</div>
+  <div v-if="isLoading">
+    <div class="flex items-center justify-center">
+      <div
+        class="border-2 border-textColor4 border-solid rounded-full border-t-transparent w-5 h-5 animate-spin"
+      ></div>
+    </div>
+  </div>
+  <div v-else-if="error">مشکل در ارتباط با سرور</div>
   <div v-else class="relative">
     <div
       class="relative skills-cloud flex justify-start items-center flex-wrap gap-2 h-[300px] w-full"
