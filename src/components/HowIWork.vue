@@ -52,37 +52,39 @@ const filtered = computed(() => {
 </script>
 
 <template>
-  <!-- //// desktop  -->
-  <div class="flex flex-col justify-center items-start gap-8">
-    <div class="flex justify-between items-start flex-shrink-0 w-full rounded-[50px] bg-mainBg">
-      <button
-        v-for="item in items"
-        :key="item.id"
-        class="px-6 py-3 text-[16px] font-medium leading-[140%]"
-        @click="active = item.title"
-        :class="{
-          'bg-white border-[1px] border-borderColor2 rounded-full flex gap-[10px] justify-center items-center':
-            active === item.title,
-        }"
-      >
-        {{ item.title }}
-      </button>
-    </div>
-    <div class="flex flex-col justify-center items-start gap-5">
-      <div class="relative h-[64px] w-full flex items-end">
-        <span class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-1">{{
-          filtered[0].id
-        }}</span>
-        <p class="text-[24px] font-bold leading-[140%] text-textColor2 text-start">
-          {{ filtered[0].name }}
+  <section id="how-i-work">
+    <!-- //// desktop  -->
+    <div class="flex flex-col justify-center items-start gap-8">
+      <div class="flex justify-between items-start flex-shrink-0 w-full rounded-[50px] bg-mainBg">
+        <button
+          v-for="item in items"
+          :key="item.id"
+          class="px-6 py-3 text-[16px] font-medium leading-[140%]"
+          @click="active = item.title"
+          :class="{
+            'bg-white border-[1px] border-borderColor2 rounded-full flex gap-[10px] justify-center items-center':
+              active === item.title,
+          }"
+        >
+          {{ item.title }}
+        </button>
+      </div>
+      <div class="flex flex-col justify-center items-start gap-5">
+        <div class="relative h-[64px] w-full flex items-end">
+          <span class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-1">{{
+            filtered[0].id
+          }}</span>
+          <p class="text-[24px] font-bold leading-[140%] text-textColor2 text-start">
+            {{ filtered[0].name }}
+          </p>
+        </div>
+        <p class="text-[18px] font-medium leading-[140%] text-textColor">
+          {{ filtered[0].description }}
         </p>
       </div>
-      <p class="text-[18px] font-medium leading-[140%] text-textColor">
-        {{ filtered[0].description }}
-      </p>
     </div>
-  </div>
 
-  <!-- //// mobile  -->
-  <div></div>
+    <!-- //// mobile  -->
+    <div></div>
+  </section>
 </template>

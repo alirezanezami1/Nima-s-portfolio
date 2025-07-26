@@ -8,6 +8,7 @@ import SkillsView from '@/components/SkillsView.vue'
 import ToolsView from '@/components/ToolsView.vue'
 import HowIWork from '@/components/HowIWork.vue'
 import ExperienceView from '@/components/ExperienceView.vue'
+import CommentsView from '@/components/CommentsView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 </script>
 
@@ -36,7 +37,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
       </SecondSlotComponent>
     </div>
 
-    <div class="flex justify-between items-center gap-5 w-full h-[365px]">
+    <div class="flex justify-between items-center gap-5 w-full">
       <SecondSlotComponent width="w-[380px]" class="h-[380px]">
         <template #header>
           <BtnTitle title="Tools" />
@@ -53,6 +54,23 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <HowIWork />
         </template>
       </FirstSlotComponent>
+    </div>
+
+    <div class="flex justify-between items-center gap-5 w-full">
+      <FirstSlotComponent class="h-[380px]">
+        <template #header>
+          <BtnTitle title="Comments" />
+        </template>
+        <template #default>
+          <CommentsView />
+        </template>
+      </FirstSlotComponent>
+      <SecondSlotComponent width="w-[380px]">
+        <template #header>
+          <BtnTitle title="Skills" />
+        </template>
+        <template #default> </template>
+      </SecondSlotComponent>
     </div>
   </div>
 </template>
