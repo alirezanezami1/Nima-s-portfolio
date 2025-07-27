@@ -54,7 +54,7 @@ const filtered = computed(() => {
 <template>
   <section id="how-i-work">
     <!-- //// desktop  -->
-    <div class="flex flex-col justify-center items-start gap-8">
+    <div class="flex flex-col justify-center items-start gap-6">
       <div class="flex justify-between items-start flex-shrink-0 w-full rounded-[50px] bg-mainBg">
         <button
           v-for="item in items"

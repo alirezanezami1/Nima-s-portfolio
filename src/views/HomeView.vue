@@ -9,6 +9,7 @@ import ToolsView from '@/components/ToolsView.vue'
 import HowIWork from '@/components/HowIWork.vue'
 import ExperienceView from '@/components/ExperienceView.vue'
 import CommentsView from '@/components/CommentsView.vue'
+import ContactMeView from '@/components/ContactMeView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 </script>
 
@@ -65,14 +66,22 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <CommentsView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[380px]">
+      <SecondSlotComponent width="w-[380px] h-[380px]">
         <template #header>
-          <BtnTitle title="Skills" />
+          <BtnTitle title="Contact Me" />
         </template>
-        <template #default> </template>
+        <template #default>
+          <ContactMeView />
+        </template>
       </SecondSlotComponent>
     </div>
 
-    <div class="h-200px"></div>
+    <div class="grid justify-center items-center gap-5 grid-cols-3 w-full">
+      <SecondSlotComponent>
+        <template #header>
+          <BtnTitle title="My last articles" />
+        </template>
+      </SecondSlotComponent>
+    </div>
   </div>
 </template>

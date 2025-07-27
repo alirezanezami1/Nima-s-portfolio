@@ -22,6 +22,7 @@ export default {
         borderColor2: '#E2E2E2',
         borderColor3: 'rgba(134, 134, 134, 0.14)',
         borderColor4: '#E7E7E9',
+        borderColor5: 'rgba(231, 231, 233, 0.50)',
 
         waveColorG: '#0ACF83',
         waveColorG2: '#0ACF8314',

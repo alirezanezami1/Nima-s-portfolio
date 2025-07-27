@@ -37,7 +37,7 @@ const {
   <div v-if="isLoading"></div>
   <div v-else-if="error">مشکل در ارتباط با سرور</div>
   <div
-    class="w-full custom-swiper-container bg-white flex justify-between items-center relative"
+    class="w-full custom-swiper-container bg-transparent flex justify-center -mt-4 items-center relative"
     v-else
   >
     <div class="absolute top-1/2 -translate-y-1/2 flex justify-between w-full z-10">
@@ -91,12 +91,13 @@ const {
         </div>
       </SwiperSlide>
     </Swiper>
+    <div class="background"></div>
   </div>
 </template>
 
 <style scoped>
 .custom-swiper-container :deep(.swiper-pagination-bullet) {
-  @apply bg-[#F7F8F9] w-3 h-2 rounded-[50px] opacity-100 relative top-0;
+  @apply bg-[#F7F8F9] w-3 h-2 rounded-[50px] opacity-100 relative top-0 block md:hidden;
   transition: all 0.3s ease;
 }
 
