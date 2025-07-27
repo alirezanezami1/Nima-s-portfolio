@@ -45,7 +45,6 @@ function handleMouseMove(event) {
   const { offsetWidth: width, offsetHeight: height } = container
 
   // ✅ ارتفاع ناحیه تعاملی را برابر با کل ارتفاع کانتینر در نظر می‌گیریم
-  const interactiveAreaHeight = height
 
   // شرط اصلی: اگر موس خارج از کانتینر بود (که با mouseleave کنترل می‌شود)
   // این شرط دیگر لازم نیست چون کل کانتینر فعال است

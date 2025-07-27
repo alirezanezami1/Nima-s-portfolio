@@ -10,11 +10,12 @@ import HowIWork from '@/components/HowIWork.vue'
 import ExperienceView from '@/components/ExperienceView.vue'
 import CommentsView from '@/components/CommentsView.vue'
 import ContactMeView from '@/components/ContactMeView.vue'
+import ArticlesView from '@/components/ArticlesView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center gap-5">
+  <div class="flex flex-col justify-center items-center gap-5 mb-24">
     <AboutmeView />
     <mouseArrow />
     <projectsView />
@@ -77,9 +78,12 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div class="grid justify-center items-center gap-5 grid-cols-3 w-full">
-      <SecondSlotComponent>
+      <SecondSlotComponent width="w-[380px] h-[380px]  px-0">
         <template #header>
-          <BtnTitle title="My last articles" />
+          <BtnTitle title="My last articles" class="mx-8" />
+        </template>
+        <template #default>
+          <ArticlesView />
         </template>
       </SecondSlotComponent>
     </div>
