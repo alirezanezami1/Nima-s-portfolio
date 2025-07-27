@@ -11,6 +11,7 @@ import ExperienceView from '@/components/ExperienceView.vue'
 import CommentsView from '@/components/CommentsView.vue'
 import ContactMeView from '@/components/ContactMeView.vue'
 import ArticlesView from '@/components/ArticlesView.vue'
+import PlayListView from '@/components/PlayListView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 </script>
 
@@ -84,6 +85,17 @@ import BtnTitle from '@/components/BtnTitle.vue'
         </template>
         <template #default>
           <ArticlesView />
+        </template>
+      </SecondSlotComponent>
+    </div>
+
+    <div class="grid justify-center items-center gap-5 grid-cols-3 w-full">
+      <SecondSlotComponent width="w-[380px] h-[380px] ">
+        <template #header>
+          <BtnTitle title="My Music Playlist" />
+        </template>
+        <template #default>
+          <PlayListView />
         </template>
       </SecondSlotComponent>
     </div>

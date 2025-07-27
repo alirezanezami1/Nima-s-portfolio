@@ -19,7 +19,7 @@ const {
         :key="item.id"
         :src="item.imgUrl"
         class="w-[156px] h-[156px] rounded-lg bg-transparent border-borderShadow object-cover relative flex justify-center"
-        :class="{ 'scale-150 z-50 w-[172px] h-[172px] ': index === 1 }"
+        :class="{ 'scale-150 z-10 w-[172px] h-[172px] ': index === 1 }"
         alt="picture"
       />
     </div>
