@@ -12,14 +12,17 @@ const {
 })
 </script>
 <template>
-  <div class="flex flex-col justify-center items-center gap-2 overflow-hidden w-full relative">
-    <div class="flex justify-center items-center gap-5 w-[548px] h-[184px] flex-shrink-0">
+  <div class="flex flex-col justify-center items-center overflow-hidden w-full relative">
+    <div class="flex justify-center items-end gap-2 w-[548px] h-[188px] flex-shrink-0">
       <img
         v-for="(item, index) in Articles"
         :key="item.id"
         :src="item.imgUrl"
         class="w-[156px] h-[156px] rounded-lg bg-transparent border-borderShadow object-cover relative flex justify-center"
-        :class="{ 'scale-150 z-10 w-[172px] h-[172px] ': index === 1 }"
+        :class="{
+          'scale-125 z-10 w-[172px] h-[172px] p-[5px] -top-4': index === 1,
+          '-bottom-1': index !== 1,
+        }"
         alt="picture"
       />
     </div>

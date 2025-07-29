@@ -79,20 +79,17 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div class="grid justify-center items-center gap-5 grid-cols-3 w-full">
-      <SecondSlotComponent width="w-[380px] h-[380px]  px-0">
+      <SecondSlotComponent width="w-[380px] h-[380px]" paddingX="px-0">
         <template #header>
-          <BtnTitle title="My last articles" class="mx-8" />
+          <BtnTitle title="My last articles" class="mx-5" />
         </template>
         <template #default>
           <ArticlesView />
         </template>
       </SecondSlotComponent>
-    </div>
-
-    <div class="grid justify-center items-center gap-5 grid-cols-3 w-full">
-      <SecondSlotComponent width="w-[380px] h-[380px] ">
+      <SecondSlotComponent width="w-[380px] h-[380px] " paddingX="px-0">
         <template #header>
-          <BtnTitle title="My Music Playlist" />
+          <BtnTitle title="My Music Playlist" class="mx-5" />
         </template>
         <template #default>
           <PlayListView />
