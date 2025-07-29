@@ -12,6 +12,7 @@ import CommentsView from '@/components/CommentsView.vue'
 import ContactMeView from '@/components/ContactMeView.vue'
 import ArticlesView from '@/components/ArticlesView.vue'
 import PlayListView from '@/components/PlayListView.vue'
+import LocationView from '@/components/LocationView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 </script>
 
@@ -93,6 +94,14 @@ import BtnTitle from '@/components/BtnTitle.vue'
         </template>
         <template #default>
           <PlayListView />
+        </template>
+      </SecondSlotComponent>
+      <SecondSlotComponent width="w-[380px] h-[380px]" class="relative">
+        <template #header>
+          <BtnTitle title="My Location" class="hidden" />
+        </template>
+        <template #default>
+          <LocationView />
         </template>
       </SecondSlotComponent>
     </div>
