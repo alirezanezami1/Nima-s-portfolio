@@ -22,8 +22,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
     <mouseArrow />
     <projectsView />
 
-    <div class="flex justify-between items-center gap-5 w-full">
-      <FirstSlotComponent>
+    <div class="flex justify-between flex-col md:flex-row items-center md:gap-5 gap-6 w-full">
+      <FirstSlotComponent class="w-[345px] md:w-[780px]">
         <template #header>
           <BtnTitle title="My Experience" />
         </template>
@@ -31,7 +31,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <ExperienceView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[380px]">
+      <SecondSlotComponent width="w-[345px] md:w-[380px]">
         <template #header>
           <BtnTitle title="Skills" />
         </template>

@@ -26,17 +26,19 @@ const {
       <div
         v-for="(item, index) in experiences"
         :key="item.id"
-        class="flex justify-center items-start gap-6 min-w-full w-full"
-        :class="{ '-mt-2': index !== 0 }"
+        class="flex justify-center items-start gap-3 md:gap-6 min-w-full w-full"
+        :class="{ '-mt-3 md:-mt-2': index !== 0 }"
       >
         <ExperienceIcon />
-        <div class="flex flex-col justify-center items-start relative w-full">
-          <div class="flex justify-between items-center w-full">
-            <p class="text-textColor2 font-semibold text-[20px] leading-[140%]">
+        <div class="flex flex-col md:flex-row justify-center items-center relative w-full">
+          <div
+            class="flex gap-2 flex-col md:gap-0 md:flex-row justify-between items-start md:items-center w-full"
+          >
+            <p class="text-textColor2 font-semibold text-[16px] md:text-[20px] leading-[140%]">
               {{ item.title }} {{ item.company }}
             </p>
             <div
-              class="flex justify-center items-start gap-2 text-textColor text-[18px] leading-[140%] font-normal"
+              class="flex justify-center items-start gap-2 text-textColor text-[12px] md:text-[18px] leading-[140%] font-normal"
             >
               {{ item.date_display }}
               <svg
