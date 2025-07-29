@@ -41,7 +41,7 @@ const navLinks = ref([
 
 <template>
   <div
-    class="hidden md:flex md:px-[30px] xl:px-[130px] py-[52px] justify-center items-center md:gap-[35px] xl:gap-[152px] bg-transparent fixed w-full z-50"
+    class="font-Roboto hidden md:flex md:px-[30px] xl:px-[130px] py-[52px] justify-center items-center md:gap-[35px] xl:gap-[152px] bg-transparent fixed w-full z-50"
   >
     <!-- /// profile  -->
     <profileView />
