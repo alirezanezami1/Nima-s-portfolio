@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col justify-center items-center w-full gap-1">
+  <div class="flex relative flex-col justify-center items-center w-full gap-1">
     <Swiper
       :slides-per-view="2"
       :space-between="24"
       :centered-slides="true"
       :initial-slide="1"
-      class="w-full h-[200px] flex justify-center items-center"
+      class="w-full h-[200px] flex justify-center items-center z-50"
       @slideChange="onSlideChange"
     >
       <SwiperSlide
@@ -26,7 +26,7 @@
 
     <!-- //// btn  -->
     <a
-      class="flex justify-center items-center gap-2 relative -left-2 cursor-pointer"
+      class="flex justify-center items-center gap-2 relative -left-2 cursor-pointer z-50"
       href="https://soundcloud.com/nima-masoumi-566658420"
       target="_blank"
     >
@@ -45,6 +45,7 @@
       </svg>
       <p class="text-[16px] leading-[140%] text-textColor">Play On Soundcloud</p>
     </a>
+    <div class="background3 w-[380px] h-[232px]"></div>
   </div>
 </template>
 
@@ -70,3 +71,13 @@ const onSlideChange = (swiper) => {
   activeIndex.value = swiper.realIndex
 }
 </script>
+
+<style>
+.background3 {
+  position: absolute;
+  bottom: -25px;
+  border-radius: 24px;
+  z-index: 49;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+}
+</style>
