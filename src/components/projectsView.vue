@@ -5,7 +5,15 @@ import BtnTitle from './BtnTitle.vue'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Pagination } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/pagination'
+
+const swiperInstance = ref(null)
+
+const onSwiper = (swiper) => {
+  swiperInstance.value = swiper
+}
 
 const allProjects = ref([])
 const allCaseStudies = ref([])
@@ -46,12 +54,14 @@ const displayedProjects = computed(() => {
 <template>
   <section id="projects">
     <div
-      class="flex flex-col justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 w-full bg-mainBg2"
+      class="flex flex-col w-[345px] h-[642px] md:h-auto justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 md:w-full bg-mainBg2"
     >
       <!-- //// head -->
-      <div class="flex justify-between items-center w-full">
+      <div
+        class="flex justify-between flex-col gap-8 md:gap-0 md:flex-row items-start md:items-center w-full"
+      >
         <BtnTitle title="My Projects" />
-        <div class="flex justify-center items-center gap-4">
+        <div class="flex justify-between w-full md:justify-center md:w-auto items-center gap-4">
           <button
             @click="activeTab = 'projects'"
             :class="[
@@ -84,7 +94,7 @@ const displayedProjects = computed(() => {
 
       <div v-if="activeTab === 'projects'">
         <!-- //// info  -->
-        <div class="grid md:grid-cols-4 gap-5">
+        <div class="hidden md:grid md:grid-cols-4 gap-5">
           <div
             v-for="project in displayedProjects"
             :key="project.id"
@@ -160,6 +170,61 @@ const displayedProjects = computed(() => {
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- /// mobile  -->
+        <div class="block md:hidden">
+          <Swiper
+            @swiper="onSwiper"
+            :slides-per-view="'1.1'"
+            :space-between="20"
+            :modules="[Pagination]"
+            :pagination="{ clickable: true }"
+            class="flex flex-col justify-center items-center gap-2 rounded-2xl w-[300px]"
+          >
+            <SwiperSlide v-for="project in displayedProjects" :key="project.id" class="w-[297px]">
+              <div class="relative">
+                <img
+                  :src="project.image_url"
+                  :alt="project.title"
+                  class="w-full h-auto bg-orange-200 rounded-2xl"
+                />
+                <!-- //// link  -->
+                <div
+                  class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 group pr-3 pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
+                >
+                  <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
+                    <p class="text-[16px] font-medium leading-[140%] block">See More</p>
+                    <ArrowRightUp class="w-[24px]" />
+                  </a>
+                </div>
+              </div>
+              <div class="flex flex-col justify-center items-start gap-3 w-full">
+                <!-- //// title  -->
+                <div class="flex justify-between items-center self-stretch mt-2">
+                  <div
+                    class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
+                  >
+                    <p class="text-textColor3">{{ project.title }}</p>
+                    <p class="text-textColor2">Website</p>
+                  </div>
+                  <p class="text-[12px] font-normal leading-[140%] text-textColor">
+                    {{ project.project_type }}
+                  </p>
+                </div>
+                <!-- //// slider  -->
+                <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
+                  <SwiperSlide v-for="tag in project.tags" :key="tag" class="!w-auto">
+                    <div
+                      class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[12px] md:text-[14px] font-normal leading-[140%] text-textColor2"
+                    >
+                      {{ tag }}
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
 
         <!-- //// btn  -->
@@ -263,3 +328,14 @@ const displayedProjects = computed(() => {
     </div>
   </section>
 </template>
+
+<style scoped>
+:deep(.swiper-pagination-bullet) {
+  @apply bg-[#F7F8F9] w-3 h-2 rounded-[50px] opacity-100 absolute bottom-0 left-10  block md:hidden;
+  transition: all 0.3s ease;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  @apply bg-[#FA6B11] w-6 rounded-[50px];
+}
+</style>

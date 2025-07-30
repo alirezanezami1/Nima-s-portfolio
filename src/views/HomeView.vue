@@ -41,8 +41,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
       </SecondSlotComponent>
     </div>
 
-    <div class="flex justify-between items-center gap-5 w-full">
-      <SecondSlotComponent width="w-[380px]" class="h-[380px]">
+    <div class="flex justify-between flex-col md:flex-row items-center gap-5 w-full">
+      <SecondSlotComponent width="w-[345px] md:w-[380px]" class="h-[380px]">
         <template #header>
           <BtnTitle title="Tools" />
         </template>
@@ -50,7 +50,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <ToolsView />
         </template>
       </SecondSlotComponent>
-      <FirstSlotComponent class="h-[380px]">
+      <FirstSlotComponent class="w-[345px] md:w-[780px] h-[380px]">
         <template #header>
           <BtnTitle title="How I Work" />
         </template>
@@ -60,8 +60,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
       </FirstSlotComponent>
     </div>
 
-    <div class="flex justify-between items-center gap-5 w-full">
-      <FirstSlotComponent class="h-[380px]">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-5 w-full">
+      <FirstSlotComponent class="w-[345px] md:w-[780px] h-[380px]">
         <template #header>
           <BtnTitle title="Comments" />
         </template>
@@ -69,7 +69,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <CommentsView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[380px] h-[380px]">
+      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]">
         <template #header>
           <BtnTitle title="Contact Me" />
         </template>
@@ -79,8 +79,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
       </SecondSlotComponent>
     </div>
 
-    <div class="grid justify-center items-center gap-5 grid-cols-3 w-full">
-      <SecondSlotComponent width="w-[380px] h-[380px]" paddingX="px-0">
+    <div class="grid justify-center items-center gap-5 grid-cols-1 md:grid-cols-3 w-full">
+      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]" paddingX="px-0">
         <template #header>
           <BtnTitle title="My last articles" class="mx-5" />
         </template>
@@ -88,7 +88,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <ArticlesView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent width="w-[380px] h-[380px] " paddingX="px-0">
+      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px] " paddingX="px-0">
         <template #header>
           <BtnTitle title="My Music Playlist" class="mx-5" />
         </template>
@@ -96,7 +96,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <PlayListView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent width="w-[380px] h-[380px]" class="relative">
+      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]" class="relative">
         <template #header>
           <BtnTitle title="My Location" class="hidden" />
         </template>
