@@ -23,7 +23,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
     <projectsView />
 
     <div
-      class="flex md:justify-between justify-center flex-col md:flex-row items-center md:gap-5 gap-6 w-full"
+      class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center md:gap-5 gap-6 w-full"
     >
       <FirstSlotComponent class="w-[345px] md:w-[780px]">
         <template #header>
@@ -44,7 +44,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div
-      class="flex md:justify-between justify-center flex-col md:flex-row items-center gap-5 w-full"
+      class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center gap-5 w-full"
     >
       <SecondSlotComponent width="w-[345px] md:w-[380px]" class="h-[380px]">
         <template #header>
@@ -65,7 +65,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div
-      class="flex flex-col md:flex-row md:justify-between justify-center items-center gap-5 w-full"
+      class="flex flex-col flex-wrap md:flex-row md:justify-between justify-center items-center gap-5 w-full"
     >
       <FirstSlotComponent class="w-[345px] md:w-[780px] h-[380px]">
         <template #header>
@@ -85,7 +85,9 @@ import BtnTitle from '@/components/BtnTitle.vue'
       </SecondSlotComponent>
     </div>
 
-    <div class="grid justify-center items-center gap-5 grid-cols-1 md:grid-cols-3 w-full">
+    <div
+      class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center gap-5 w-full"
+    >
       <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]" paddingX="px-0">
         <template #header>
           <BtnTitle title="My last articles" class="mx-5" />

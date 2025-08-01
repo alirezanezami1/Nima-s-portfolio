@@ -2,11 +2,11 @@
   <div
     class="w-full text-center font-Roboto flex flex-col justify-center items-center gap-6 md:h-24 h-20 pb-8"
   >
-    <div class="w-[405px] md:w-[1180px]">
+    <div class="w-[345px] md:w-[1180px] px-6 md:px-0">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
-        height="1"
+        height="2"
         viewBox="0 0 1180 2"
         fill="none"
       >
