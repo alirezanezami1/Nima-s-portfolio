@@ -4,7 +4,9 @@ import BtnTitle from './BtnTitle.vue'
 
 <template>
   <div class="flex justify-center flex-col items-center relative background4">
-    <div class="flex justify-center items-center w-[364px] h-[364px] absolute -top-[65px] z-10">
+    <div
+      class="flex justify-center items-center md:w-[364px] w-[333px] md:h-[364px] h-[330px] absolute md:-top-[65px] -top-[62px] z-10"
+    >
       <img src="../assets/images/location/image (1).png" alt="" />
     </div>
     <div class="absolute z-20 -top-8 left-0">
@@ -15,7 +17,7 @@ import BtnTitle from './BtnTitle.vue'
       <p class="text-[20px] font-normal leading-[140%] text-textColor">Golestan , Iran</p>
     </div>
     <div
-      class="background4 w-[370px] h-[380px] absolute z-30 -top-20 rounded-e-[35px] rounded-b-[35px]"
+      class="background4 md:w-[370px] w-[345px] md:h-[380px] h-[345px] absolute z-30 md:-top-20 -top-10 rounded-e-[35px] rounded-b-[35px]"
     ></div>
   </div>
 </template>
