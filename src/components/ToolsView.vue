@@ -3,7 +3,7 @@
     <img
       src="../assets/images/Tools/2P.png"
       alt="tool"
-      class="w-[72px] absolute right-[20px] bottom-[135px]"
+      class="w-[72px] absolute md:right-[20px] -right-[10px] bottom-[135px]"
     />
     <img
       src="../assets/images/Tools/3P.png"
@@ -13,7 +13,7 @@
     <img
       src="../assets/images/Tools/4P.png"
       alt="tool"
-      class="w-[72px] absolute left-[15px] bottom-[121px]"
+      class="w-[72px] absolute md:left-[15px] left-[0px] bottom-[121px]"
     />
     <img
       src="../assets/images/Tools/5P.png"
@@ -28,7 +28,7 @@
     <img
       src="../assets/images/Tools/Canva.png"
       alt="tool"
-      class="w-[72px] absolute left-[109px] bottom-[80px]"
+      class="w-[72px] absolute md:left-[109px] left-[100px] bottom-[80px]"
     />
     <img
       src="../assets/images/Tools/Visual Studio Code.png"
