@@ -1,7 +1,12 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Pagination, Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const active = ref('Getting to know')
+const activeSlide = ref(0)
 
 const items = ref([
   {
@@ -9,7 +14,7 @@ const items = ref([
     title: 'Getting to know',
     name: 'Getting to know',
     description:
-      'In the first stage, we’ll have a Discovery Call to discuss your business goals, user needs, and project requirements. This helps us align our vision and set a clear path forward.',
+      "In the first stage, we'll have a Discovery Call to discuss your business goals, user needs, and project requirements. This helps us align our vision and set a clear path forward.",
     svg: '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="3" viewBox="0 0 64 3" fill="none"><path d="M4 0H0V8H4V0ZM60 8C62.2091 8 64 6.20914 64 4C64 1.79086 62.2091 0 60 0V8ZM4 4V8H60V4V0H4V4Z" fill="url(#paint0_linear_833_1006)"/><defs><linearGradient id="paint0_linear_833_1006" x1="4" y1="4.5" x2="60" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
   },
   {
@@ -25,7 +30,7 @@ const items = ref([
     title: 'UX Design',
     name: 'Wireframing & UX Design',
     description:
-      'At this stage, I conduct research on the market, competitors, and user behavior to gain insights into the project’s context. These findings guide future design decisions.',
+      "At this stage, I conduct research on the market, competitors, and user behavior to gain insights into the project's context. These findings guide future design decisions.",
     svg: '<svg xmlns="http://www.w3.org/2000/svg" width="180" height="3" viewBox="0 0 180 3" fill="none"><path d="M4 0H0V8H4V0ZM176 8C178.209 8 180 6.20914 180 4C180 1.79086 178.209 0 176 0V8ZM4 4V8H176V4V0H4V4Z" fill="url(#paint0_linear_49_2760)"/><defs><linearGradient id="paint0_linear_49_2760" x1="4" y1="4.5" x2="176" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
   },
   {
@@ -49,6 +54,10 @@ const items = ref([
 const filtered = computed(() => {
   return items.value.filter((item) => item.title === active.value)
 })
+
+const onSlideChange = (swiper) => {
+  activeSlide.value = swiper.activeIndex
+}
 </script>
 
 <template>
@@ -85,6 +94,116 @@ const filtered = computed(() => {
     </div>
 
     <!-- //// mobile  -->
-    <div></div>
+    <div class="md:hidden h-full">
+      <Swiper
+        :modules="[Pagination, Autoplay]"
+        :slides-per-view="1"
+        :space-between="20"
+        :pagination="{
+          clickable: true,
+          type: 'bullets',
+          dynamicBullets: false,
+          dynamicMainBullets: 1,
+        }"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+        }"
+        @slide-change="onSlideChange"
+        class="how-i-work-swiper"
+      >
+        <SwiperSlide v-for="(item, index) in items" :key="item.id" class="px-4">
+          <div class="relative flex flex-col justify-center items-center">
+            <!-- Step Indicator -->
+            <div
+              class="w-[295px] flex items-center justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
+            >
+              <div class="absolute left-4">
+                <span class="text-textColor4">{{ item.id }}</span>
+              </div>
+              <span class="text-textColor2">{{ item.title }}</span>
+              <div
+                class="absolute -left-1 bottom-0"
+                :class="index === 0 ? 'left-1' : index === 4 ? '-left-2' : 'left-0'"
+                v-html="item.svg"
+              ></div>
+            </div>
+
+            <div class="relative h-[56px] w-full flex items-end">
+              <span
+                class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-3"
+                >{{ item.id }}</span
+              >
+              <p class="text-[20px] font-bold leading-[140%] text-textColor2 text-start">
+                {{ item.name }}
+              </p>
+            </div>
+
+            <div class="relative z-10 w-full mt-4">
+              <p class="text-[18px] font-medium text-textColor leading-[25px]">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
   </section>
 </template>
+
+<style scoped>
+.how-i-work-swiper {
+  --swiper-pagination-color: #fa6b11;
+  --swiper-pagination-bullet-inactive-color: #e5e7eb;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+}
+
+/* Enhanced Pagination Styling */
+:deep(.swiper-pagination) {
+  position: relative !important;
+  bottom: 24px !important;
+  left: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 32px !important;
+  padding: 16px 0 !important;
+}
+
+:deep(.swiper-pagination-bullet) {
+  width: 12px !important;
+  height: 8px !important;
+  border-radius: 50px !important;
+  background: #f7f8f9 !important;
+  opacity: 1 !important;
+  margin: 0 6px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+}
+
+:deep(.swiper-pagination-bullet:hover) {
+  background: #d1d5db !important;
+  transform: scale(1.05) !important;
+}
+
+:deep(.swiper-pagination-bullet:hover) {
+  background: #e5e7eb !important;
+  transform: scale(1.1) !important;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  background: #fa6b11 !important;
+  width: 24px !important;
+  height: 8px !important;
+  border-radius: 50px !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 2px 4px rgba(250, 107, 17, 0.3) !important;
+}
+
+:deep(.swiper-pagination-bullet-active:hover) {
+  background: #fa6b11 !important;
+  transform: scale(1.15) !important;
+}
+</style>
