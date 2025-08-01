@@ -129,7 +129,7 @@ const onSlideChange = (swiper) => {
               ></div>
             </div>
 
-            <div class="relative h-[56px] w-full flex items-end">
+            <div class="relative h-[56px] w-full flex items-end mt-4">
               <span
                 class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-3"
                 >{{ item.id }}</span
@@ -163,11 +163,10 @@ const onSlideChange = (swiper) => {
 /* Enhanced Pagination Styling */
 :deep(.swiper-pagination) {
   position: relative !important;
-  bottom: 24px !important;
+  bottom: 10px !important;
   left: 0 !important;
   width: 100% !important;
   text-align: center !important;
-  margin-top: 32px !important;
   padding: 16px 0 !important;
 }
 

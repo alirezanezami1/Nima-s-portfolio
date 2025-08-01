@@ -54,7 +54,7 @@ const displayedProjects = computed(() => {
 <template>
   <section id="projects">
     <div
-      class="flex flex-col w-[345px] h-[642px] md:h-auto justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 md:w-full bg-mainBg2"
+      class="flex flex-col w-[345px] h-[682px] md:h-auto justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 md:w-full bg-mainBg2"
     >
       <!-- //// head -->
       <div
@@ -330,12 +330,48 @@ const displayedProjects = computed(() => {
 </template>
 
 <style scoped>
+:deep(.swiper-pagination) {
+  position: relative !important;
+  bottom: -10px !important;
+  left: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 16px 0 !important;
+}
+
 :deep(.swiper-pagination-bullet) {
-  @apply bg-[#F7F8F9] w-3 h-2 rounded-[50px] opacity-100 absolute bottom-0 left-10  block md:hidden;
-  transition: all 0.3s ease;
+  width: 12px !important;
+  height: 8px !important;
+  border-radius: 50px !important;
+  background: #f7f8f9 !important;
+  opacity: 1 !important;
+  margin: 0 6px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+}
+
+:deep(.swiper-pagination-bullet:hover) {
+  background: #d1d5db !important;
+  transform: scale(1.05) !important;
+}
+
+:deep(.swiper-pagination-bullet:hover) {
+  background: #e5e7eb !important;
+  transform: scale(1.1) !important;
 }
 
 :deep(.swiper-pagination-bullet-active) {
-  @apply bg-[#FA6B11] w-6 rounded-[50px];
+  background: #fa6b11 !important;
+  width: 24px !important;
+  height: 8px !important;
+  border-radius: 50px !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 2px 4px rgba(250, 107, 17, 0.3) !important;
+}
+
+:deep(.swiper-pagination-bullet-active:hover) {
+  background: #fa6b11 !important;
+  transform: scale(1.15) !important;
 }
 </style>

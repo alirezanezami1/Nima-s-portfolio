@@ -88,7 +88,7 @@ const togglePlay = () => {
 
 <template>
   <div
-    class="flex relative items-center w-[340px] justify-center gap-4 border-4 border-borderColor shadow-menuShadow bg-white py-3 pr-5 pl-3 rounded-full"
+    class="flex relative items-center justify-center gap-4 border-4 border-borderColor shadow-menuShadow bg-white py-3 pr-5 pl-3 rounded-full"
   >
     <button
       @click="togglePlay"
