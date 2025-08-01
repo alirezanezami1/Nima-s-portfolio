@@ -5,7 +5,7 @@ import BtnTitle from './BtnTitle.vue'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination } from 'swiper/modules'
+import { Pagination, Mousewheel } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -274,87 +274,112 @@ const displayedProjects = computed(() => {
       </div>
 
       <div v-if="activeTab === 'case_studies'">
-        <div class="justify-center items-center gap-8 hidden md:flex">
-          <!-- //// slide  -->
-          <div
-            v-for="caseStudy in allCaseStudies"
-            :key="caseStudy.id"
-            class="flex justify-center items-center gap-6"
-          >
-            <!-- //// img  -->
-            <div class="relative">
-              <img
-                :src="caseStudy.cover_image_url"
-                :alt="caseStudy.title"
-                class="bg-mainBg3 w-[264px] h-[330px]"
-              />
-              <!-- //// link  -->
-              <div
-                class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
-              >
-                <a target="_blank" :href="caseStudy.project_link" class="flex items-center gap-2">
-                  <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
-                    See More
-                  </p>
-                  <ArrowRightUp class="w-[24px]" />
-                </a>
-              </div>
-            </div>
-
-            <!-- //// info  -->
-            <div class="flex flex-col items-start gap-20 flex-1-0-0">
-              <div class="flex flex-col items-start gap-6 self-stretch">
-                <div class="flex items-center gap-4 self-stretch">
-                  <p class="text-textColor2 text-[24px] font-semibold leading-[140%]">
-                    {{ caseStudy.title }}
-                  </p>
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="34"
-                      viewBox="0 0 2 34"
-                      fill="none"
-                    >
-                      <path d="M1 1V33" stroke="#E2E2E2" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                  </span>
-                  <p class="text-textColor text-[18px] font-normal leading-[140%]">
-                    {{ caseStudy.project_name }}
-                  </p>
-                </div>
-                <div class="flex flex-col items-start self-stretch gap-3">
-                  <p class="text-[18px] leading-[140%] font-medium text-textColor2">Designers :</p>
-                  <div class="flex items-center self-stretch gap-[11px]">
+        <div class="hidden md:flex relative w-full max-w-[1180px]">
+          <!-- //// main content -->
+          <div class="flex-1 w-full relative h-[330px]">
+            <Swiper
+              @swiper="onSwiper"
+              :slides-per-view="1"
+              :space-between="0"
+              :direction="'vertical'"
+              :modules="[Pagination, Mousewheel]"
+              :pagination="{
+                clickable: true,
+                dynamicBullets: true,
+                dynamicMainBullets: 4,
+              }"
+              :allow-touch-move="true"
+              :mousewheel="true"
+              class="case-studies-swiper w-full h-full"
+            >
+              <SwiperSlide v-for="caseStudy in allCaseStudies" :key="caseStudy.id">
+                <div class="flex justify-center items-center gap-6 w-full mx-auto">
+                  <!-- //// img  -->
+                  <div class="relative flex-shrink-0">
+                    <img
+                      :src="caseStudy.cover_image_url"
+                      :alt="caseStudy.title"
+                      class="bg-mainBg3 w-[264px] h-[330px] rounded-2xl"
+                    />
+                    <!-- //// link  -->
                     <div
-                      class="flex items-center -mr-5"
-                      v-for="designer in caseStudy.designers"
-                      :key="designer"
+                      class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
                     >
-                      <img
-                        :src="designer.avatar_url"
-                        alt=""
-                        class="w-[32px] h-[32px] object-cover rounded-full"
-                      />
-                    </div>
-                    <div class="ml-6 flex items-center gap-2">
-                      <div v-for="(designer, index) in caseStudy.designers" :key="designer">
-                        <p class="text-textColor text-[18px] font-normal leading-[140%]">
-                          {{ designer.name
-                          }}{{ index !== caseStudy.designers.length - 1 ? ' , ' : '' }}
+                      <a
+                        target="_blank"
+                        :href="caseStudy.project_link"
+                        class="flex items-center gap-2"
+                      >
+                        <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
+                          See More
                         </p>
-                      </div>
+                        <ArrowRightUp class="w-[24px]" />
+                      </a>
                     </div>
                   </div>
-                </div>
-              </div>
-              <p class="self-stretch text-[18px] text-textColor font-normal">
-                {{ caseStudy.description }}
-              </p>
-            </div>
-          </div>
 
-          <!-- //// pagination  -->
+                  <!-- //// info  -->
+                  <div class="flex flex-col items-start gap-20 flex-1 min-w-0">
+                    <div class="flex flex-col items-start gap-6 self-stretch">
+                      <div class="flex items-center gap-4 self-stretch">
+                        <p class="text-textColor2 text-[24px] font-semibold leading-[140%]">
+                          {{ caseStudy.title }}
+                        </p>
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="2"
+                            height="34"
+                            viewBox="0 0 2 34"
+                            fill="none"
+                          >
+                            <path
+                              d="M1 1V33"
+                              stroke="#E2E2E2"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </span>
+                        <p class="text-textColor text-[18px] font-normal leading-[140%]">
+                          {{ caseStudy.project_name }}
+                        </p>
+                      </div>
+                      <div class="flex flex-col items-start self-stretch gap-3">
+                        <p class="text-[18px] leading-[140%] font-medium text-textColor2">
+                          Designers :
+                        </p>
+                        <div class="flex items-center self-stretch gap-[11px]">
+                          <div
+                            class="flex items-center -mr-5"
+                            v-for="designer in caseStudy.designers"
+                            :key="designer"
+                          >
+                            <img
+                              :src="designer.avatar_url"
+                              alt=""
+                              class="w-[32px] h-[32px] object-cover rounded-full"
+                            />
+                          </div>
+                          <div class="ml-6 flex items-center gap-2">
+                            <div v-for="(designer, index) in caseStudy.designers" :key="designer">
+                              <p class="text-textColor text-[18px] font-normal leading-[140%]">
+                                {{ designer.name
+                                }}{{ index !== caseStudy.designers.length - 1 ? ' , ' : '' }}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="self-stretch text-[18px] text-textColor font-normal">
+                      {{ caseStudy.description }}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
 
         <div class="block md:hidden">
@@ -487,5 +512,78 @@ const displayedProjects = computed(() => {
 :deep(.swiper-pagination-bullet-active:hover) {
   background: #fa6b11 !important;
   transform: scale(1.15) !important;
+}
+
+/* Case Studies Swiper Styles */
+:deep(.case-studies-swiper) {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+:deep(.case-studies-swiper .swiper-pagination) {
+  position: absolute !important;
+  left: 95% !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: auto !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 16px 8px !important;
+  z-index: 10 !important;
+}
+
+:deep(.case-studies-swiper .swiper-pagination-bullet) {
+  width: 20px !important;
+  height: 8px !important;
+  border-radius: 50px !important;
+  background: #f7f8f9 !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  left: 5px;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: block !important;
+}
+
+:deep(.case-studies-swiper .swiper-pagination-bullet:hover) {
+  background: #f7f8f9 !important;
+  transform: scale(1.1) !important;
+}
+
+:deep(.case-studies-swiper .swiper-pagination-bullet-active) {
+  background: #fa6b11 !important;
+  width: 32px !important;
+  height: 12px !important;
+  left: 0px;
+  border-radius: 50px !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 2px 4px rgba(250, 107, 17, 0.3) !important;
+}
+
+:deep(.case-studies-swiper .swiper-pagination-bullet-active:hover) {
+  background: #fa6b11 !important;
+  transform: scale(1.15) !important;
+}
+
+/* Vertical Swiper Styles */
+:deep(.case-studies-swiper .swiper-wrapper) {
+  flex-direction: column !important;
+}
+
+:deep(.case-studies-swiper .swiper-slide) {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+:deep(.case-studies-swiper .swiper-slide > div) {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 </style>
