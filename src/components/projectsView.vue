@@ -179,10 +179,14 @@ const displayedProjects = computed(() => {
             :slides-per-view="'1.1'"
             :space-between="20"
             :modules="[Pagination]"
-            :pagination="{ clickable: true }"
+            :pagination="{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 4,
+            }"
             class="flex flex-col justify-center items-center gap-2 rounded-2xl w-[300px]"
           >
-            <SwiperSlide v-for="project in displayedProjects" :key="project.id" class="w-[297px]">
+            <SwiperSlide v-for="project in allProjects" :key="project.id" class="w-[297px]">
               <div class="relative">
                 <img
                   :src="project.image_url"
@@ -224,6 +228,36 @@ const displayedProjects = computed(() => {
                 </Swiper>
               </div>
             </SwiperSlide>
+
+            <!-- //// coming soon slide for mobile -->
+            <SwiperSlide class="w-[297px]">
+              <div
+                class="w-full h-[400px] flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
+              >
+                <div class="flex flex-col gap-8">
+                  <!-- /// -->
+                  <div class="relative flex items-center justify-center p-[5px]">
+                    <img
+                      src="../assets/images/Frame 48097816.png"
+                      class="w-[32px] h-[32px]"
+                      alt="img"
+                    />
+                    <span
+                      class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                    ></span>
+                  </div>
+                  <!-- //// -->
+                  <div class="flex flex-col gap-4 justify-center items-center text-center">
+                    <p class="text-[16px] leading-[140%] font-medium text-textColor2">
+                      Coming soon
+                    </p>
+                    <p class="text-[14px] leading-[140%] font-normal text-textColor">
+                      New projects will be released soon, so stay tuned.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
           </Swiper>
         </div>
 
@@ -240,7 +274,7 @@ const displayedProjects = computed(() => {
       </div>
 
       <div v-if="activeTab === 'case_studies'">
-        <div class="flex justify-center items-center gap-8">
+        <div class="justify-center items-center gap-8 hidden md:flex">
           <!-- //// slide  -->
           <div
             v-for="caseStudy in allCaseStudies"
@@ -322,9 +356,89 @@ const displayedProjects = computed(() => {
 
           <!-- //// pagination  -->
         </div>
-      </div>
 
-      <!-- ////  -->
+        <div class="block md:hidden">
+          <Swiper
+            @swiper="onSwiper"
+            :slides-per-view="'1.1'"
+            :space-between="20"
+            :modules="[Pagination]"
+            :pagination="{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 4,
+            }"
+            class="flex flex-col justify-center items-center gap-2 rounded-2xl w-[300px]"
+          >
+            <SwiperSlide v-for="caseStudy in allCaseStudies" :key="caseStudy.id" class="w-[297px]">
+              <div class="relative">
+                <img
+                  :src="caseStudy.cover_image_url"
+                  :alt="caseStudy.title"
+                  class="w-full h-auto bg-orange-200 rounded-2xl"
+                />
+                <div
+                  class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 group pr-3 pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
+                >
+                  <a target="_blank" :href="caseStudy.project_link" class="flex items-center gap-2">
+                    <p class="text-[16px] font-medium leading-[140%] block">See More</p>
+                    <ArrowRightUp class="w-[24px]" />
+                  </a>
+                </div>
+              </div>
+              <div class="flex flex-col justify-center items-start gap-3 w-full">
+                <div class="flex justify-between items-center self-stretch mt-2">
+                  <div
+                    class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
+                  >
+                    <p class="text-textColor3">{{ caseStudy.title_mobile }}</p>
+                    <p class="text-textColor2">Case Study</p>
+                  </div>
+                  <p class="text-[12px] font-normal leading-[140%] text-textColor">
+                    {{ caseStudy.project_type_mobile }}
+                  </p>
+                </div>
+                <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
+                  <SwiperSlide v-for="tag in caseStudy.tags" :key="tag" class="!w-auto">
+                    <div
+                      class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[12px] md:text-[14px] font-normal leading-[140%] text-textColor2"
+                    >
+                      {{ tag }}
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide class="w-[297px]">
+              <div
+                class="w-full h-[400px] flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
+              >
+                <div class="flex flex-col gap-8">
+                  <div class="relative flex items-center justify-center p-[5px]">
+                    <img
+                      src="../assets/images/Frame 48097816.png"
+                      class="w-[32px] h-[32px]"
+                      alt="img"
+                    />
+                    <span
+                      class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                    ></span>
+                  </div>
+                  <div class="flex flex-col gap-4 justify-center items-center text-center">
+                    <p class="text-[16px] leading-[140%] font-medium text-textColor2">
+                      Coming soon
+                    </p>
+                    <p class="text-[14px] leading-[140%] font-normal text-textColor">
+                      New projects will be released soon, so stay tuned.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -333,7 +447,7 @@ const displayedProjects = computed(() => {
 :deep(.swiper-pagination) {
   position: relative !important;
   bottom: -10px !important;
-  left: 0 !important;
+  left: 50% !important;
   width: 100% !important;
   text-align: center !important;
   padding: 16px 0 !important;
