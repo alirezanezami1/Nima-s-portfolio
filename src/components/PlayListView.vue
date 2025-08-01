@@ -11,12 +11,12 @@
       <SwiperSlide
         v-for="(item, index) in PlayList"
         :key="index"
-        class="flex flex-col justify-center items-center relative -bottom-6"
+        class="flex flex-col justify-center items-center relative -bottom-6 z-50"
         :class="{ 'relative -top-0': index === activeIndex }"
       >
         <img :src="item.cover" alt="playlist cover" class="rounded-3xl w-[156px]" />
         <p
-          class="text-center relative -left-2 text-[20px] font-semibold leading-[140%] text-textColor2 mt-2"
+          class="text-center relative md:-left-2 md:text-[20px] text-[18px] left-0 font-semibold leading-[140%] text-textColor2 mt-2"
           v-if="index === activeIndex"
         >
           {{ item.name }}
@@ -45,7 +45,7 @@
       </svg>
       <p class="text-[16px] leading-[140%] text-textColor">Play On Soundcloud</p>
     </a>
-    <div class="background3 w-[380px] h-[232px]"></div>
+    <div class="background3 md:w-[380px] w-[345px] md:h-[232px] h-[232px] z-0"></div>
   </div>
 </template>
 
@@ -77,7 +77,6 @@ const onSlideChange = (swiper) => {
   position: absolute;
   bottom: -25px;
   border-radius: 24px;
-  z-index: 49;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
 }
 </style>
