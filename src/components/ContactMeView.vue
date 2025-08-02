@@ -36,37 +36,46 @@ function handleMouseLeave() {
   currentAvatarSrc.value = avatars.default
 }
 
+function handleIconMouseEnter() {
+  // اولویت بالاتر برای آیکون‌ها
+  currentAvatarSrc.value = avatars.bottom
+}
+
+function handleIconMouseLeave() {
+  // بازگشت به حالت پیش‌فرض
+  currentAvatarSrc.value = avatars.default
+}
+
+function handleIconMouseMove(event) {
+  // جلوگیری از bubble شدن event به container
+  event.stopPropagation()
+  currentAvatarSrc.value = avatars.bottom
+}
+
 function handleMouseMove(event) {
-  // از event.currentTarget استفاده می‌کنیم تا ابعاد div اصلی را بگیریم
   const container = event.currentTarget
   if (!container) return
 
   const { offsetX, offsetY } = event
   const { offsetWidth: width, offsetHeight: height } = container
 
-  // ✅ ارتفاع ناحیه تعاملی را برابر با کل ارتفاع کانتینر در نظر می‌گیریم
-
-  // شرط اصلی: اگر موس خارج از کانتینر بود (که با mouseleave کنترل می‌شود)
-  // این شرط دیگر لازم نیست چون کل کانتینر فعال است
-
-  // تعریف نواحی چپ، راست و پایین در کل کانتینر
+  // تعریف نواحی - ناحیه پایین را بزرگتر می‌کنیم
   const leftZoneEnd = width * 0.4
   const rightZoneStart = width * 0.6
-  // ناحیه پایین را بزرگتر می‌کنیم (مثلاً 40% پایینی کانتینر)
-  const bottomZoneStart = height * 0.6
+  const bottomZoneStart = height * 0.5 // از 0.6 به 0.4 تغییر دادیم
 
   // منطق تشخیص موقعیت موس
   if (offsetY > bottomZoneStart) {
-    // اولویت با ناحیه پایین (محل آیکون‌ها)
+    // ناحیه پایین (محل آیکون‌ها) - اولویت اول
     currentAvatarSrc.value = avatars.bottom
   } else if (offsetX < leftZoneEnd) {
-    // سپس ناحیه چپ
+    // ناحیه چپ
     currentAvatarSrc.value = avatars.left
   } else if (offsetX > rightZoneStart) {
-    // سپس ناحیه راست
+    // ناحیه راست
     currentAvatarSrc.value = avatars.right
   } else {
-    // مرکز
+    // مرکز (روی آواتار) - حالت default
     currentAvatarSrc.value = avatars.default
   }
 }
@@ -97,6 +106,9 @@ function handleMouseMove(event) {
         <div
           v-for="item in media"
           :key="item"
+          @mouseenter="handleIconMouseEnter"
+          @mouseleave="handleIconMouseLeave"
+          @mousemove="handleIconMouseMove"
           class="p-3 w-[56px] h-[56px] border-[1px] hover:text-white hover:bg-black hover:border-black border-borderColor2 rounded-full bg-white aspect-square flex-shrink-0 flex justify-center items-center"
         >
           <div class="w-[32px] h-[32px] flex justify-center items-center">
