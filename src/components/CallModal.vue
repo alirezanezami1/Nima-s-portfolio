@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import CorrectSending from './CorrectSending.vue'
+import WrongSending from './WrongSending.vue'
 
 const emit = defineEmits(['close'])
 
@@ -10,14 +12,85 @@ const formData = ref({
   description: '',
 })
 
+const showSuccessModal = ref(false)
+const showErrorModal = ref(false)
+const isSending = ref(false)
+
 const closeModal = () => {
   emit('close')
 }
 
-const sendRequest = () => {
-  // Handle form submission here
-  console.log('Form submitted:', formData.value)
+const closeSuccessModal = () => {
+  showSuccessModal.value = false
   closeModal()
+}
+
+const closeErrorModal = () => {
+  showErrorModal.value = false
+}
+
+const retrySending = () => {
+  showErrorModal.value = false
+  formData.value = {
+    fullName: '',
+    email: '',
+    subject: '',
+    description: '',
+  }
+}
+
+const validateForm = () => {
+  return (
+    formData.value.fullName.trim() !== '' &&
+    formData.value.email.trim() !== '' &&
+    formData.value.subject.trim() !== '' &&
+    formData.value.description.trim() !== ''
+  )
+}
+
+const sendEmail = async (data) => {
+  // This is a mock email sending function
+  // In a real application, you would integrate with an email service like EmailJS, SendGrid, or your own backend
+
+  // Simulate API call delay
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+
+  // Simulate success/failure (90% success rate for demo)
+  const isSuccess = Math.random() > 0.1
+
+  if (isSuccess) {
+    // In real app, you would send the email here
+    console.log('Email sent successfully:', data)
+    return true
+  } else {
+    console.log('Email sending failed')
+    return false
+  }
+}
+
+const sendRequest = async () => {
+  if (!validateForm()) {
+    alert('Please fill in all fields')
+    return
+  }
+
+  isSending.value = true
+
+  try {
+    const success = await sendEmail(formData.value)
+
+    if (success) {
+      showSuccessModal.value = true
+      // Don't close the modal system, just show success
+    } else {
+      showErrorModal.value = true
+    }
+  } catch (error) {
+    console.error('Error sending email:', error)
+    showErrorModal.value = true
+  } finally {
+    isSending.value = false
+  }
 }
 
 // Prevent body scrolling when modal is open
@@ -36,7 +109,9 @@ onUnmounted(() => {
     style="background: rgba(8, 9, 13, 0.64)"
     @click="closeModal"
   >
+    <!-- Main Modal Content - Only show when not showing success/error -->
     <div
+      v-if="!showSuccessModal && !showErrorModal"
       class="bg-white w-full h-fit md:w-[542px] md:h-auto md:mx-auto rounded-tl-3xl rounded-tr-3xl md:rounded-3xl md:shadow-lg p-6 pt-8 md:p-8"
       @click.stop
     >
@@ -84,6 +159,7 @@ onUnmounted(() => {
             type="text"
             class="w-full pr-[14px] pl-4 py-3 text-[12px] leading-[24px] font-medium placeholder:font-normal placeholder:text-textColor placeholder:text-[12px] border border-mainBg bg-mainBg rounded-xl focus:outline-none focus:ring-2 focus:ring-mainBg focus:border-transparent"
             placeholder="Like : Nima Masoumi"
+            required
           />
         </div>
 
@@ -94,9 +170,10 @@ onUnmounted(() => {
           >
           <input
             v-model="formData.email"
-            type="text"
+            type="email"
             class="w-full pr-[14px] pl-4 py-3 text-[12px] leading-[24px] font-medium placeholder:font-normal placeholder:text-textColor placeholder:text-[12px] border border-mainBg bg-mainBg rounded-xl focus:outline-none focus:ring-2 focus:ring-mainBg focus:border-transparent"
             placeholder="Like : Nima Masoumi"
+            required
           />
         </div>
 
@@ -110,6 +187,7 @@ onUnmounted(() => {
             type="text"
             class="w-full pr-[14px] pl-4 py-3 text-[12px] leading-[24px] font-medium placeholder:font-normal placeholder:text-textColor placeholder:text-[12px] border border-mainBg bg-mainBg rounded-xl focus:outline-none focus:ring-2 focus:ring-mainBg focus:border-transparent"
             placeholder="Like :  Like designing a service website"
+            required
           />
         </div>
 
@@ -121,21 +199,52 @@ onUnmounted(() => {
           <textarea
             v-model="formData.description"
             rows="4"
-            class="w-full resize-none pr-[14px] pl-4 py-3 text-[12px] leading-[24px] font-medium placeholder:font-normal placeholder:text-textColor placeholder:text-[12px] border border-mainBg bg-mainBg rounded-xl focus:outline-none focus:ring-2 focus:ring-mainBg focus:border-transparent"
+            class="w-full pr-[14px] pl-4 py-3 text-[12px] leading-[24px] font-medium placeholder:font-normal placeholder:text-textColor placeholder:text-[12px] border border-mainBg bg-mainBg rounded-xl focus:outline-none focus:ring-2 focus:ring-mainBg focus:border-transparent"
             placeholder="Write your description"
+            required
           ></textarea>
         </div>
 
         <!-- Submit Button -->
         <button
           type="submit"
-          class="w-full bg-textColor2 md:bg-mainBg2 border-[1px] border-borderColor2 hover:bg-black hover:text-white text-white md:text-textColor2 py-[10px] md:py-3 rounded-xl transition-colors duration-200 text-[14px] leading-[24px] font-normal"
+          :disabled="isSending"
+          class="w-full bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white font-medium py-3 px-4 rounded-md transition-colors duration-200 text-sm md:text-base flex items-center justify-center"
         >
-          Send request
+          <span v-if="isSending" class="flex items-center">
+            <svg
+              class="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+            Sending...
+          </span>
+          <span v-else>Send request</span>
         </button>
       </form>
     </div>
   </div>
+
+  <!-- Success Modal -->
+  <CorrectSending v-if="showSuccessModal" @close="closeSuccessModal" />
+
+  <!-- Error Modal -->
+  <WrongSending v-if="showErrorModal" @close="closeErrorModal" @retry="retrySending" />
 </template>
 
 <style scoped>

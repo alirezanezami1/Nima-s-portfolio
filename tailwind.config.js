@@ -11,6 +11,7 @@ export default {
         mainBg2: '#FFF',
         mainBg3: '#FFFFFF',
         mainBg4: '#E2E2E2',
+        mainBg5: 'rgba(0, 134, 0, 0.10)',
 
         textColor: '#868686',
         textColor2: '#212121',
