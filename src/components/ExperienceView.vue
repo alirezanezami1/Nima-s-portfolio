@@ -22,7 +22,11 @@ const {
       </div>
     </div>
     <div v-else-if="error">مشکل در ارتباط با سرور</div>
-    <div v-else class="relative h-[300px] overflow-y-auto w-full" style="scrollbar-width: none">
+    <div
+      v-else
+      class="relative h-[300px] overflow-y-auto w-[345px] md:w-full"
+      style="scrollbar-width: none"
+    >
       <div
         v-for="(item, index) in experiences"
         :key="item.id"
