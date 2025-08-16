@@ -82,4 +82,9 @@ const {
   bottom: -4px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
+@media (max-width: 768px) {
+  .background {
+    width: 88%;
+  }
+}
 </style>
