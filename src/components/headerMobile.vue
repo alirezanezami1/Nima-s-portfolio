@@ -16,6 +16,21 @@ defineProps({
 const activeSection = ref('about')
 
 const openMenu = ref(false)
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const headerHeight = 150 // Increased offset for better visibility
+    const elementPosition = element.offsetTop - headerHeight
+
+    window.scrollTo({
+      top: elementPosition,
+      behavior: 'smooth',
+    })
+  }
+  activeSection.value = sectionId
+  openMenu.value = false
+}
 </script>
 
 <template>
@@ -52,18 +67,13 @@ const openMenu = ref(false)
         <a
           v-for="item in navLinks"
           :key="item"
-          :href="`#${item.id}`"
+          href="#"
           class="text-textColor font-normal text-[16px] leading-[140%] flex justify-center items-center py-[13px] self-stretch rounded-2xl"
           :class="{
             'border-[1px] border-borderColor2 font-semibold text-textColor2':
               activeSection === item.id,
           }"
-          @click="
-            () => {
-              activeSection = item.id
-              openMenu = false
-            }
-          "
+          @click.prevent="scrollToSection(item.id)"
         >
           {{ item.name }}
         </a>

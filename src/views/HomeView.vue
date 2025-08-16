@@ -54,7 +54,10 @@ import BtnTitle from '@/components/BtnTitle.vue'
           <ToolsView />
         </template>
       </SecondSlotComponent>
-      <FirstSlotComponent class="w-[345px] md:w-[780px] h-[482px] md:h-[380px] relative">
+      <FirstSlotComponent
+        class="w-[345px] md:w-[780px] h-[482px] md:h-[380px] relative"
+        id="howIWork"
+      >
         <template #header>
           <BtnTitle title="How I Work" class="relative top-2" />
         </template>

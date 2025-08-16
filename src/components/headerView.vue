@@ -34,9 +34,23 @@ const navLinks = ref([
   { id: 'about', name: 'About me' },
   { id: 'projects', name: 'Project' },
   { id: 'experience', name: 'Experience' },
-  { id: 'how-i-work', name: 'How I Work' },
+  { id: 'howIWork', name: 'How I Work' },
   { id: 'contact', name: 'Contact me' },
 ])
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const headerHeight = 220 // Increased offset for better visibility
+    const elementPosition = element.offsetTop - headerHeight
+
+    window.scrollTo({
+      top: elementPosition,
+      behavior: 'smooth',
+    })
+  }
+  activeSection.value = sectionId
+}
 </script>
 
 <template>
@@ -53,10 +67,10 @@ const navLinks = ref([
         <a
           v-for="item in navLinks"
           :key="item"
-          :href="`#${item.id}`"
+          href="#"
           class="text-textColor font-normal md:text-[15px] xl:text-[18px] leading-[140%]"
           :class="{ 'text-textColor2 font-semibold': activeSection === item.id }"
-          @click="activeSection = item.id"
+          @click.prevent="scrollToSection(item.id)"
         >
           {{ item.name }}
         </a>
