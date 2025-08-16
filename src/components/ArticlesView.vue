@@ -12,8 +12,8 @@ const {
 })
 </script>
 <template>
-  <div class="flex flex-col justify-center items-center overflow-hidden w-full relative">
-    <div class="flex justify-center items-end gap-2 w-[548px] h-[188px] flex-shrink-0">
+  <div class="flex flex-col justify-center items-center overflow-x-hidden w-full relative">
+    <div class="flex justify-center items-end gap-2 w-full h-[188px] flex-shrink-0">
       <img
         v-for="(item, index) in Articles"
         :key="item.id"

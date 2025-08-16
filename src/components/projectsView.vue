@@ -58,7 +58,7 @@ const shouldShowCaseStudyPagination = computed(() => {
 <template>
   <section id="projects">
     <div
-      class="flex flex-col w-[360px] ml-6 md:ml-0 h-[682px] md:h-auto justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 md:w-full bg-mainBg2"
+      class="flex flex-col w-full h-[682px] md:h-auto justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 bg-mainBg2"
     >
       <!-- //// head -->
       <div
