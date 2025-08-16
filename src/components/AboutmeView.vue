@@ -35,7 +35,7 @@ const closeModal = () => {
 <template>
   <section id="about">
     <div
-      class="flex flex-col justify-center items-center gap-8 md:gap-8 pt-3 md:pt-[186px] relative"
+      class="flex flex-col justify-center items-center gap-8 md:gap-8 pt-[150px] md:pt-[186px] relative"
     >
       <!-- /// intro  -->
       <div class="flex flex-col justify-center items-center md:gap-[40px]">

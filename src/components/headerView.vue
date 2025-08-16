@@ -41,30 +41,32 @@ const navLinks = ref([
 
 <template>
   <div
-    class="font-Roboto hidden md:flex md:px-[30px] xl:px-[130px] py-[52px] justify-center items-center md:gap-[35px] xl:gap-[152px] bg-transparent fixed w-full z-50"
+    class="font-Roboto hidden md:flex md:px-[30px] xl:px-[130px] py-[52px] justify-center items-center md:gap-[35px] xl:gap-[220px] bg-transparent fixed w-full z-50"
   >
     <!-- /// profile  -->
     <profileView />
 
-    <!-- /// menu  -->
-    <div
-      class="flex justify-center items-center gap-7 p-6 rounded-2xl border-4 bg-white border-borderColor shadow-menuShadow"
-    >
-      <a
-        v-for="item in navLinks"
-        :key="item"
-        :href="`#${item.id}`"
-        class="text-textColor font-normal md:text-[15px] xl:text-[18px] leading-[140%]"
-        :class="{ 'text-textColor2 font-semibold': activeSection === item.id }"
-        @click="activeSection = item.id"
+    <div class="flex justify-center items-center md:gap-[35px] xl:gap-[152px] xl">
+      <div
+        class="flex justify-center items-center gap-7 p-6 rounded-2xl border-4 bg-white border-borderColor shadow-menuShadow"
       >
-        {{ item.name }}
-      </a>
+        <a
+          v-for="item in navLinks"
+          :key="item"
+          :href="`#${item.id}`"
+          class="text-textColor font-normal md:text-[15px] xl:text-[18px] leading-[140%]"
+          :class="{ 'text-textColor2 font-semibold': activeSection === item.id }"
+          @click="activeSection = item.id"
+        >
+          {{ item.name }}
+        </a>
+      </div>
+      <!-- /// downloadResume  -->
+      <resumeView />
     </div>
-    <!-- /// downloadResume  -->
-    <resumeView />
+    <!-- /// menu  -->
   </div>
-  <div class="flex md:hidden w-full p-6">
+  <div class="flex md:hidden w-full p-6 fixed z-50">
     <headerMobile :navLinks="navLinks" />
   </div>
 </template>

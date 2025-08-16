@@ -17,7 +17,7 @@ import BtnTitle from '@/components/BtnTitle.vue'
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center gap-5 mb-24">
+  <div class="flex flex-col justify-center items-center gap-5 mb-24 mx-auto max-w-[1440px]">
     <AboutmeView />
     <mouseArrow />
     <projectsView />
