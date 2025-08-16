@@ -49,6 +49,10 @@ const displayedProjects = computed(() => {
     return allProjects.value.slice(0, 4)
   }
 })
+
+const shouldShowCaseStudyPagination = computed(() => {
+  return allCaseStudies.value.length > 1
+})
 </script>
 
 <template>
@@ -65,7 +69,7 @@ const displayedProjects = computed(() => {
           <button
             @click="activeTab = 'projects'"
             :class="[
-              'flex py-3 px-5 justify-center items-center gap-[10px] rounded-full border-[1px] border-borderColor2 text-[16px] font-medium leading-[140%] bg-mainBg2 text-textColor2',
+              'flex py-3 px-5 justify-center items-center gap-[10px] w-[125px] md:w-auto rounded-full border-[1px] border-borderColor2 text-[16px] font-medium leading-[140%] bg-mainBg2 text-textColor2',
               { 'text-white bg-textColor2 border-borderColor3': activeTab === 'projects' },
             ]"
           >
@@ -283,16 +287,20 @@ const displayedProjects = computed(() => {
               :space-between="90"
               :direction="'vertical'"
               :modules="[Pagination, Mousewheel]"
-              :pagination="{
-                clickable: true,
-                dynamicBullets: true,
-                dynamicMainBullets: 4,
-              }"
+              :pagination="
+                shouldShowCaseStudyPagination
+                  ? {
+                      clickable: true,
+                      dynamicBullets: true,
+                      dynamicMainBullets: 4,
+                    }
+                  : false
+              "
               :allow-touch-move="true"
               :mousewheel="true"
               class="case-studies-swiper w-full h-full"
             >
-              <SwiperSlide v-for="(caseStudy, index) in allCaseStudies" :key="caseStudy.id">
+              <SwiperSlide v-for="caseStudy in allCaseStudies" :key="caseStudy.id">
                 <div class="flex flex-col justify-center items-center">
                   <div class="flex justify-center items-center gap-6 w-full mx-auto">
                     <!-- //// img  -->
@@ -394,11 +402,15 @@ const displayedProjects = computed(() => {
             :slides-per-view="'1.1'"
             :space-between="20"
             :modules="[Pagination]"
-            :pagination="{
-              clickable: true,
-              dynamicBullets: true,
-              dynamicMainBullets: 4,
-            }"
+            :pagination="
+              shouldShowCaseStudyPagination
+                ? {
+                    clickable: true,
+                    dynamicBullets: true,
+                    dynamicMainBullets: 4,
+                  }
+                : false
+            "
             class="flex flex-col justify-center items-center gap-2 rounded-2xl w-[300px]"
           >
             <SwiperSlide v-for="caseStudy in allCaseStudies" :key="caseStudy.id" class="w-[297px]">
