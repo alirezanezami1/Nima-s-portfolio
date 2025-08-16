@@ -58,7 +58,12 @@ const openMenu = ref(false)
             'border-[1px] border-borderColor2 font-semibold text-textColor2':
               activeSection === item.id,
           }"
-          @click="activeSection = item.id"
+          @click="
+            () => {
+              activeSection = item.id
+              openMenu = false
+            }
+          "
         >
           {{ item.name }}
         </a>
