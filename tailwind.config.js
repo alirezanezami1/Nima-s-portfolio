@@ -12,11 +12,13 @@ export default {
         mainBg3: '#FFFFFF',
         mainBg4: '#E2E2E2',
         mainBg5: 'rgba(0, 134, 0, 0.10)',
+        headerBg: 'rgba(250, 107, 17, 0.08)',
 
         textColor: '#868686',
         textColor2: '#212121',
         textColor3: '#FA6B11',
         textColor4: 'rgba(33, 33, 33, 0.12)',
+        textHeader: 'rgba(250, 107, 17, 1)',
 
         textBlack: '#030303',
 

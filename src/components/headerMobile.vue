@@ -39,11 +39,13 @@ const scrollToSection = (sectionId) => {
   >
     <div class="flex justify-between items-center self-stretch z-50">
       <div
-        class="flex justify-center items-center p-3 rounded-xl border-[1px] border-borderColor2"
+        class="flex justify-center items-center p-[10px] rounded-xl border-[1px] border-borderColor2"
         @click="openMenu = !openMenu"
       >
-        <menuView v-if="!openMenu" />
-        <xView v-if="openMenu" />
+        <Transition name="icon" mode="out-in">
+          <menuView v-if="!openMenu" key="menu" />
+          <xView v-else key="x" />
+        </Transition>
       </div>
       <div class="flex justify-between items-center w-[183px]">
         <profileView size="w-[44px] h-[44px] rounded-xl border-2" />
@@ -70,8 +72,7 @@ const scrollToSection = (sectionId) => {
           href="#"
           class="text-textColor font-normal text-[16px] leading-[140%] flex justify-center items-center py-[13px] self-stretch rounded-2xl"
           :class="{
-            'border-[1px] border-borderColor2 font-semibold text-textColor2':
-              activeSection === item.id,
+            'bg-headerBg  font-semibold text-textHeader': activeSection === item.id,
           }"
           @click.prevent="scrollToSection(item.id)"
         >
@@ -81,3 +82,15 @@ const scrollToSection = (sectionId) => {
     </Transition>
   </div>
 </template>
+
+<style>
+.icon-enter-active,
+.icon-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.icon-enter-from,
+.icon-leave-to {
+  opacity: 0;
+}
+</style>

@@ -1,18 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21" fill="none">
-    <rect
-      width="26"
-      height="2"
-      rx="1"
-      transform="matrix(0.707107 0.707107 -0.698922 0.715198 1.39783 0.384766)"
-      fill="#212121"
-    />
-    <rect
-      width="26"
-      height="2"
-      rx="1"
-      transform="matrix(0.707107 -0.707107 0.698922 0.715198 0.397827 18.3848)"
-      fill="#212121"
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M18 6L6 18M6 6L18 18"
+      stroke="#212121"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 </template>
