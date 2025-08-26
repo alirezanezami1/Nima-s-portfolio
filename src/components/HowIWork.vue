@@ -15,7 +15,7 @@ const items = ref([
     name: 'Getting to know',
     description:
       "In the first stage, we'll have a Discovery Call to discuss your business goals, user needs, and project requirements. This helps us align our vision and set a clear path forward.",
-    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="3" viewBox="0 0 64 3" fill="none"><path d="M4 0H0V8H4V0ZM60 8C62.2091 8 64 6.20914 64 4C64 1.79086 62.2091 0 60 0V8ZM4 4V8H60V4V0H4V4Z" fill="url(#paint0_linear_833_1006)"/><defs><linearGradient id="paint0_linear_833_1006" x1="4" y1="4.5" x2="60" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none"><circle cx="8.83333" cy="5.00033" r="3.33333" stroke="#212121" stroke-width="1.5"/><ellipse cx="8.83333" cy="14.1663" rx="5.83333" ry="3.33333" stroke="#212121" stroke-width="1.5"/><path d="M16.333 1.66699C16.333 1.66699 17.9997 2.66699 17.9997 5.00033C17.9997 7.33366 16.333 8.33366 16.333 8.33366" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/><path d="M14.667 3.33301C14.667 3.33301 15.5003 3.83301 15.5003 4.99967C15.5003 6.16634 14.667 6.66634 14.667 6.66634" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/></svg>',
   },
   {
     id: '02',
@@ -23,7 +23,7 @@ const items = ref([
     name: 'Research & Analysis',
     description:
       'Here, we define the structure and user experience. Using wireframes, we plan user flows, content hierarchy, and overall layout without focusing on visual details yet.',
-    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="132" height="3" viewBox="0 0 132 3" fill="none"><path d="M4 0H0V8H4V0ZM128 8C130.209 8 132 6.20914 132 4C132 1.79086 130.209 0 128 0V8ZM4 4V8H128V4V0H4V4Z" fill="url(#paint0_linear_49_2756)"/><defs><linearGradient id="paint0_linear_49_2756" x1="4" y1="4.5" x2="128" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none"><circle cx="10.0837" cy="9.58366" r="7.91667" stroke="#212121" stroke-width="1.5"/><path d="M15.917 15.417L18.8337 18.3337" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/></svg>',
   },
   {
     id: '03',
@@ -31,7 +31,7 @@ const items = ref([
     name: 'Wireframing & UX Design',
     description:
       "At this stage, I conduct research on the market, competitors, and user behavior to gain insights into the project's context. These findings guide future design decisions.",
-    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="180" height="3" viewBox="0 0 180 3" fill="none"><path d="M4 0H0V8H4V0ZM176 8C178.209 8 180 6.20914 180 4C180 1.79086 178.209 0 176 0V8ZM4 4V8H176V4V0H4V4Z" fill="url(#paint0_linear_49_2760)"/><defs><linearGradient id="paint0_linear_49_2760" x1="4" y1="4.5" x2="176" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><g clip-path="url(#clip0_1130_244)">  <path d="M1.66699 10.0003C1.66699 6.07195 1.66699 4.10777 2.88738 2.88738C4.10777 1.66699 6.07195 1.66699 10.0003 1.66699C13.9287 1.66699 15.8929 1.66699 17.1133 2.88738C18.3337 4.10777 18.3337 6.07195 18.3337 10.0003C18.3337 13.9287 18.3337 15.8929 17.1133 17.1133C15.8929 18.3337 13.9287 18.3337 10.0003 18.3337C6.07195 18.3337 4.10777 18.3337 2.88738 17.1133C1.66699 15.8929 1.66699 13.9287 1.66699 10.0003Z" stroke="#212121"  stroke-width="1.5"/>  <path d="M5.83301 15L5.83301 12.5" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/>  <path d="M10 15V10" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/>  <path d="M14.167 15V7.5" stroke="#212121"  stroke-width="1.5" stroke-linecap="round"/></g><defs>  <clipPath id="clip0_1130_244">    <rect width="20" height="20" fill="white"/>  </clipPath></defs></svg>',
   },
   {
     id: '04',
@@ -39,7 +39,7 @@ const items = ref([
     name: 'UI Design',
     description:
       'Once the UX is approved , I move on to the visual design phase . This includes defining colors , typography , icons , and graphic elements to create a polished interface that reflects your brand.',
-    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="232" height="3" viewBox="0 0 232 3" fill="none"><path d="M4 0H0V8H4V0ZM228 8C230.209 8 232 6.20914 232 4C232 1.79086 230.209 0 228 0V8ZM4 4V8H228V4V0H4V4Z" fill="url(#paint0_linear_49_2764)"/><defs><linearGradient id="paint0_linear_49_2764" x1="4" y1="4.5" x2="228" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none"><path d="M11.6842 4.20382C12.0553 3.83273 12.1899 3.28645 12.0337 2.78548C11.8775 2.2845 11.4561 1.91271 10.94 1.8179C7.84162 1.24879 4.53061 2.26813 2.55082 5.23752C0.722363 7.97988 0.703168 11.6733 2.50929 14.4304C5.57278 19.1069 11.9115 19.5812 15.6394 15.8534C17.6541 13.8387 18.1171 11.3436 17.6771 8.73293C17.4998 7.68091 16.1762 7.29045 15.4219 8.04481C14.4276 9.03909 13.1509 8.99894 12.0099 8.17719C10.5559 7.13008 10.4351 5.45279 11.6473 4.24055L11.6842 4.20382Z" stroke="#212121"  stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.65945 9.28074C6.43893 9.28074 7.07083 8.64884 7.07083 7.86935C7.07083 7.08986 6.43893 6.45796 5.65945 6.45796C4.87996 6.45796 4.24806 7.08986 4.24806 7.86935C4.24806 8.64884 4.87996 9.28074 5.65945 9.28074Z" stroke="#212121"  stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.65729 14.2707C7.43678 14.2707 8.06868 13.6388 8.06868 12.8593C8.06868 12.0798 7.43678 11.4479 6.65729 11.4479C5.8778 11.4479 5.2459 12.0798 5.2459 12.8593C5.2459 13.6388 5.8778 14.2707 6.65729 14.2707Z" stroke="#212121" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.6472 15.2689C12.4267 15.2689 13.0586 14.637 13.0586 13.8575C13.0586 13.078 12.4267 12.4461 11.6472 12.4461C10.8677 12.4461 10.2358 13.078 10.2358 13.8575C10.2358 14.637 10.8677 15.2689 11.6472 15.2689Z" stroke="#212121" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   },
   {
     id: '05',
@@ -47,7 +47,7 @@ const items = ref([
     name: ' Handoff & Support',
     description:
       'After finalizing the design, I prepare and deliver organized files for developers. I also provide support during implementation and remain available to address any design-related questions.',
-    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="285" height="3" viewBox="0 0 285 3" fill="none"><path d="M4 0H0V8H4V0ZM285 8C287.209 8 289 6.20914 289 4C289 1.79086 287.209 0 285 0V8ZM4 4V8H285V4V0H4V4Z" fill="url(#paint0_linear_50_2768)"/><defs><linearGradient id="paint0_linear_50_2768" x1="4" y1="4.5" x2="285" y2="4.5" gradientUnits="userSpaceOnUse"><stop stop-color="#FA6B11" stop-opacity="0"/><stop offset="1" stop-color="#FA6B11"/></linearGradient></defs></svg>',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none"><path d="M10.5 1.66634L10.5 8.33301M10.5 8.33301L13 5.83301M10.5 8.33301L8 5.83301" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.16699 10.833H4.80054C5.55485 10.833 5.93201 10.833 6.26353 10.9855C6.59505 11.138 6.8405 11.4243 7.3314 11.997L7.83592 12.5856C8.32682 13.1584 8.57227 13.4447 8.90379 13.5972C9.23531 13.7497 9.61247 13.7497 10.3668 13.7497H10.6339C11.3882 13.7497 11.7653 13.7497 12.0969 13.5972C12.4284 13.4447 12.6738 13.1584 13.1647 12.5856L13.6693 11.997C14.1602 11.4243 14.4056 11.138 14.7371 10.9855C15.0686 10.833 15.4458 10.833 16.2001 10.833H18.8337" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/><path d="M14.667 1.77246C16.0213 1.90567 16.9329 2.20673 17.6133 2.88713C18.8337 4.10752 18.8337 6.0717 18.8337 10.0001C18.8337 13.9284 18.8337 15.8926 17.6133 17.113C16.3929 18.3334 14.4287 18.3334 10.5003 18.3334C6.57195 18.3334 4.60777 18.3334 3.38738 17.113C2.16699 15.8926 2.16699 13.9284 2.16699 10.0001C2.16699 6.0717 2.16699 4.10752 3.38738 2.88713C4.06778 2.20673 4.97937 1.90567 6.33366 1.77246" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/></svg>',
   },
 ])
 
@@ -64,17 +64,20 @@ const onSlideChange = (swiper) => {
   <section>
     <!-- //// desktop  -->
     <div class="hidden md:flex flex-col justify-center items-start gap-6">
-      <div class="flex justify-between items-start flex-shrink-0 w-full rounded-[50px] bg-mainBg">
+      <div
+        class="flex justify-center items-start flex-grow flex-basis-0 flex-shrink-0 w-full rounded-[50px] bg-mainBg"
+      >
         <button
           v-for="item in items"
           :key="item.id"
-          class="px-6 py-3 text-[16px] font-medium leading-[140%]"
+          class="px-5 py-3 text-[16px] font-medium leading-[140%] flex justify-center gap-[3px] items-center"
           @click="active = item.title"
           :class="{
-            'bg-white border-[1px] border-borderColor2 rounded-full flex gap-[10px] justify-center items-center':
+            'bg-white border-[1px] border-borderColor2 rounded-full flex gap-5 justify-center items-center':
               active === item.title,
           }"
         >
+          <div v-html="item.icon" :class="{ 'opacity-35': active !== item.title }"></div>
           {{ item.title }}
         </button>
       </div>
@@ -112,21 +115,14 @@ const onSlideChange = (swiper) => {
         @slide-change="onSlideChange"
         class="how-i-work-swiper"
       >
-        <SwiperSlide v-for="(item, index) in items" :key="item.id" class="px-4">
+        <SwiperSlide v-for="item in items" :key="item.id" class="px-4">
           <div class="relative flex flex-col justify-center items-center">
             <!-- Step Indicator -->
             <div
-              class="w-[295px] flex items-center justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
+              class="w-[295px] flex items-center gap-3 justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
             >
-              <div class="absolute left-4">
-                <span class="text-textColor4">{{ item.id }}</span>
-              </div>
+              <div v-html="item.icon" class="opacity-35"></div>
               <span class="text-textColor2">{{ item.title }}</span>
-              <div
-                class="absolute -left-1 bottom-0"
-                :class="index === 0 ? 'left-1' : index === 4 ? '-left-2' : 'left-0'"
-                v-html="item.svg"
-              ></div>
             </div>
 
             <div class="relative h-[56px] w-full flex items-end mt-4">
