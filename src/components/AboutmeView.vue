@@ -98,18 +98,22 @@ const closeModal = () => {
             >
               {{ txtAboutMe }}
             </p>
-            <p
-              class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block md:hidden"
-              v-if="showMore"
-            >
-              {{ txtAboutMe }}
-            </p>
-            <p
-              class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block md:hidden"
-              v-if="!showMore"
-            >
-              {{ slicedTxt }}
-            </p>
+            <Transition name="aboutTxt" mode="out-in">
+              <p
+                key="txtAboutMe"
+                class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block md:hidden"
+                v-if="showMore"
+              >
+                {{ txtAboutMe }}
+              </p>
+              <p
+                key="slicedTxt"
+                class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block md:hidden"
+                v-else
+              >
+                {{ slicedTxt }}
+              </p>
+            </Transition>
             <div
               class="flex md:hidden justify-center items-center gap-1 h-[40px] rounded-full text-textColor3 text-[16px] font-medium leading-[140%]"
               @click="showMore = !showMore"
@@ -154,32 +158,13 @@ const closeModal = () => {
 </template>
 
 <style scoped>
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+.aboutTxt-enter-active,
+.aboutTxt-leave-active {
+  transition: opacity 0.4s ease-in-out;
 }
 
-@keyframes float-slow-delayed {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-.animate-float-slow {
-  animation: float-slow 4s ease-in-out infinite;
-}
-
-.animate-float-slow-delayed {
-  animation: float-slow-delayed 3.5s ease-in-out infinite;
-  animation-delay: 0.5s;
+.aboutTxt-enter-from,
+.aboutTxt-leave-to {
+  opacity: 0;
 }
 </style>
