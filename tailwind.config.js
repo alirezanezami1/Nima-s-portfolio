@@ -39,6 +39,7 @@ export default {
         profShadow: '0px 16px 40px -8px rgba(51, 17, 51, 0.16)',
         menuShadow: '0px 16px 40px -8px rgba(112, 144, 176, 0.16)',
         borderShadow: '0 11.467px 28.667px -5.733px rgba(112, 144, 176, 0.16)',
+        contactShadow: '0px 16px 40px -8px rgba(112, 144, 176, 0.16)',
       },
       animation: {
         'ping-fast': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',

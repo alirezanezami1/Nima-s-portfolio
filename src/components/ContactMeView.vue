@@ -82,7 +82,7 @@ function handleMouseMove(event) {
 </script>
 
 <template>
-  <section id="contact">
+  <section id="contact" class="relative">
     <div
       ref="avatarContainer"
       @mousemove="handleMouseMove"
@@ -118,6 +118,11 @@ function handleMouseMove(event) {
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="px-3 py-2 inline-flex justify-start gap-[9px] rounded-full bg-white shadow-contactShadow absolute top-1 right-3 md:right-8"
+    >
+      let’s talk!
     </div>
   </section>
 </template>
