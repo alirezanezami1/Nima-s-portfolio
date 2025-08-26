@@ -160,7 +160,7 @@ const closeModal = () => {
 <style scoped>
 .aboutTxt-enter-active,
 .aboutTxt-leave-active {
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .aboutTxt-enter-from,
