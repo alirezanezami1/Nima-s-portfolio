@@ -63,7 +63,7 @@ const validateForm = () => {
 const sendEmail = async (data) => {
   try {
     const templateParams = {
-      to_email: 'your-gmail@gmail.com', // لطفاً ایمیل Gmail خود را اینجا قرار دهید
+      to_email: 'your-gmail@gmail.com', // ایمیل Gmail خود را اینجا قرار دهید (مثل: nima@gmail.com)
       from_name: data.fullName,
       from_email: data.email,
       subject: data.subject,
