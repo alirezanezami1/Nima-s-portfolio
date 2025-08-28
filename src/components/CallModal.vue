@@ -73,7 +73,6 @@ const sendEmail = async (data) => {
     const response = await emailjs.send(
       'service_xo229ph', // Service ID شما
       'template_2pbj6e4', // Template ID شما
-      'RG3Rzc36WWFWVLcbK', // User ID شما
       templateParams,
     )
 
