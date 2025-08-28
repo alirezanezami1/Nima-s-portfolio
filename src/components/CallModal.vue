@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import CorrectSending from './CorrectSending.vue'
 import WrongSending from './WrongSending.vue'
+import emailjs from '@emailjs/browser'
 
 const emit = defineEmits(['close'])
 
@@ -60,21 +61,26 @@ const validateForm = () => {
 }
 
 const sendEmail = async (data) => {
-  // This is a mock email sending function
-  // In a real application, you would integrate with an email service like EmailJS, SendGrid, or your own backend
+  try {
+    const templateParams = {
+      to_email: 'your-gmail@gmail.com', // لطفاً ایمیل Gmail خود را اینجا قرار دهید
+      from_name: data.fullName,
+      from_email: data.email,
+      subject: data.subject,
+      message: data.description,
+    }
 
-  // Simulate API call delay
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+    const response = await emailjs.send(
+      'service_xo229ph', // Service ID شما
+      'template_2pbj6e4', // Template ID شما
+      'RG3Rzc36WWFWVLcbK', // User ID شما
+      templateParams,
+    )
 
-  // Simulate success/failure (90% success rate for demo)
-  const isSuccess = Math.random() > 0.1
-
-  if (isSuccess) {
-    // In real app, you would send the email here
-    console.log('Email sent successfully:', data)
+    console.log('Email sent successfully:', response)
     return true
-  } else {
-    console.log('Email sending failed')
+  } catch (error) {
+    console.error('Email sending failed:', error)
     return false
   }
 }
