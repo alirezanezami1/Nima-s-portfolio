@@ -55,20 +55,20 @@ const scrollToSection = (sectionId) => {
 
 <template>
   <div
-    class="font-Roboto hidden md:flex md:px-[30px] xl:px-[130px] py-[52px] justify-center items-center md:gap-[35px] xl:gap-[220px] bg-transparent fixed w-full z-50"
+    class="font-Roboto hidden md:flex md:px-[20px] lg:px-[50px] xl:px-[100px] 2xl:px-[130px] py-[40px] lg:py-[45px] xl:py-[52px] justify-center items-center md:gap-[20px] lg:gap-[50px] xl:gap-[120px] 2xl:gap-[220px] bg-transparent fixed w-full z-50"
   >
     <!-- /// profile  -->
     <profileView />
 
-    <div class="flex justify-center items-center md:gap-[35px] xl:gap-[152px] xl">
+    <div class="flex justify-center items-center md:gap-[20px] lg:gap-[50px] xl:gap-[80px] 2xl:gap-[152px]">
       <div
-        class="flex justify-center items-center gap-7 p-6 rounded-2xl border-4 bg-white border-borderColor shadow-menuShadow"
+        class="flex justify-center items-center gap-4 md:gap-5 lg:gap-6 p-4 md:p-5 lg:p-6 rounded-2xl border-4 bg-white border-borderColor shadow-menuShadow"
       >
         <a
           v-for="item in navLinks"
           :key="item"
           href="#"
-          class="text-textColor font-normal md:text-[15px] xl:text-[18px] leading-[140%]"
+          class="text-textColor font-normal text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] leading-[140%]"
           :class="{ 'text-textColor2 font-semibold': activeSection === item.id }"
           @click.prevent="scrollToSection(item.id)"
         >

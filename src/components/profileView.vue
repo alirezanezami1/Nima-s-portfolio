@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabaseClient'
 defineProps({
   size: {
     type: String,
-    default: 'w-[72px] h-[72px] rounded-3xl border-4',
+    default: 'w-[60px] h-[60px] md:w-[66px] md:h-[66px] lg:w-[72px] lg:h-[72px] rounded-2xl md:rounded-3xl border-4',
   },
 })
 
