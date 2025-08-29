@@ -47,8 +47,9 @@ const scrollToSection = (sectionId) => {
           <xView v-else key="x" />
         </Transition>
       </div>
-      <div class="flex justify-between items-center w-[183px]">
-        <profileView size="w-[44px] h-[44px] rounded-xl border-2" />
+      <profileView size="w-[44px] h-[44px] rounded-xl border-2 hidden sm:block" />
+      <div class="flex justify-between sm:justify-center items-center w-[183px] sm:w-auto">
+        <profileView size="w-[44px] h-[44px] rounded-xl border-2 block sm:hidden" />
         <resumeView
           customClass="p-3 rounded-xl text-[16px] border-[1px] border-borderColor2"
           btnSize="w-auto h-auto"
