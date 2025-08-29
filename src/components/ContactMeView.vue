@@ -37,17 +37,14 @@ function handleMouseLeave() {
 }
 
 function handleIconMouseEnter() {
-  // اولویت بالاتر برای آیکون‌ها
   currentAvatarSrc.value = avatars.bottom
 }
 
 function handleIconMouseLeave() {
-  // بازگشت به حالت پیش‌فرض
   currentAvatarSrc.value = avatars.default
 }
 
 function handleIconMouseMove(event) {
-  // جلوگیری از bubble شدن event به container
   event.stopPropagation()
   currentAvatarSrc.value = avatars.bottom
 }
@@ -59,23 +56,17 @@ function handleMouseMove(event) {
   const { offsetX, offsetY } = event
   const { offsetWidth: width, offsetHeight: height } = container
 
-  // تعریف نواحی - ناحیه پایین را بزرگتر می‌کنیم
   const leftZoneEnd = width * 0.4
   const rightZoneStart = width * 0.6
-  const bottomZoneStart = height * 0.5 // از 0.6 به 0.4 تغییر دادیم
+  const bottomZoneStart = height * 0.5
 
-  // منطق تشخیص موقعیت موس
-  if (offsetY > bottomZoneStart) {
-    // ناحیه پایین (محل آیکون‌ها) - اولویت اول
+  if (offsetY > bottomZoneStart + 50) {
     currentAvatarSrc.value = avatars.bottom
   } else if (offsetX < leftZoneEnd) {
-    // ناحیه چپ
     currentAvatarSrc.value = avatars.left
   } else if (offsetX > rightZoneStart) {
-    // ناحیه راست
     currentAvatarSrc.value = avatars.right
   } else {
-    // مرکز (روی آواتار) - حالت default
     currentAvatarSrc.value = avatars.default
   }
 }
