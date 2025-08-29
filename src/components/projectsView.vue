@@ -167,7 +167,7 @@ const shouldShowCaseStudyPagination = computed(() => {
               </div>
               <!-- //// -->
               <div class="flex flex-col gap-4 justify-center items-center text-center">
-                <p class="text-[16px] leading-[140%] font-medium text-textColor2">Comming soon</p>
+                <p class="text-[16px] leading-[140%] font-medium text-textColor2">Coming soon</p>
                 <p class="text-[14px] leading-[140%] font-normal text-textColor">
                   New projects will be released soon, so stay tuned.
                 </p>
