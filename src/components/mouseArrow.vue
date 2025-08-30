@@ -1,9 +1,31 @@
 <script setup>
 import ArrowBottom from '@/components/icons/ArrowBottom.vue'
 import mouseIcon from '@/components/icons/mouseIcon.vue'
+import { useSmoothScroll } from '../composables/useSmoothScroll'
+
+const { scrollToNextSection } = useSmoothScroll()
+
+const handleClick = () => {
+  // انیمیشن کوچک برای آیکون
+  const container = document.querySelector('.mouse-arrow-container')
+  if (container) {
+    container.style.transform = 'scale(0.95)'
+    setTimeout(() => {
+      container.style.transform = 'scale(1)'
+    }, 150)
+  }
+
+  // تاخیر کوچک قبل از اسکرول
+  setTimeout(() => {
+    scrollToNextSection()
+  }, 100)
+}
 </script>
 <template>
-  <div class="flex flex-col justify-center py-12 md:py-16">
+    <div 
+    class="mouse-arrow-container flex flex-col justify-center py-12 md:py-16 cursor-pointer hover:opacity-80 transition-all duration-200"
+    @click="handleClick"
+  >
     <div class="flex justify-center items-center self-stretch p-2 aspect-square">
       <mouseIcon class="w-[24px]" />
     </div>
