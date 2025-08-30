@@ -81,7 +81,7 @@ const onSlideChange = (swiper) => {
           {{ item.title }}
         </button>
       </div>
-      <div class="flex flex-col justify-center items-start gap-5">
+            <div class="flex flex-col justify-center items-start gap-5">
         <div class="relative h-[64px] w-full flex items-end">
           <span class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-1">{{
             filtered[0].id
@@ -97,7 +97,7 @@ const onSlideChange = (swiper) => {
     </div>
 
     <!-- //// mobile  -->
-    <div class="md:hidden h-full">
+        <div class="md:hidden h-full">
       <Swiper
         :modules="[Pagination, Autoplay]"
         :slides-per-view="1"
@@ -125,7 +125,7 @@ const onSlideChange = (swiper) => {
               <span class="text-textColor2">{{ item.title }}</span>
             </div>
 
-            <div class="relative h-[56px] w-full flex items-end mt-4">
+                        <div class="relative h-[56px] w-full flex items-end mt-4">
               <span
                 class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-3"
                 >{{ item.id }}</span
@@ -135,7 +135,7 @@ const onSlideChange = (swiper) => {
               </p>
             </div>
 
-            <div class="relative z-10 w-full mt-4">
+                        <div class="relative z-10 w-full mt-4">
               <p class="text-[18px] font-medium text-textColor leading-[25px]">
                 {{ item.description }}
               </p>
@@ -201,4 +201,6 @@ const onSlideChange = (swiper) => {
   background: #fa6b11 !important;
   transform: scale(1.15) !important;
 }
+
+
 </style>

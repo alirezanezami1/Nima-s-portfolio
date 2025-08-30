@@ -1,0 +1,136 @@
+/* انیمیشن‌های اسکرول */
+[data-scroll-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-scroll-animate].animate__animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* انیمیشن‌های کامپوننت‌ها */
+[data-component-scroll-animate] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-component-scroll-animate].animate__animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* انیمیشن‌های اسکرول محور */
+[data-scroll-based-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  visibility: hidden;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s;
+  will-change: opacity, transform, visibility;
+}
+
+[data-scroll-based-animate].animate__animated {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s;
+}
+
+/* بهبود انیمیشن‌های Animate.css */
+.animate__fadeInUp {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate__fadeInDown {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate__fadeInLeft {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate__fadeInRight {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate__zoomIn {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* تاخیرهای انیمیشن */
+.animate__delay-0s { animation-delay: 0s; }
+.animate__delay-0\.1s { animation-delay: 0.1s; }
+.animate__delay-0\.2s { animation-delay: 0.2s; }
+.animate__delay-0\.3s { animation-delay: 0.3s; }
+.animate__delay-0\.4s { animation-delay: 0.4s; }
+.animate__delay-0\.5s { animation-delay: 0.5s; }
+.animate__delay-1s { animation-delay: 1s; }
+
+/* انیمیشن‌های سفارشی */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* کلاس‌های انیمیشن سفارشی */
+.custom-slide-in-bottom {
+  animation: slideInFromBottom 0.8s ease-out;
+}
+
+.custom-slide-in-top {
+  animation: slideInFromTop 0.8s ease-out;
+}
+
+.custom-slide-in-left {
+  animation: slideInFromLeft 0.8s ease-out;
+}
+
+.custom-slide-in-right {
+  animation: slideInFromRight 0.8s ease-out;
+}

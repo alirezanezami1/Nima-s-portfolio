@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from 'vue'
 import AboutmeView from '@/components/AboutmeView.vue'
 import mouseArrow from '@/components/mouseArrow.vue'
 import projectsView from '@/components/projectsView.vue'
@@ -14,15 +15,41 @@ import ArticlesView from '@/components/ArticlesView.vue'
 import PlayListView from '@/components/PlayListView.vue'
 import LocationView from '@/components/LocationView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+// استفاده از کامپوزابل انیمیشن اسکرول
+const { initScrollBasedAnimation } = useScrollAnimation()
+
+// راه‌اندازی انیمیشن‌های اسکرول محور
+onMounted(() => {
+  initScrollBasedAnimation()
+})
 </script>
 
 <template>
   <div class="flex flex-col justify-center items-center gap-5 mb-24 mx-auto max-w-[1440px]">
-    <AboutmeView />
-    <mouseArrow />
-    <projectsView />
+            <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
+    >
+      <AboutmeView />
+    </div>
+    <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
+    >
+      <mouseArrow />
+    </div>
+    <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
+    >
+      <projectsView />
+    </div>
 
     <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
       class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center md:gap-5 gap-6 w-full"
     >
       <FirstSlotComponent class="w-[345px] md:w-[780px]">
@@ -44,6 +71,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
       class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center gap-5 w-full"
     >
       <SecondSlotComponent width="w-[345px] md:w-[380px]" class="h-[380px]">
@@ -68,6 +97,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
       class="flex flex-col flex-wrap md:flex-row md:justify-between justify-center items-center gap-5 w-full"
     >
       <FirstSlotComponent class="w-[345px] md:w-[780px] h-[380px]">
@@ -89,6 +120,8 @@ import BtnTitle from '@/components/BtnTitle.vue'
     </div>
 
     <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
       class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center gap-5 w-full"
     >
       <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]" paddingX="px-0">

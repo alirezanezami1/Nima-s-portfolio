@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import انیمیشن‌های اسکرول */
+@import './scroll-animations.css';
+
 html {
   scroll-behavior: smooth;
   background-color: #f7f8f9;
