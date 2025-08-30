@@ -5,7 +5,7 @@ import BtnTitle from './BtnTitle.vue'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination, Mousewheel } from 'swiper/modules'
+import { Pagination, Mousewheel, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -53,6 +53,31 @@ const displayedProjects = computed(() => {
 const shouldShowCaseStudyPagination = computed(() => {
   return allCaseStudies.value.length > 1
 })
+
+// Function to check if tags should have infinite scroll
+const shouldEnableInfiniteScroll = (tags) => {
+  return tags && tags.length > 2
+}
+
+// Function to get autoplay settings based on tags count
+const getAutoplaySettings = (tags) => {
+  if (!shouldEnableInfiniteScroll(tags)) {
+    return false
+  }
+  return {
+    delay: 0,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  }
+}
+
+// Function to duplicate tags for better infinite scroll effect
+const getDuplicatedTags = (tags) => {
+  if (!tags || tags.length === 0) return []
+  if (tags.length <= 2) return tags
+  // Duplicate tags to ensure smooth infinite scroll
+  return [...tags, ...tags]
+}
 </script>
 
 <template>
@@ -116,10 +141,10 @@ const shouldShowCaseStudyPagination = computed(() => {
                 class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
               >
                 <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
-                  <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
+                  <p class="text-[14px] xl:text-[16px] font-medium leading-[140%] hidden group-hover:block">
                     See More
                   </p>
-                  <ArrowRightUp class="w-[24px]" />
+                  <ArrowRightUp class="w-[20px] xl:w-[24px]" />
                 </a>
               </div>
             </div>
@@ -127,20 +152,28 @@ const shouldShowCaseStudyPagination = computed(() => {
               <!-- //// title  -->
               <div class="flex justify-between items-center self-stretch">
                 <div
-                  class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
+                  class="flex justify-center items-center text-[10px] xl:text-[14px] font-medium leading-[140%] gap-1"
                 >
                   <p class="text-textColor3">{{ project.title }}</p>
                   <p class="text-textColor2">Website</p>
                 </div>
-                <p class="text-[12px] font-normal leading-[140%] text-textColor">
+                <p class="text-[10px] xl:text-[12px] font-normal leading-[140%] text-textColor">
                   {{ project.project_type }}
                 </p>
               </div>
               <!-- //// slider  -->
-              <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
-                <SwiperSlide v-for="tag in project.tags" :key="tag" class="!w-auto">
+              <Swiper
+                :slides-per-view="'auto'"
+                :space-between="4"
+                :modules="[Autoplay]"
+                :autoplay="getAutoplaySettings(project.tags)"
+                :speed="3000"
+                :loop="shouldEnableInfiniteScroll(project.tags)"
+                class="w-full tags-swiper"
+              >
+                <SwiperSlide v-for="(tag, index) in getDuplicatedTags(project.tags)" :key="`${tag}-${index}`" class="!w-auto">
                   <div
-                    class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[14px] font-normal leading-[140%] text-textColor2"
+                    class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[10px] xl:text-[12px] font-normal leading-[140%] text-textColor2"
                   >
                     {{ tag }}
                   </div>
@@ -159,17 +192,17 @@ const shouldShowCaseStudyPagination = computed(() => {
               <div class="relative flex items-center justify-center p-[5px]">
                 <img
                   src="../assets/images/Frame 48097816.png"
-                  class="w-[32px] h-[32px]"
+                  class="w-[28px] h-[28px] xl:w-[32px] xl:h-[32px]"
                   alt="img"
                 />
                 <span
-                  class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                  class="h-8 w-8 xl:h-10 xl:w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
                 ></span>
               </div>
               <!-- //// -->
               <div class="flex flex-col gap-4 justify-center items-center text-center">
-                <p class="text-[16px] leading-[140%] font-medium text-textColor2">Coming soon</p>
-                <p class="text-[14px] leading-[140%] font-normal text-textColor">
+                <p class="text-[14px] xl:text-[16px] leading-[140%] font-medium text-textColor2">Coming soon</p>
+                <p class="text-[12px] xl:text-[14px] leading-[140%] font-normal text-textColor">
                   New projects will be released soon, so stay tuned.
                 </p>
               </div>
@@ -225,8 +258,16 @@ const shouldShowCaseStudyPagination = computed(() => {
                     </p>
                   </div>
                   <!-- //// slider  -->
-                  <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
-                    <SwiperSlide v-for="tag in project.tags" :key="tag" class="!w-auto">
+                  <Swiper
+                    :slides-per-view="'auto'"
+                    :space-between="4"
+                    :modules="[Autoplay]"
+                    :autoplay="getAutoplaySettings(project.tags)"
+                    :speed="3000"
+                    :loop="shouldEnableInfiniteScroll(project.tags)"
+                    class="w-full tags-swiper"
+                  >
+                    <SwiperSlide v-for="(tag, index) in getDuplicatedTags(project.tags)" :key="`${tag}-${index}`" class="!w-auto">
                       <div
                         class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[14px] font-normal leading-[140%] text-textColor2"
                       >
@@ -315,8 +356,16 @@ const shouldShowCaseStudyPagination = computed(() => {
                   </p>
                 </div>
                 <!-- //// slider  -->
-                <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
-                  <SwiperSlide v-for="tag in project.tags" :key="tag" class="!w-auto">
+                <Swiper
+                  :slides-per-view="'auto'"
+                  :space-between="4"
+                  :modules="[Autoplay]"
+                  :autoplay="getAutoplaySettings(project.tags)"
+                  :speed="3000"
+                  :loop="shouldEnableInfiniteScroll(project.tags)"
+                  class="w-full tags-swiper"
+                >
+                  <SwiperSlide v-for="(tag, index) in getDuplicatedTags(project.tags)" :key="`${tag}-${index}`" class="!w-auto">
                     <div
                       class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[12px] md:text-[14px] font-normal leading-[140%] text-textColor2"
                     >
@@ -535,8 +584,16 @@ const shouldShowCaseStudyPagination = computed(() => {
                     {{ caseStudy.project_type_mobile }}
                   </p>
                 </div>
-                <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
-                  <SwiperSlide v-for="tag in caseStudy.tags" :key="tag" class="!w-auto">
+                <Swiper
+                  :slides-per-view="'auto'"
+                  :space-between="4"
+                  :modules="[Autoplay]"
+                  :autoplay="getAutoplaySettings(caseStudy.tags)"
+                  :speed="3000"
+                  :loop="shouldEnableInfiniteScroll(caseStudy.tags)"
+                  class="w-full tags-swiper"
+                >
+                  <SwiperSlide v-for="(tag, index) in getDuplicatedTags(caseStudy.tags)" :key="`${tag}-${index}`" class="!w-auto">
                     <div
                       class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[12px] md:text-[14px] font-normal leading-[140%] text-textColor2"
                     >
@@ -702,5 +759,33 @@ const shouldShowCaseStudyPagination = computed(() => {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+/* Tags Swiper Infinite Scroll Styles */
+:deep(.tags-swiper) {
+  overflow: hidden !important;
+}
+
+:deep(.tags-swiper .swiper-wrapper) {
+  transition-timing-function: linear !important;
+  will-change: transform !important;
+}
+
+:deep(.tags-swiper .swiper-slide) {
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+}
+
+:deep(.tags-swiper:hover .swiper-wrapper) {
+  animation-play-state: paused !important;
+}
+
+/* Ensure smooth scrolling for infinite loop */
+:deep(.tags-swiper.swiper-container-initialized) {
+  overflow: visible !important;
+}
+
+:deep(.tags-swiper .swiper-slide-active) {
+  z-index: 1 !important;
 }
 </style>
