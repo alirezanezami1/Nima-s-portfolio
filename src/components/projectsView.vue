@@ -98,7 +98,8 @@ const shouldShowCaseStudyPagination = computed(() => {
 
       <div v-if="activeTab === 'projects'">
         <!-- //// info  -->
-        <div class="hidden md:grid md:grid-cols-4 gap-5">
+        <!-- Desktop Grid Layout (Original) -->
+        <div class="hidden lg:grid lg:grid-cols-4 gap-5">
           <div
             v-for="project in displayedProjects"
             :key="project.id"
@@ -174,6 +175,99 @@ const shouldShowCaseStudyPagination = computed(() => {
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Medium Screen Slider (md to lg) -->
+        <div class="hidden md:block lg:hidden">
+          <Swiper
+            @swiper="onSwiper"
+            :slides-per-view="'auto'"
+            :space-between="20"
+            :modules="[Pagination]"
+            :pagination="{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 4,
+            }"
+            class="w-[680px] mx-auto"
+          >
+            <SwiperSlide v-for="project in allProjects" :key="project.id" class="!w-[calc(40%-10px)]">
+              <div class="flex flex-col justify-center items-center gap-2 rounded-2xl w-full">
+                <div class="relative">
+                  <img
+                    :src="project.image_url"
+                    :alt="project.title"
+                    class="w-full h-auto bg-orange-200 rounded-2xl"
+                  />
+                  <!-- //// link  -->
+                  <div
+                    class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
+                  >
+                    <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
+                      <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
+                        See More
+                      </p>
+                      <ArrowRightUp class="w-[24px]" />
+                    </a>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-center items-start gap-3 w-full">
+                  <!-- //// title  -->
+                  <div class="flex justify-between items-center self-stretch">
+                    <div
+                      class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
+                    >
+                      <p class="text-textColor3">{{ project.title }}</p>
+                      <p class="text-textColor2">Website</p>
+                    </div>
+                    <p class="text-[12px] font-normal leading-[140%] text-textColor">
+                      {{ project.project_type }}
+                    </p>
+                  </div>
+                  <!-- //// slider  -->
+                  <Swiper :slides-per-view="'auto'" :space-between="6" class="w-full">
+                    <SwiperSlide v-for="tag in project.tags" :key="tag" class="!w-auto">
+                      <div
+                        class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[14px] font-normal leading-[140%] text-textColor2"
+                      >
+                        {{ tag }}
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+                </div>
+              </div>
+            </SwiperSlide>
+
+            <!-- //// coming soon slide for medium screen -->
+            <SwiperSlide class="!w-[calc(40%-10px)]">
+              <div
+                class="w-full h-[400px] flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
+              >
+                <div class="flex flex-col gap-8">
+                  <!-- /// -->
+                  <div class="relative flex items-center justify-center p-[5px]">
+                    <img
+                      src="../assets/images/Frame 48097816.png"
+                      class="w-[32px] h-[32px]"
+                      alt="img"
+                    />
+                    <span
+                      class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                    ></span>
+                  </div>
+                  <!-- //// -->
+                  <div class="flex flex-col gap-4 justify-center items-center text-center">
+                    <p class="text-[16px] leading-[140%] font-medium text-textColor2">
+                      Coming soon
+                    </p>
+                    <p class="text-[14px] leading-[140%] font-normal text-textColor">
+                      New projects will be released soon, so stay tuned.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
 
         <!-- /// mobile  -->
@@ -266,7 +360,7 @@ const shouldShowCaseStudyPagination = computed(() => {
         </div>
 
         <!-- //// btn  -->
-        <div v-if="allProjects.length > 3" class="mt-8 hidden md:flex justify-center items-center">
+        <div v-if="allProjects.length > 3" class="mt-8 hidden lg:flex justify-center items-center">
           <button
             @click="showAllProjects = !showAllProjects"
             class="inline-flex justify-center items-center font-medium gap-1 py-3 pr-3 pl-[18px] rounded-full border-[1px] border-borderColor2"
@@ -494,6 +588,11 @@ const shouldShowCaseStudyPagination = computed(() => {
   width: 100% !important;
   text-align: center !important;
   padding: 16px 0 !important;
+}
+
+/* Medium Screen Slider Styles */
+:deep(.swiper-slide) {
+  height: auto !important;
 }
 
 :deep(.swiper-pagination-bullet) {
