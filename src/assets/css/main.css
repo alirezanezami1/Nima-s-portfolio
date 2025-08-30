@@ -6,3 +6,19 @@ html {
   scroll-behavior: smooth;
   background-color: #f7f8f9;
 }
+
+/* حالت اولیه تمام عناصری که می‌خواهیم انیمیشن داشته باشند */
+.fade-in-up {
+  opacity: 0;
+  /* کمی عنصر را به پایین هل می‌دهیم */
+  transform: translateY(30px);
+  /* سرعت و نوع انیمیشن را تعریف می‌کنیم */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* کلاسی که هنگام دیده شدن عنصر به آن اضافه می‌شود */
+.fade-in-up.is-visible {
+  opacity: 1;
+  /* عنصر به جای اصلی خود برمی‌گردد */
+  transform: translateY(0);
+}
