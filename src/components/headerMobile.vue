@@ -36,6 +36,7 @@ const scrollToSection = (sectionId) => {
 <template>
   <div
     class="flex p-[14px] gap-8 flex-col items-start w-full border-4 border-borderColor bg-mainBg2 rounded-[20px] shadow-menuShadow"
+    style="background: linear-gradient(180deg, #F7F8F9 0%, rgba(247, 248, 249, 0.00) 100%);"
   >
     <div class="flex justify-between items-center self-stretch z-50">
       <div

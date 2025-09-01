@@ -56,6 +56,7 @@ const scrollToSection = (sectionId) => {
 <template>
   <div
     class="font-Roboto hidden md:flex md:px-[20px] lg:px-[50px] xl:px-[100px] 2xl:px-[130px] py-[40px] lg:py-[45px] xl:py-[52px] justify-center items-center md:gap-[20px] lg:gap-[50px] xl:gap-[120px] 2xl:gap-[220px] bg-transparent fixed w-full z-50"
+    style="background: linear-gradient(180deg, #F7F8F9 0%, rgba(247, 248, 249, 0.00) 100%);"
   >
     <!-- /// profile  -->
     <profileView />
