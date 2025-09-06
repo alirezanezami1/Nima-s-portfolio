@@ -81,7 +81,9 @@ const scrollToSection = (sectionId) => {
     </div>
     <!-- /// menu  -->
   </div>
-  <div class="flex md:hidden w-full p-6 fixed z-50">
+  <div class="flex md:hidden w-full p-6 fixed z-50"
+  style="background: linear-gradient(180deg, #F7F8F9 0%, rgba(247, 248, 249, 0.00) 100%);"
+  >
     <headerMobile :navLinks="navLinks" />
   </div>
 </template>
