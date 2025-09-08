@@ -57,7 +57,7 @@ const scrollToSection = (sectionId) => {
       </div>
     </div>
 
-    <!-- /// menu  -->
+    <!-- /// menu //  -->
     <Transition
       enter-from-class="opacity-0 -translate-y-2/3"
       enter-active-class="transition-all duration-300 ease-in-out"
