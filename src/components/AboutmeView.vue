@@ -1,8 +1,7 @@
 <script setup>
 import statusBtn from './statusBtn.vue'
 import ArrowBottom from './icons/ArrowBottom.vue'
-import CallModal from './CallModal.vue'
-import { computed, ref } from 'vue'
+import { computed, ref, inject } from 'vue'
 import { useSupabaseData } from '@/composables/useSupabaseData'
 import MouseAboutRight from './icons/MouseAboutRight.vue'
 import MouseAboutLeft from './icons/MouseAboutLeft.vue'
@@ -12,7 +11,6 @@ const txtAboutMe = ref(
 )
 
 const showMore = ref(false)
-const showModal = ref(false)
 
 const slicedTxt = computed(() => {
   return `${txtAboutMe.value.slice(0, 98)}...`
@@ -23,13 +21,8 @@ const { data: mouse_txt } = useSupabaseData('mouse_txt', {
   ascending: false,
 })
 
-const openModal = () => {
-  showModal.value = true
-}
-
-const closeModal = () => {
-  showModal.value = false
-}
+// Inject the openModal function from App.vue
+const openModal = inject('openModal')
 </script>
 
 <template>
@@ -152,8 +145,6 @@ const closeModal = () => {
       </div>
     </div>
 
-    <!-- Modal -->
-    <CallModal v-if="showModal" @close="closeModal" />
   </section>
 </template>
 

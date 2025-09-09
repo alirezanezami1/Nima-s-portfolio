@@ -28,13 +28,15 @@ const closeModal = () => {
 
 const closeSuccessModal = () => {
   showSuccessModal.value = false
-  // Don't call closeModal here, just reset the form
+  // Reset the form
   formData.value = {
     fullName: '',
     email: '',
     subject: '',
     description: '',
   }
+  // Close the main modal as well
+  closeModal()
 }
 
 const closeErrorModal = () => {
@@ -112,10 +114,16 @@ const sendRequest = async () => {
 // Prevent body scrolling when modal is open
 onMounted(() => {
   document.body.style.overflow = 'hidden'
+  document.body.style.position = 'fixed'
+  document.body.style.width = '100%'
+  document.body.style.height = '100%'
 })
 
 onUnmounted(() => {
   document.body.style.overflow = 'auto'
+  document.body.style.position = ''
+  document.body.style.width = ''
+  document.body.style.height = ''
 })
 </script>
 
@@ -123,8 +131,8 @@ onUnmounted(() => {
   <Transition name="modal" appear>
     <div
       v-if="!showSuccessModal && !showErrorModal && !isClosing"
-      class="fixed inset-0 z-50 flex items-end md:items-center justify-center md:p-4"
-      style="background: rgba(8, 9, 13, 0.64)"
+      class="fixed inset-0 z-[99999] flex items-end md:items-center justify-center md:p-4"
+      style="background: rgba(8, 9, 13, 0.64); backdrop-filter: blur(4px);"
       @click="closeModal"
     >
       <!-- Main Modal Content -->
@@ -268,6 +276,17 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+/* Ensure modal covers entire viewport */
+.fixed {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
 /* Mobile-specific adjustments */
 @media (max-width: 640px) {
   .fixed {

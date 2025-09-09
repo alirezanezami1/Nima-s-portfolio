@@ -13,8 +13,8 @@ const retrySending = () => {
 
 <template>
   <div
-    class="fixed inset-0 z-50 flex items-end md:items-center justify-center md:p-4"
-    style="background: rgba(8, 9, 13, 0.64)"
+    class="fixed inset-0 z-[100000] flex items-end md:items-center justify-center md:p-4"
+    style="background: rgba(8, 9, 13, 0.64); backdrop-filter: blur(4px);"
     @click="closeModal"
   >
     <div
