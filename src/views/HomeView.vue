@@ -50,9 +50,9 @@ onMounted(() => {
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center md:gap-5 gap-6 w-full"
+      class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-5 gap-6 w-full"
     >
-      <FirstSlotComponent class="w-[345px] md:w-[780px]">
+      <FirstSlotComponent>
         <template #header>
           <BtnTitle title="My Experience" />
         </template>
@@ -60,7 +60,7 @@ onMounted(() => {
           <ExperienceView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[345px] md:w-[380px]">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]">
         <template #header>
           <BtnTitle title="Skills" />
         </template>
@@ -73,9 +73,9 @@ onMounted(() => {
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center gap-5 w-full"
+      class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-5 gap-6 w-full"
     >
-      <SecondSlotComponent width="w-[345px] md:w-[380px]" class="h-[380px]">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]" class="h-[380px] sm:h-[430px] xl:h-[380px]">
         <template #header>
           <BtnTitle title="Tools" />
         </template>
@@ -84,7 +84,6 @@ onMounted(() => {
         </template>
       </SecondSlotComponent>
       <FirstSlotComponent
-        class="w-[345px] md:w-[780px] h-[482px] md:h-[380px] relative"
         id="howIWork"
       >
         <template #header>
@@ -109,7 +108,7 @@ onMounted(() => {
           <CommentsView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]">
         <template #header>
           <BtnTitle title="Contact Me" />
         </template>
@@ -124,7 +123,7 @@ onMounted(() => {
       data-animation="animate__animated animate__fadeInUp"
       class="flex md:justify-between flex-wrap justify-center flex-col md:flex-row items-center gap-5 w-full"
     >
-      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]" paddingX="px-0">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" paddingX="px-0">
         <template #header>
           <BtnTitle title="My last articles" class="mx-5" />
         </template>
@@ -132,7 +131,7 @@ onMounted(() => {
           <ArticlesView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px] " paddingX="px-0">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] " paddingX="px-0">
         <template #header>
           <BtnTitle title="My Music Playlist" class="mx-5" />
         </template>
@@ -140,7 +139,7 @@ onMounted(() => {
           <PlayListView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent width="w-[345px] md:w-[380px] h-[380px]" class="relative">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" class="relative">
         <template #header>
           <BtnTitle title="My Location" class="hidden" />
         </template>

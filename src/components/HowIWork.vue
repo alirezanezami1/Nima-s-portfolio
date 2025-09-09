@@ -15,6 +15,7 @@ const items = ref([
     name: 'Getting to know',
     description:
       "In the first stage, we'll have a Discovery Call to discuss your business goals, user needs, and project requirements. This helps us align our vision and set a clear path forward.",
+
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none"><circle cx="8.83333" cy="5.00033" r="3.33333" stroke="#212121" stroke-width="1.5"/><ellipse cx="8.83333" cy="14.1663" rx="5.83333" ry="3.33333" stroke="#212121" stroke-width="1.5"/><path d="M16.333 1.66699C16.333 1.66699 17.9997 2.66699 17.9997 5.00033C17.9997 7.33366 16.333 8.33366 16.333 8.33366" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/><path d="M14.667 3.33301C14.667 3.33301 15.5003 3.83301 15.5003 4.99967C15.5003 6.16634 14.667 6.66634 14.667 6.66634" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/></svg>',
   },
   {
@@ -63,7 +64,7 @@ const onSlideChange = (swiper) => {
 <template>
   <section>
     <!-- //// desktop  -->
-    <div class="hidden md:flex flex-col justify-center items-start gap-6">
+    <div class="hidden xl:flex flex-col justify-center items-start gap-6">
       <div
         class="flex justify-center items-start flex-grow flex-basis-0 flex-shrink-0 w-full rounded-[50px] bg-mainBg"
       >
@@ -97,7 +98,7 @@ const onSlideChange = (swiper) => {
     </div>
 
     <!-- //// mobile  -->
-        <div class="md:hidden h-full">
+        <div class="xl:hidden h-full">
       <Swiper
         :modules="[Pagination, Autoplay]"
         :slides-per-view="1"
@@ -119,20 +120,10 @@ const onSlideChange = (swiper) => {
           <div class="relative flex flex-col justify-center items-center">
             <!-- Step Indicator -->
             <div
-              class="w-[295px] flex items-center gap-3 justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
+              class="w-[295px] md:w-[270px] flex items-center gap-3 justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
             >
               <div v-html="item.icon" class="opacity-35"></div>
               <span class="text-textColor2">{{ item.title }}</span>
-            </div>
-
-                        <div class="relative h-[56px] w-full flex items-end mt-4">
-              <span
-                class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-3"
-                >{{ item.id }}</span
-              >
-              <p class="text-[20px] font-bold leading-[140%] text-textColor2 text-start">
-                {{ item.name }}
-              </p>
             </div>
 
                         <div class="relative z-10 w-full mt-4">

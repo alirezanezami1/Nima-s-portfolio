@@ -222,7 +222,7 @@ const getDuplicatedTags = (tags) => {
               dynamicBullets: true,
               dynamicMainBullets: 4,
             }"
-            class="w-[680px] mx-auto"
+            class="w-[600px] md:w-[680px] mx-auto"
           >
             <SwiperSlide v-for="project in allProjects" :key="project.id" class="!w-[calc(40%-10px)]">
               <div class="flex flex-col justify-center items-center gap-2 rounded-2xl w-full">
