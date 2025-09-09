@@ -20,7 +20,7 @@ provide('openModal', openModal)
 
 <template>
   <headerView />
-  <RouterView class="font-Roboto px-6 md:px-[130px] bg-mainBg max-w-[1440px]" />
+  <RouterView class="font-Roboto px-6 sm:px-8 lg:px-[130px] bg-mainBg max-w-[1440px]" />
   <FooterView />
 
   <!-- Global Modal -->
