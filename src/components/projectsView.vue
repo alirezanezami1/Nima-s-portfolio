@@ -211,7 +211,7 @@ const getDuplicatedTags = (tags) => {
         </div>
 
         <!-- Medium Screen Slider (md to lg) -->
-        <div class="hidden md:block lg:hidden">
+        <div class="hidden sm:block lg:hidden">
           <Swiper
             @swiper="onSwiper"
             :slides-per-view="'auto'"
@@ -312,7 +312,7 @@ const getDuplicatedTags = (tags) => {
         </div>
 
         <!-- /// mobile  -->
-        <div class="block md:hidden">
+        <div class="block sm:hidden">
           <Swiper
             @swiper="onSwiper"
             :slides-per-view="'1.1'"
