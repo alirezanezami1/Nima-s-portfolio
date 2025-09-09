@@ -29,11 +29,11 @@ onMounted(() => {
 <template>
   <div class="flex flex-col justify-center items-center gap-5 mb-24 mx-auto max-w-[1440px]">
             <div
-      data-scroll-based-animate="true"
-      data-animation="animate__animated animate__fadeInUp"
-    >
-      <AboutmeView />
-    </div>
+              data-scroll-based-animate="true"
+              data-animation="animate__animated animate__fadeInUp"
+              >
+              <AboutmeView />
+            </div>
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
