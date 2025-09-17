@@ -60,7 +60,7 @@ onMounted(() => {
           <ExperienceView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]">
+      <SecondSlotComponent width="" class="w-[345px] sm:w-[330px] lg:w-[380px]">
         <template #header>
           <BtnTitle title="Skills" />
         </template>

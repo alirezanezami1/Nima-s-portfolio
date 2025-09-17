@@ -98,7 +98,50 @@ const {
   transform: rotate(30deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
+  .background2 {
+    width: 330px !important;
+    left: -40px !important;
+  }
+  .skills-cloud > *:nth-child(1) {
+    top: 50px;
+    left: -20px;
+    transform: rotate(-6deg);
+  }
+  .skills-cloud > *:nth-child(2) {
+    position: absolute;
+    bottom: 60px;
+    right: -30px;
+    transform: rotate(34deg);
+  }
+  .skills-cloud > *:nth-child(3) {
+    position: absolute;
+    bottom: 147px;
+    left: 60px;
+    transform: rotate(-44.321deg);
+  }
+  .skills-cloud > *:nth-child(4) {
+    position: absolute;
+    bottom: 115px;
+    left: -50px;
+    transform: rotate(-48.546deg);
+  }
+  .skills-cloud > *:nth-child(5) {
+    position: absolute;
+    right: -40px;
+    bottom: 105px;
+    transform: rotate(30deg);
+  }
+  .skills-cloud > *:nth-child(6) {
+    position: absolute;
+    bottom: 48px;
+    left: -35px;
+    transform: rotate(-24deg);
+  }
+}
+
+
+@media (max-width: 640px) {
   .background2 {
     width: 345px !important;
     left: -40px !important;
