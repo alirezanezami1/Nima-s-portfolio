@@ -17,10 +17,8 @@ import LocationView from '@/components/LocationView.vue'
 import BtnTitle from '@/components/BtnTitle.vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
-// استفاده از کامپوزابل انیمیشن اسکرول
 const { initScrollBasedAnimation } = useScrollAnimation()
 
-// راه‌اندازی انیمیشن‌های اسکرول محور
 onMounted(() => {
   initScrollBasedAnimation()
 })
@@ -60,7 +58,7 @@ onMounted(() => {
           <ExperienceView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent class="w-[345px] sm:w-[330px] lg:w-[380px]">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]">
         <template #header>
           <BtnTitle title="Skills" />
         </template>
@@ -75,7 +73,7 @@ onMounted(() => {
       data-animation="animate__animated animate__fadeInUp"
       class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full"
     >
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]" class="h-[380px] sm:h-[430px] xl:h-[380px]">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]" class="h-[380px] sm:h-[430px] lg:h-[340px] xl:h-[360px]">
         <template #header>
           <BtnTitle title="Tools" />
         </template>
@@ -121,9 +119,9 @@ onMounted(() => {
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center flex-col sm:flex-row items-center gap-5 w-full"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-5 w-full"
     >
-      <SecondSlotComponent class="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] lg:hidden">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] lg:hidden">
         <template #header>
           <BtnTitle title="Contact Me" />
         </template>
@@ -131,7 +129,7 @@ onMounted(() => {
           <ContactMeView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent class="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" paddingX="px-0">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" paddingX="px-0">
         <template #header>
           <BtnTitle title="My last articles" class="mx-5" />
         </template>
@@ -139,7 +137,7 @@ onMounted(() => {
           <ArticlesView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent class="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] " paddingX="px-0">
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] " paddingX="px-0">
         <template #header>
           <BtnTitle title="My Music Playlist" class="mx-5" />
         </template>
@@ -147,7 +145,7 @@ onMounted(() => {
           <PlayListView />
         </template>
       </SecondSlotComponent>
-      <SecondSlotComponent class="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] relative" >
+      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] relative" >
         <template #header>
           <BtnTitle title="My Location" class="hidden" />
         </template>

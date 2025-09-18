@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-full">
+  <div class="relative flex justify-start items-center flex-wrap w-full h-full">
     <img
       src="../assets/images/Tools/2P.png"
       alt="tool"
