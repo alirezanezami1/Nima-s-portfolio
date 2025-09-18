@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       screens: {
+        '2xl/2': '1330px',
         'xxl': '1440px',
       },
       fontFamily: {

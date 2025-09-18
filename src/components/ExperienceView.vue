@@ -24,25 +24,25 @@ const {
     <div v-else-if="error">مشکل در ارتباط با سرور</div>
     <div
       v-else
-      class="relative h-[300px] overflow-y-auto w-[345px] sm:w-[330px] xl:w-full"
+      class="relative h-[300px] overflow-y-auto w-[345px] sm:w-[330px] lg:w-full"
       style="scrollbar-width: none"
     >
       <div
         v-for="(item, index) in experiences"
         :key="item.id"
-        class="flex justify-center items-start gap-3 xl:gap-6 min-w-full w-full"
-        :class="{ '-mt-3 xl:-mt-2': index !== 0 }"
+        class="flex justify-center items-start gap-3 lg:gap-6 min-w-full w-full"
+        :class="{ '-mt-3 lg:-mt-2': index !== 0 }"
       >
         <ExperienceIcon />
-        <div class="flex flex-col xl:flex-row justify-center items-center relative w-full">
+        <div class="flex flex-col lg:flex-row justify-center items-center relative w-full">
           <div
-            class="flex gap-2 flex-col xl:gap-0 xl:flex-row justify-between items-start xl:items-center w-full"
+            class="flex gap-2 flex-col lg:gap-0 lg:flex-row justify-between items-start lg:items-center w-full"
           >
-            <p class="text-textColor2 font-semibold text-[16px] xl:text-[20px] leading-[140%]">
+            <p class="text-textColor2 font-semibold text-[16px] lg:text-[20px] leading-[140%]">
               {{ item.title }} {{ item.company }}
             </p>
             <div
-              class="flex justify-center items-start gap-2 text-textColor text-[12px] xl:text-[18px] leading-[140%] font-normal"
+              class="flex justify-center items-start gap-2 text-textColor text-[12px] lg:text-[18px] leading-[140%] font-normal"
             >
               {{ item.date_display }}
               <svg
