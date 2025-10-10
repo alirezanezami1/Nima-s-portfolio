@@ -62,7 +62,7 @@ const onSlideChange = (swiper) => {
 </script>
 
 <template>
-  <section>
+  <section id="howIWork">
     <!-- //// desktop  -->
     <div class="hidden xl:flex flex-col justify-center items-start gap-6 w-[345px] sm:w-[330px] lg:w-full">
       <div
