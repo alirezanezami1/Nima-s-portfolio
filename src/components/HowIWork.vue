@@ -82,7 +82,7 @@ const onSlideChange = (swiper) => {
           {{ item.title }}
         </button>
       </div>
-            <div class="flex flex-col justify-center items-start gap-5">
+      <div class="flex flex-col justify-center items-start gap-2 mb-5">
         <div class="relative h-[64px] w-full flex items-end">
           <span class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-1">{{
             filtered[0].id
