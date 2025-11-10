@@ -6,14 +6,19 @@ import { useSupabaseData } from '@/composables/useSupabaseData'
 import MouseAboutRight from './icons/MouseAboutRight.vue'
 import MouseAboutLeft from './icons/MouseAboutLeft.vue'
 
-const txtAboutMe = ref(
-  ' I believe that a successful user experience design begins with empathy for the users.Design, for me, is a tool to create positive, lasting human, personal, and social values. As a UX/UI designer, I strive to turn user problems into opportunities for innovation. My goal is to create experiences that not only address challenges but also leave a meaningful and memorable impact on users lives, while achieving business objectives.',
-)
+const {
+  data: aboutme_txt,
+} = useSupabaseData('aboutme_txt', {
+  orderBy: 'created_at',
+  ascending: false,
+})
+
+
 
 const showMore = ref(false)
 
 const slicedTxt = computed(() => {
-  return `${txtAboutMe.value.slice(0, 98)}...`
+  return `${aboutme_txt.value.slice(0, 98)}...`
 })
 
 const { data: mouse_txt } = useSupabaseData('mouse_txt', {
@@ -89,7 +94,7 @@ const openModal = inject('openModal')
             <p
               class="text-textColor text-ellipsis text-[20px] leading-7 font-normal hidden sm:block"
             >
-              {{ txtAboutMe }}
+              {{ aboutme_txt[0]?.text }}
             </p>
             <Transition name="aboutTxt" mode="out-in">
               <p
@@ -97,14 +102,14 @@ const openModal = inject('openModal')
                 class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block sm:hidden"
                 v-if="showMore"
               >
-                {{ txtAboutMe }}
+                {{ aboutme_txt[0]?.text }}
               </p>
               <p
                 key="slicedTxt"
                 class="text-textColor text-ellipsis text-[20px] leading-7 font-normal block sm:hidden"
                 v-else
               >
-                {{ slicedTxt }}
+                {{ aboutme_txt[0]?.text.slice(0, 98).concat('...') }}
               </p>
             </Transition>
             <div

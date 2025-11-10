@@ -45,28 +45,18 @@ const scrollToSection = (sectionId) => {
   console.log('Element found:', element) // برای دیباگ
 
   if (element) {
-    // استفاده از getBoundingClientRect برای محاسبه دقیق
     const rect = element.getBoundingClientRect()
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop
     const elementTop = rect.top + scrollTop
     const headerHeight = 150
     const targetPosition = elementTop - headerHeight
 
-    console.log('Element top:', elementTop)
-    console.log('Target position:', targetPosition)
-    console.log('Current scroll:', scrollTop)
-
-    // اسکرول به موقعیت محاسبه شده
     window.scrollTo({
       top: Math.max(0, targetPosition),
       behavior: 'smooth'
     })
 
-    // به‌روزرسانی activeSection
     activeSection.value = sectionId
-    console.log('Scroll command executed')
-  } else {
-    console.error('Element not found:', sectionId)
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import AboutmeView from '@/components/AboutmeView.vue'
 import mouseArrow from '@/components/mouseArrow.vue'
 import projectsView from '@/components/projectsView.vue'
@@ -19,8 +19,26 @@ import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
 const { initScrollBasedAnimation } = useScrollAnimation()
 
+const isLargeScreen = ref(false)
+
+const updateScreenSize = () => {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  isLargeScreen.value = window.matchMedia('(min-width: 1024px)').matches
+}
+
+updateScreenSize()
+
 onMounted(() => {
+  updateScreenSize()
+  window.addEventListener('resize', updateScreenSize)
   initScrollBasedAnimation()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenSize)
 })
 </script>
 
@@ -106,7 +124,10 @@ onMounted(() => {
           <CommentsView />
         </template>
       </FirstSlotComponent>
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" class="max-lg:hidden">
+      <SecondSlotComponent
+        v-if="isLargeScreen"
+        width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]"
+      >
         <template #header>
           <BtnTitle title="Contact Me" />
         </template>
@@ -121,7 +142,10 @@ onMounted(() => {
       data-animation="animate__animated animate__fadeInUp"
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-5 w-full"
     >
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] lg:hidden">
+      <SecondSlotComponent
+        v-if="!isLargeScreen"
+        width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]"
+      >
         <template #header>
           <BtnTitle title="Contact Me" />
         </template>
