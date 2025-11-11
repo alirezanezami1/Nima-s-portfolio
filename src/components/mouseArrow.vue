@@ -23,7 +23,7 @@ const handleClick = () => {
 </script>
 <template>
     <div
-    class="mouse-arrow-container flex flex-col justify-center pb-8 cursor-pointer hover:opacity-80 transition-all duration-200"
+    class="mouse-arrow-container flex flex-col justify-center pb-6 cursor-pointer hover:opacity-80 transition-all duration-200"
     @click="handleClick"
   >
     <div class="flex justify-center items-center self-stretch p-2 aspect-square">
