@@ -30,7 +30,7 @@ const openModal = inject('openModal')
 <template>
   <section id="about">
     <div
-      class="flex flex-col justify-center items-center gap-8 pt-[150px] sm:pt-[186px] relative"
+      class="flex flex-col justify-center items-center gap-8 pt-[150px] sm:pt-[186px] relative mb-12"
     >
       <!-- /// intro  -->
       <div class="flex flex-col justify-center items-center sm:gap-[40px]">
