@@ -1,10 +1,11 @@
 <script setup>
 import statusBtn from './statusBtn.vue'
 import ArrowBottom from './icons/ArrowBottom.vue'
-import { computed, ref, inject } from 'vue'
+import { ref, inject } from 'vue'
 import { useSupabaseData } from '@/composables/useSupabaseData'
 import MouseAboutRight from './icons/MouseAboutRight.vue'
 import MouseAboutLeft from './icons/MouseAboutLeft.vue'
+import mouseArrow from './mouseArrow.vue'
 
 const {
   data: aboutme_txt,
@@ -16,10 +17,6 @@ const {
 
 
 const showMore = ref(false)
-
-const slicedTxt = computed(() => {
-  return `${aboutme_txt.value.slice(0, 98)}...`
-})
 
 const { data: mouse_txt } = useSupabaseData('mouse_txt', {
   orderBy: 'created_at',
@@ -79,6 +76,13 @@ const openModal = inject('openModal')
           Book a call
         </button>
       </div>
+
+      <div
+      data-scroll-based-animate="true"
+      data-animation="animate__animated animate__fadeInUp"
+    >
+      <mouseArrow />
+    </div>
 
       <!-- /// about me  -->
       <div

@@ -22,8 +22,8 @@ const handleClick = () => {
 }
 </script>
 <template>
-    <div 
-    class="mouse-arrow-container flex flex-col justify-center py-12 md:py-16 cursor-pointer hover:opacity-80 transition-all duration-200"
+    <div
+    class="mouse-arrow-container flex flex-col justify-center cursor-pointer hover:opacity-80 transition-all duration-200"
     @click="handleClick"
   >
     <div class="flex justify-center items-center self-stretch p-2 aspect-square">

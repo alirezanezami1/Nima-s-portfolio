@@ -54,12 +54,6 @@ onUnmounted(() => {
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
     >
-      <mouseArrow />
-    </div>
-    <div
-      data-scroll-based-animate="true"
-      data-animation="animate__animated animate__fadeInUp"
-    >
       <projectsView />
     </div>
 
