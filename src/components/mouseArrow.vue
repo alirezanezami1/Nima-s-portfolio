@@ -3,7 +3,7 @@ import ArrowBottom from '@/components/icons/ArrowBottom.vue'
 import mouseIcon from '@/components/icons/mouseIcon.vue'
 import { useSmoothScroll } from '../composables/useSmoothScroll'
 
-const { scrollToNextSection } = useSmoothScroll()
+const { scrollToNextSection, scrollToElement } = useSmoothScroll()
 
 const handleClick = () => {
   // انیمیشن کوچک برای آیکون
@@ -17,6 +17,13 @@ const handleClick = () => {
 
   // تاخیر کوچک قبل از اسکرول
   setTimeout(() => {
+    const projectsSection = document.getElementById('projects')
+
+    if (projectsSection) {
+      scrollToElement(projectsSection)
+      return
+    }
+
     scrollToNextSection()
   }, 100)
 }
