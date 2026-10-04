@@ -23,7 +23,7 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  handleScroll() // Initial check
+  handleScroll()
 })
 
 onUnmounted(() => {
@@ -39,10 +39,8 @@ const navLinks = ref([
 ])
 
 const scrollToSection = (sectionId) => {
-  console.log('Trying to scroll to:', sectionId) // برای دیباگ
 
   const element = document.getElementById(sectionId)
-  console.log('Element found:', element) // برای دیباگ
 
   if (element) {
     const rect = element.getBoundingClientRect()
