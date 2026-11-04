@@ -30,7 +30,7 @@ const openModal = inject('openModal')
 <template>
   <section id="about">
     <div
-      class="flex flex-col justify-center items-center gap-8 pt-[150px] sm:pt-[186px] relative mb-16"
+      class="flex flex-col justify-center items-center w-full gap-8 pt-[150px] sm:pt-[186px] relative mb-16 "
     >
       <!-- /// intro  -->
       <div class="flex flex-col justify-center items-center sm:gap-[40px]">
@@ -78,18 +78,18 @@ const openModal = inject('openModal')
       </div>
 
       <div
-      data-scroll-based-animate="true"
-      data-animation="animate__animated animate__fadeInUp"
-    >
-      <mouseArrow />
-    </div>
+        data-scroll-based-animate="true"
+        data-animation="animate__animated animate__fadeInUp"
+      >
+        <mouseArrow />
+      </div>
 
       <!-- /// about me  -->
       <div
         class="flex flex-col justify-center items-start gap-[10px] rounded-2xl border-[1px] border-borderColor2 px-6 pt-6 pb-3 sm:pb-6"
       >
-        <div class="flex justify-center items-center flex-col self-stretch gap-4">
-          <div class="flex flex-col justify-center items-center self-stretch gap-4 text-center">
+        <div class="flex flex-col justify-center items-center gap-4">
+          <div class="flex flex-col justify-center items-center gap-4 text-center">
             <p
               class="text-textColor2 text-ellipsis text-[20px] sm:text-[24px] leading-7 font-semibold"
             >

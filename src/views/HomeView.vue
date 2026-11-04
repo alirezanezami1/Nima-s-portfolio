@@ -43,21 +43,21 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center gap-5 mb-24 mx-auto max-w-[1180px] w-full">
+  <div class="flex flex-col justify-start items-center gap-5 mb-24 px-6 sm:px-8 lg:px-0 mx-auto max-w-[1180px] w-full">
             <div
               data-scroll-based-animate="true"
               data-animation="animate__animated animate__fadeInUp"
               >
               <AboutmeView />
             </div>
-    <div
+    <!-- <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
     >
       <projectsView />
-    </div>
+    </div> -->
 
-    <div
+    <!-- <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
       class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full"
@@ -78,9 +78,9 @@ onUnmounted(() => {
           <SkillsView />
         </template>
       </SecondSlotComponent>
-    </div>
+    </div> -->
 
-    <div
+    <!-- <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
       class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full"
@@ -171,6 +171,6 @@ onUnmounted(() => {
           <LocationView />
         </template>
       </SecondSlotComponent>
-    </div>
+    </div> -->
   </div>
 </template>
