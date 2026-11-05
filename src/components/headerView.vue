@@ -61,7 +61,7 @@ const scrollToSection = (sectionId) => {
 
 <template>
   <div
-    class="font-Roboto hidden lg:flex mx-auto max-w-[1170px] w-full py-[40px] px-6 lg:py-[45px] xl:py-[52px] justify-between items-center  bg-transparent fixed left-1/2 -translate-x-1/2 z-50"
+    class="font-Roboto hidden lg:flex mx-auto max-w-[1180px] w-full py-[40px] px-6 xl:px-0 lg:py-[45px] xl:py-[52px] justify-between items-center  bg-transparent fixed left-1/2 -translate-x-1/2 z-50"
     style="background: linear-gradient(180deg, #F7F8F9 0%, rgba(247, 248, 249, 0.00) 100%);"
   >
     <!-- /// profile  -->
