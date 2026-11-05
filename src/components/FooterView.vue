@@ -1,8 +1,8 @@
 <template>
   <div
-    class="w-full text-center font-Roboto flex flex-col justify-center items-center gap-6 md:h-24 h-20 pb-8"
+    class="mx-auto max-w-[1180px] w-full text-center font-Roboto flex flex-col justify-center items-center gap-6 md:h-24 h-20 pb-8"
   >
-    <div class="w-[345px] md:w-[1180px] px-6 md:px-0">
+    <div class="w-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
