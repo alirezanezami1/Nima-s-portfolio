@@ -28,7 +28,7 @@ const openModal = inject('openModal')
 </script>
 
 <template>
-  <section id="about">
+  <section id="about" class="w-full min-w-0">
     <div
       class="flex flex-col justify-center items-center w-full gap-8 pt-[150px] sm:pt-[186px] relative mb-16 "
     >
@@ -86,7 +86,7 @@ const openModal = inject('openModal')
 
       <!-- /// about me  -->
       <div
-        class="flex flex-col justify-center items-start gap-[10px] rounded-2xl border-[1px] border-borderColor2 px-6 pt-6 pb-3 sm:pb-6"
+        class="w-full min-w-0 flex flex-col justify-center items-start gap-[10px] rounded-2xl border-[1px] border-borderColor2 px-6 pt-6 pb-3 sm:pb-6"
       >
         <div class="flex flex-col justify-center items-center gap-4">
           <div class="flex flex-col justify-center items-center gap-4 text-center">
