@@ -52,6 +52,7 @@ onUnmounted(() => {
       <AboutmeView />
     </div>
     <div
+      class="w-full min-w-0"
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
     >
