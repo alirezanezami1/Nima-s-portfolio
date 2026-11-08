@@ -2,6 +2,7 @@
 import ArrowRightUp from './icons/ArrowRightUp.vue'
 import ArrowBottom from './icons/ArrowBottom.vue'
 import BtnTitle from './BtnTitle.vue'
+import ProjectCard from './ProjectCard.vue'
 import { ref, onMounted, computed } from 'vue'
 import { supabase } from '@/lib/supabaseClient'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -83,7 +84,7 @@ const getDuplicatedTags = (tags) => {
 <template>
   <section id="projects">
     <div
-      class="flex flex-col w-full h-[682px] md:h-auto justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 bg-mainBg2"
+      class="flex flex-col w-full h-auto min-h-[682px] md:min-h-0 justify-center items-center rounded-[40px] shadow-menuShadow border-8 border-borderColor p-6 md:p-8 gap-8 bg-mainBg2"
     >
       <!-- //// head -->
       <div
@@ -103,7 +104,7 @@ const getDuplicatedTags = (tags) => {
           <button
             @click="activeTab = 'case_studies'"
             :class="[
-              'flex py-3 px-5 justify-center items-center gap-[10px] rounded-full border-[1px] border-borderColor2 text-[16px] font-medium leading-[140%] bg-mainBg2 text-textColor2',
+              'flex py-3 px-5 justify-center items-center gap-[10px] shrink-0 rounded-full border-[1px] border-borderColor2 text-[16px] font-medium leading-[140%] bg-mainBg2 text-textColor2',
               { 'text-white bg-textColor2 border-borderColor3': activeTab === 'case_studies' },
             ]"
           >
@@ -121,88 +122,37 @@ const getDuplicatedTags = (tags) => {
         ></div>
       </div>
 
-      <div v-if="activeTab === 'projects'">
-        <!-- //// info  -->
-        <!-- Desktop Grid Layout (Original) -->
-        <div class="hidden lg:grid lg:grid-cols-4 gap-5">
-          <div
+      <div v-if="activeTab === 'projects'" class="w-full min-w-0">
+        <!-- Desktop: keep the original grid layout -->
+        <div class="projects-grid hidden w-full min-w-0 grid-cols-4 gap-5 lg:grid">
+          <ProjectCard
             v-for="project in displayedProjects"
             :key="project.id"
-            class="flex flex-col justify-center items-center gap-2 rounded-2xl"
-          >
-            <div class="relative">
-              <img
-                :src="project.image_url"
-                :alt="project.title"
-                class="w-full h-auto bg-orange-200 rounded-2xl"
-              />
-              <!-- //// link  -->
-              <div
-                class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
-              >
-                <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
-                  <p class="text-[14px] xl:text-[16px] font-medium leading-[140%] hidden group-hover:block">
-                    See More
-                  </p>
-                  <ArrowRightUp class="w-[20px] xl:w-[24px]" />
-                </a>
-              </div>
-            </div>
-            <div class="flex flex-col justify-center items-start gap-3 w-full">
-              <!-- //// title  -->
-              <div class="flex justify-between items-center self-stretch">
-                <div
-                  class="flex justify-center items-center text-[10px] xl:text-[14px] font-medium leading-[140%] gap-1"
-                >
-                  <p class="text-textColor3">{{ project.title }}</p>
-                  <p class="text-textColor2">Website</p>
-                </div>
-                <p class="text-[10px] xl:text-[12px] font-normal leading-[140%] text-textColor">
-                  {{ project.project_type }}
-                </p>
-              </div>
-              <!-- //// slider  -->
-              <Swiper
-                :slides-per-view="'auto'"
-                :space-between="4"
-                :modules="[Autoplay]"
-                :autoplay="getAutoplaySettings(project.tags)"
-                :speed="3000"
-                :loop="shouldEnableInfiniteScroll(project.tags)"
-                class="w-full tags-swiper"
-              >
-                <SwiperSlide v-for="(tag, index) in getDuplicatedTags(project.tags)" :key="`${tag}-${index}`" class="!w-auto">
-                  <div
-                    class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[10px] xl:text-[12px] font-normal leading-[140%] text-textColor2"
-                  >
-                    {{ tag }}
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
+            :project="project"
+          />
 
-          <!-- //// coming soon  -->
+          <!-- Coming soon remains visible on desktop only after Show More -->
           <div
-            class="w-full h-auto flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
             v-if="showAllProjects"
+            class="flex h-auto w-full min-w-0 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-borderColor2 px-8 py-[109px]"
           >
             <div class="flex flex-col gap-8">
-              <!-- /// -->
               <div class="relative flex items-center justify-center p-[5px]">
                 <img
                   src="../assets/images/Frame 48097816.png"
-                  class="w-[28px] h-[28px] xl:w-[32px] xl:h-[32px]"
+                  class="h-[28px] w-[28px] xl:h-[32px] xl:w-[32px]"
                   alt="img"
                 />
                 <span
-                  class="h-8 w-8 xl:h-10 xl:w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                  class="absolute h-8 w-8 animate-ping-fast rounded-full bg-waveColorG3 xl:h-10 xl:w-10"
                 ></span>
               </div>
-              <!-- //// -->
-              <div class="flex flex-col gap-4 justify-center items-center text-center">
-                <p class="text-[14px] xl:text-[16px] leading-[140%] font-medium text-textColor2">Coming soon</p>
-                <p class="text-[12px] xl:text-[14px] leading-[140%] font-normal text-textColor">
+
+              <div class="flex flex-col items-center justify-center gap-4 text-center">
+                <p class="text-[14px] font-medium leading-[140%] text-textColor2 xl:text-[16px]">
+                  Coming soon
+                </p>
+                <p class="text-[12px] font-normal leading-[140%] text-textColor xl:text-[14px]">
                   New projects will be released soon, so stay tuned.
                 </p>
               </div>
@@ -210,220 +160,106 @@ const getDuplicatedTags = (tags) => {
           </div>
         </div>
 
-        <!-- Medium Screen Slider (md to lg) -->
-        <div class="hidden sm:block lg:hidden">
+        <!-- Mobile + tablet: one responsive Swiper, constrained to its parent -->
+        <div class="w-full min-w-0 max-w-full overflow-hidden lg:hidden">
           <Swiper
-            @swiper="onSwiper"
-            :slides-per-view="'auto'"
+            :slides-per-view="1.1"
             :space-between="20"
             :modules="[Pagination]"
+            :breakpoints="{
+              550: {
+                slidesPerView: 'auto',
+              },
+            }"
             :pagination="{
               clickable: true,
               dynamicBullets: true,
               dynamicMainBullets: 4,
             }"
-            class="w-[600px] md:w-[680px] mx-auto"
+            class="projects-swiper w-full min-w-0 max-w-full"
           >
-            <SwiperSlide v-for="project in allProjects" :key="project.id" class="!w-[calc(40%-10px)]">
-              <div class="flex flex-col justify-center items-center gap-2 rounded-2xl w-full">
-                <div class="relative">
-                  <img
-                    :src="project.image_url"
-                    :alt="project.title"
-                    class="w-full h-auto bg-orange-200 rounded-2xl"
-                  />
-                  <!-- //// link  -->
-                  <div
-                    class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 pr-2 pl-2 group hover:pr-3 hover:pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
-                  >
-                    <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
-                      <p class="text-[16px] font-medium leading-[140%] hidden group-hover:block">
-                        See More
-                      </p>
-                      <ArrowRightUp class="w-[24px]" />
-                    </a>
-                  </div>
-                </div>
-                <div class="flex flex-col justify-center items-start gap-3 w-full">
-                  <!-- //// title  -->
-                  <div class="flex justify-between items-center self-stretch">
-                    <div
-                      class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
-                    >
-                      <p class="text-textColor3">{{ project.title }}</p>
-                      <p class="text-textColor2">Website</p>
-                    </div>
-                    <p class="text-[12px] font-normal leading-[140%] text-textColor">
-                      {{ project.project_type }}
-                    </p>
-                  </div>
-                  <!-- //// slider  -->
-                  <Swiper
-                    :slides-per-view="'auto'"
-                    :space-between="4"
-                    :modules="[Autoplay]"
-                    :autoplay="getAutoplaySettings(project.tags)"
-                    :speed="3000"
-                    :loop="shouldEnableInfiniteScroll(project.tags)"
-                    class="w-full tags-swiper"
-                  >
-                    <SwiperSlide v-for="(tag, index) in getDuplicatedTags(project.tags)" :key="`${tag}-${index}`" class="!w-auto">
-                      <div
-                        class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[14px] font-normal leading-[140%] text-textColor2"
-                      >
-                        {{ tag }}
-                      </div>
-                    </SwiperSlide>
-                  </Swiper>
-                </div>
-              </div>
+            <SwiperSlide
+              v-for="project in allProjects"
+              :key="project.id"
+              class="projects-slide box-border min-w-0"
+            >
+              <ProjectCard :project="project" />
             </SwiperSlide>
 
-            <!-- //// coming soon slide for medium screen -->
-            <SwiperSlide class="!w-[calc(40%-10px)]">
+
+          <SwiperSlide class="projects-slide box-border min-w-0">
+            <article class="flex w-full min-w-0 flex-col items-center justify-center gap-2 rounded-2xl">
+              <!-- Image placeholder -->
               <div
-                class="w-full h-[400px] flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
+                class="relative flex aspect-[4/5] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-borderColor2"
               >
-                <div class="flex flex-col gap-8">
-                  <!-- /// -->
+                <div class="flex flex-col items-center gap-8 px-6 text-center">
                   <div class="relative flex items-center justify-center p-[5px]">
                     <img
                       src="../assets/images/Frame 48097816.png"
-                      class="w-[32px] h-[32px]"
-                      alt="img"
+                      class="h-[32px] w-[32px]"
+                      alt="Coming soon"
                     />
                     <span
-                      class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                      class="absolute h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3"
                     ></span>
                   </div>
-                  <!-- //// -->
-                  <div class="flex flex-col gap-4 justify-center items-center text-center">
-                    <p class="text-[16px] leading-[140%] font-medium text-textColor2">
+
+                  <div class="flex flex-col items-center gap-4">
+                    <p class="text-[16px] font-medium leading-[140%] text-textColor2">
                       Coming soon
                     </p>
-                    <p class="text-[14px] leading-[140%] font-normal text-textColor">
+                    <p class="text-[14px] font-normal leading-[140%] text-textColor">
                       New projects will be released soon, so stay tuned.
                     </p>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
 
-        <!-- /// mobile  -->
-        <div class="block sm:hidden">
-          <Swiper
-            @swiper="onSwiper"
-            :slides-per-view="'1.1'"
-            :space-between="20"
-            :modules="[Pagination]"
-            :pagination="{
-              clickable: true,
-              dynamicBullets: true,
-              dynamicMainBullets: 4,
-            }"
-            class="flex flex-col justify-center items-center gap-2 rounded-2xl w-[300px]"
-          >
-            <SwiperSlide v-for="project in allProjects" :key="project.id" class="w-[297px]">
-              <div class="relative">
-                <img
-                  :src="project.image_url"
-                  :alt="project.title"
-                  class="w-full h-auto bg-orange-200 rounded-2xl"
-                />
-                <!-- //// link  -->
-                <div
-                  class="flex absolute bottom-4 left-4 justify-end items-center cursor-pointer py-2 group pr-3 pl-4 bg-mainBg2 rounded-full border-[1.5px] border-borderColor2"
-                >
-                  <a target="_blank" :href="project.project_link" class="flex items-center gap-2">
-                    <p class="text-[16px] font-medium leading-[140%] block">See More</p>
-                    <ArrowRightUp class="w-[24px]" />
-                  </a>
-                </div>
-              </div>
-              <div class="flex flex-col justify-center items-start gap-3 w-full">
-                <!-- //// title  -->
-                <div class="flex justify-between items-center self-stretch mt-2">
-                  <div
-                    class="flex justify-center items-center text-[16px] font-medium leading-[140%] gap-1"
-                  >
-                    <p class="text-textColor3">{{ project.title }}</p>
-                    <p class="text-textColor2">Website</p>
+              <!-- Same information structure as ProjectCard -->
+              <div class="flex w-full min-w-0 flex-col items-start justify-center gap-3">
+                <div class="flex w-full min-w-0 items-center justify-between gap-2">
+                  <div class="flex min-w-0 items-center gap-1 text-[16px] font-medium leading-[140%] lg:text-[10px] xl:text-[14px]">
+                    <p class="text-textColor3">Coming soon</p>
+                    <p class="shrink-0 text-textColor2">Website</p>
                   </div>
-                  <p class="text-[12px] font-normal leading-[140%] text-textColor">
-                    {{ project.project_type }}
+
+                  <p class="shrink-0 text-[12px] font-normal leading-[140%] text-textColor lg:text-[10px] xl:text-[12px]">
+                    New project
                   </p>
                 </div>
-                <!-- //// slider  -->
-                <Swiper
-                  :slides-per-view="'auto'"
-                  :space-between="4"
-                  :modules="[Autoplay]"
-                  :autoplay="getAutoplaySettings(project.tags)"
-                  :speed="3000"
-                  :loop="shouldEnableInfiniteScroll(project.tags)"
-                  class="w-full tags-swiper"
-                >
-                  <SwiperSlide v-for="(tag, index) in getDuplicatedTags(project.tags)" :key="`${tag}-${index}`" class="!w-auto">
-                    <div
-                      class="flex py-2 px-3 justify-center items-center rounded-full border border-borderColor2 text-[12px] md:text-[14px] font-normal leading-[140%] text-textColor2"
-                    >
-                      {{ tag }}
-                    </div>
-                  </SwiperSlide>
-                </Swiper>
-              </div>
-            </SwiperSlide>
 
-            <!-- //// coming soon slide for mobile -->
-            <SwiperSlide class="w-[297px]">
-              <div
-                class="w-full h-[400px] flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
-              >
-                <div class="flex flex-col gap-8">
-                  <!-- /// -->
-                  <div class="relative flex items-center justify-center p-[5px]">
-                    <img
-                      src="../assets/images/Frame 48097816.png"
-                      class="w-[32px] h-[32px]"
-                      alt="img"
-                    />
-                    <span
-                      class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
-                    ></span>
-                  </div>
-                  <!-- //// -->
-                  <div class="flex flex-col gap-4 justify-center items-center text-center">
-                    <p class="text-[16px] leading-[140%] font-medium text-textColor2">
-                      Coming soon
-                    </p>
-                    <p class="text-[14px] leading-[140%] font-normal text-textColor">
-                      New projects will be released soon, so stay tuned.
-                    </p>
-                  </div>
-                </div>
+                <div class="h-[34px] w-full"></div>
               </div>
-            </SwiperSlide>
+            </article>
+          </SwiperSlide>
+
           </Swiper>
         </div>
 
-        <!-- //// btn  -->
-        <div v-if="allProjects.length > 3" class="mt-8 hidden lg:flex justify-center items-center">
+        <!-- Show More remains desktop-only -->
+        <div
+          v-if="allProjects.length > 3"
+          class="mt-8 hidden items-center justify-center lg:flex"
+        >
           <button
             @click="showAllProjects = !showAllProjects"
-            class="inline-flex justify-center items-center font-medium gap-1 py-3 pr-3 pl-[18px] rounded-full border-[1px] border-borderColor2"
+            class="inline-flex items-center justify-center gap-1 rounded-full border-[1px] border-borderColor2 py-3 pl-[18px] pr-3 font-medium"
           >
-            Show <span v-if="!showAllProjects">More</span> <span v-if="showAllProjects">Less</span>
-            <ArrowBottom color="#212121" :class="{ 'transform rotate-180': showAllProjects }" />
+            Show <span v-if="!showAllProjects">More</span>
+            <span v-else>Less</span>
+            <ArrowBottom
+              color="#212121"
+              :class="{ 'rotate-180 transform': showAllProjects }"
+            />
           </button>
         </div>
       </div>
 
-      <div v-if="activeTab === 'case_studies'">
-        <div class="hidden md:flex relative w-full max-w-[1180px]">
+      <div v-if="activeTab === 'case_studies'" class="w-full min-w-0">
+        <div class="relative hidden w-full min-w-0 max-w-[1180px] lg:flex">
           <!-- //// main content -->
-          <div class="flex-1 w-full relative h-[330px]">
+          <div class="relative h-[330px] w-full min-w-0 flex-1">
             <Swiper
               @swiper="onSwiper"
               :slides-per-view="1"
@@ -539,12 +375,22 @@ const getDuplicatedTags = (tags) => {
           </div>
         </div>
 
-        <div class="block md:hidden">
+        <div class="block w-full min-w-0 lg:hidden">
           <Swiper
             @swiper="onSwiper"
             :slides-per-view="'1.1'"
             :space-between="20"
             :modules="[Pagination]"
+            :breakpoints="{
+              550: {
+                slidesPerView: 1.35,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 1.8,
+                spaceBetween: 24,
+              },
+            }"
             :pagination="
               shouldShowCaseStudyPagination
                 ? {
@@ -554,9 +400,9 @@ const getDuplicatedTags = (tags) => {
                   }
                 : false
             "
-            class="flex flex-col justify-center items-center gap-2 rounded-2xl w-[300px]"
+            class="case-studies-mobile-swiper flex w-full min-w-0 max-w-full flex-col items-center justify-center gap-2 rounded-2xl"
           >
-            <SwiperSlide v-for="caseStudy in allCaseStudies" :key="caseStudy.id" class="w-[297px]">
+            <SwiperSlide v-for="caseStudy in allCaseStudies" :key="caseStudy.id" class="box-border min-w-0">
               <div class="relative">
                 <img
                   :src="caseStudy.cover_image_url"
@@ -604,32 +450,54 @@ const getDuplicatedTags = (tags) => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide class="w-[297px]">
+
+          <SwiperSlide class="box-border min-w-0">
+            <article class="flex w-full min-w-0 flex-col items-center justify-center gap-3">
+              <!-- Image placeholder -->
               <div
-                class="w-full h-[400px] flex flex-col justify-center items-center px-8 py-[109px] rounded-2xl border-2 border-dashed border-borderColor2"
+                class="relative flex aspect-[4/5] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-borderColor2"
               >
-                <div class="flex flex-col gap-8">
+                <div class="flex flex-col items-center gap-8 px-6 text-center">
                   <div class="relative flex items-center justify-center p-[5px]">
                     <img
                       src="../assets/images/Frame 48097816.png"
-                      class="w-[32px] h-[32px]"
-                      alt="img"
+                      class="h-[32px] w-[32px]"
+                      alt="Coming soon"
                     />
                     <span
-                      class="h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3 absolute"
+                      class="absolute h-10 w-10 animate-ping-fast rounded-full bg-waveColorG3"
                     ></span>
                   </div>
-                  <div class="flex flex-col gap-4 justify-center items-center text-center">
-                    <p class="text-[16px] leading-[140%] font-medium text-textColor2">
+
+                  <div class="flex flex-col items-center gap-4">
+                    <p class="text-[16px] font-medium leading-[140%] text-textColor2">
                       Coming soon
                     </p>
-                    <p class="text-[14px] leading-[140%] font-normal text-textColor">
-                      New projects will be released soon, so stay tuned.
+                    <p class="text-[14px] font-normal leading-[140%] text-textColor">
+                      New case studies will be released soon.
                     </p>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
+
+              <!-- Same information structure as Case Study cards -->
+              <div class="flex w-full min-w-0 flex-col items-start justify-center gap-3">
+                <div class="mt-2 flex w-full items-center justify-between gap-2">
+                  <div class="flex min-w-0 items-center gap-1 text-[16px] font-medium leading-[140%]">
+                    <p class="truncate text-textColor3">Coming soon</p>
+                    <p class="shrink-0 text-textColor2">Case Study</p>
+                  </div>
+
+                  <p class="shrink-0 text-[12px] font-normal leading-[140%] text-textColor">
+                    Coming soon
+                  </p>
+                </div>
+
+                <div class="h-[34px] w-full"></div>
+              </div>
+            </article>
+          </SwiperSlide>
+
           </Swiper>
         </div>
       </div>
@@ -638,18 +506,43 @@ const getDuplicatedTags = (tags) => {
 </template>
 
 <style scoped>
-:deep(.swiper-pagination) {
-  position: relative !important;
-  bottom: -10px !important;
-  left: 50% !important;
-  width: 100% !important;
-  text-align: center !important;
-  padding: 16px 0 !important;
+/* Projects: keep the carousel and its track inside the available parent width. */
+:deep(.projects-swiper) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
-/* Medium Screen Slider Styles */
-:deep(.swiper-slide) {
+:deep(.projects-swiper .swiper-wrapper) {
+  align-items: stretch;
+}
+
+:deep(.projects-swiper .swiper-slide) {
   height: auto !important;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Phone: almost one card. Tablet: two cards with a controlled preview of the next one. */
+@media (min-width: 550px) {
+  :deep(.projects-swiper .swiper-slide) {
+    width: 46% !important;
+  }
+}
+
+/* Pagination for horizontal carousels; vertical Case Studies overrides this below. */
+:deep(.swiper-pagination) {
+  position: relative !important;
+  inset-inline: 0 !important;
+  bottom: -10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  transform: none !important;
+  text-align: center !important;
+  padding: 16px 0 !important;
+  box-sizing: border-box;
 }
 
 :deep(.swiper-pagination-bullet) {
@@ -662,11 +555,6 @@ const getDuplicatedTags = (tags) => {
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   display: inline-block !important;
-}
-
-:deep(.swiper-pagination-bullet:hover) {
-  background: #d1d5db !important;
-  transform: scale(1.05) !important;
 }
 
 :deep(.swiper-pagination-bullet:hover) {
@@ -688,9 +576,11 @@ const getDuplicatedTags = (tags) => {
   transform: scale(1.15) !important;
 }
 
-/* Case Studies Swiper Styles */
+/* Case Studies desktop: preserve the existing vertical presentation. */
 :deep(.case-studies-swiper) {
   position: relative !important;
+  width: 100%;
+  min-width: 0;
   overflow: hidden !important;
 }
 
@@ -698,6 +588,8 @@ const getDuplicatedTags = (tags) => {
   position: absolute !important;
   left: 95% !important;
   top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
   transform: translateY(-50%) !important;
   width: auto !important;
   height: auto !important;
@@ -741,7 +633,6 @@ const getDuplicatedTags = (tags) => {
   transform: scale(1.15) !important;
 }
 
-/* Vertical Swiper Styles */
 :deep(.case-studies-swiper .swiper-wrapper) {
   flex-direction: column !important;
 }
@@ -761,8 +652,35 @@ const getDuplicatedTags = (tags) => {
   justify-content: center !important;
 }
 
-/* Tags Swiper Infinite Scroll Styles */
+/* Horizontal mobile Case Studies carousel fills its parent, not a fixed 300px box. */
+:deep(.case-studies-mobile-swiper) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+:deep(.case-studies-mobile-swiper .swiper-wrapper) {
+  align-items: stretch;
+}
+
+:deep(.case-studies-mobile-swiper .swiper-slide) {
+  height: auto !important;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+:deep(.case-studies-mobile-swiper .swiper-slide > div) {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Tag carousels must clip their own track; do not let them enlarge parent cards. */
 :deep(.tags-swiper) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow: hidden !important;
 }
 
@@ -772,17 +690,13 @@ const getDuplicatedTags = (tags) => {
 }
 
 :deep(.tags-swiper .swiper-slide) {
+  height: auto !important;
   transition: all 0.3s ease !important;
   flex-shrink: 0 !important;
 }
 
 :deep(.tags-swiper:hover .swiper-wrapper) {
   animation-play-state: paused !important;
-}
-
-/* Ensure smooth scrolling for infinite loop */
-:deep(.tags-swiper.swiper-container-initialized) {
-  overflow: visible !important;
 }
 
 :deep(.tags-swiper .swiper-slide-active) {
