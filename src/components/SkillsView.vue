@@ -20,9 +20,9 @@ const {
     </div>
   </div>
   <div v-else-if="error">مشکل در ارتباط با سرور</div>
-  <div v-else class="relative">
+  <div v-else class="relative w-full h-full">
     <div
-      class="relative skills-cloud flex justify-start items-center flex-wrap gap-2 h-[300px] w-full"
+      class="relative skills-cloud flex justify-start items-center gap-2 w-full"
     >
       <div
         v-for="skill in skills"
@@ -38,9 +38,9 @@ const {
 
 <style>
 .background2 {
-  width: 350px !important;
-  left: -20px !important;
-  height: 164px;
+  width: 100% !important;
+  left: -0px !important;
+  height: 100% !important;
   position: absolute;
   bottom: 0px;
   border-bottom-left-radius: 50px;
@@ -50,27 +50,27 @@ const {
 
 .skills-cloud > *:nth-child(5) {
   position: absolute;
-  right: -20px;
-  bottom: 120px;
+  right: 20px;
+  bottom: -120px;
   transform: rotate(4deg);
 }
 
-.skills-cloud > *:nth-child(3) {
+.skills-cloud > *:nth-child(4) {
   position: absolute;
-  bottom: 125px;
+  bottom: -165px;
   left: 60px;
   transform: rotate(-34.321deg);
 }
 .skills-cloud > *:nth-child(1) {
   position: absolute;
-  top: 55px;
+  top: 50px;
   left: 25px;
   transform: rotate(-6deg);
 }
-.skills-cloud > *:nth-child(4) {
+.skills-cloud > *:nth-child(3) {
   position: absolute;
-  bottom: 105px;
-  left: -50px;
+  bottom: -175px;
+  left: -12px;
   transform: rotate(-48.546deg);
 }
 .skills-cloud > *:nth-child(2) {
@@ -81,8 +81,8 @@ const {
 }
 .skills-cloud > *:nth-child(6) {
   position: absolute;
-  bottom: 30px;
-  left: -35px;
+  bottom: -250px;
+  left: 0px;
   transform: rotate(-24deg);
 }
 .skills-cloud > *:nth-child(7) {
@@ -94,7 +94,7 @@ const {
 .skills-cloud > *:nth-child(8) {
   position: absolute;
   top: 60px;
-  right: -40px;
+  right: 0px;
   transform: rotate(30deg);
 }
 
