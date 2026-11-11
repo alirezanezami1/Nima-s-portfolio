@@ -12,17 +12,19 @@ const {
 </script>
 
 <template>
-  <div v-if="isLoading">
+  <div v-if="isLoading" class="w-full max-md:min-h-[345px] flex items-center justify-center">
     <div class="flex items-center justify-center">
       <div
         class="border-2 border-textColor4 border-solid rounded-full border-t-transparent w-5 h-5 animate-spin"
       ></div>
     </div>
   </div>
-  <div v-else-if="error">مشکل در ارتباط با سرور</div>
-  <div v-else class="relative w-full h-full">
+  <div v-else-if="error" class="w-full max-md:min-h-[345px] flex items-center justify-center">
+    مشکل در ارتباط با سرور
+  </div>
+  <div v-else class="relative h-full w-full max-md:min-h-[345px]">
     <div
-      class="relative skills-cloud flex justify-start items-center gap-2 w-full"
+      class="relative skills-cloud flex justify-start items-center gap-2 w-full max-md:min-h-[345px]"
     >
       <div
         v-for="skill in skills"
@@ -50,9 +52,9 @@ const {
 
 .skills-cloud > *:nth-child(5) {
   position: absolute;
-  right: 20px;
-  bottom: -120px;
-  transform: rotate(4deg);
+  right: 0px;
+  bottom: -70px;
+  transform: rotate(20deg);
 }
 
 .skills-cloud > *:nth-child(4) {
@@ -75,8 +77,8 @@ const {
 }
 .skills-cloud > *:nth-child(2) {
   position: absolute;
-  bottom: 50px;
-  right: -30px;
+  bottom: -200px;
+  right: 5px;
   transform: rotate(24deg);
 }
 .skills-cloud > *:nth-child(6) {
@@ -87,99 +89,66 @@ const {
 }
 .skills-cloud > *:nth-child(7) {
   position: absolute;
-  bottom: 0;
-  right: 30px;
+  bottom: -265px;
+  right: 40px;
   transform: rotate(0deg);
 }
 .skills-cloud > *:nth-child(8) {
   position: absolute;
-  top: 60px;
+  top: 85px;
   right: 0px;
   transform: rotate(30deg);
 }
 
-@media (max-width: 1023px) {
-  .background2 {
-    width: 330px !important;
-    left: -40px !important;
+@media screen and (max-width: 768px) {
+  .skills-cloud > *:nth-child(5) {
+    position: absolute;
+    right: 0px;
+    bottom: 30px;
+    transform: rotate(20deg);
+  }
+
+  .skills-cloud > *:nth-child(4) {
+    position: absolute;
+    bottom: 164px;
+    left: 30px;
+    transform: rotate(-45deg);
   }
   .skills-cloud > *:nth-child(1) {
-    top: 50px;
-    left: -20px;
-    transform: rotate(-6deg);
-  }
-  .skills-cloud > *:nth-child(2) {
     position: absolute;
-    bottom: 60px;
-    right: -30px;
-    transform: rotate(34deg);
+    top: 45px;
+    left: 12px;
+    transform: rotate(6deg);
   }
   .skills-cloud > *:nth-child(3) {
     position: absolute;
-    bottom: 147px;
-    left: 60px;
-    transform: rotate(-44.321deg);
-  }
-  .skills-cloud > *:nth-child(4) {
-    position: absolute;
-    bottom: 115px;
-    left: -50px;
+    bottom: 175px;
+    left: -12px;
     transform: rotate(-48.546deg);
-  }
-  .skills-cloud > *:nth-child(5) {
-    position: absolute;
-    right: -40px;
-    bottom: 105px;
-    transform: rotate(30deg);
-  }
-  .skills-cloud > *:nth-child(6) {
-    position: absolute;
-    bottom: 48px;
-    left: -35px;
-    transform: rotate(-24deg);
-  }
-}
-
-
-@media (max-width: 640px) {
-  .background2 {
-    width: 345px !important;
-    left: -40px !important;
-  }
-  .skills-cloud > *:nth-child(1) {
-    top: 50px;
-    left: -20px;
-    transform: rotate(-6deg);
   }
   .skills-cloud > *:nth-child(2) {
     position: absolute;
-    bottom: 60px;
-    right: -30px;
-    transform: rotate(34deg);
-  }
-  .skills-cloud > *:nth-child(3) {
-    position: absolute;
-    bottom: 147px;
-    left: 60px;
-    transform: rotate(-44.321deg);
-  }
-  .skills-cloud > *:nth-child(4) {
-    position: absolute;
-    bottom: 115px;
-    left: -50px;
-    transform: rotate(-48.546deg);
-  }
-  .skills-cloud > *:nth-child(5) {
-    position: absolute;
-    right: -40px;
-    bottom: 105px;
-    transform: rotate(30deg);
+    bottom: 112px;
+    right: 0px;
+    transform: rotate(45deg);
   }
   .skills-cloud > *:nth-child(6) {
     position: absolute;
-    bottom: 48px;
-    left: -35px;
+    bottom: 75px;
+    left: 0px;
     transform: rotate(-24deg);
+  }
+  .skills-cloud > *:nth-child(7) {
+    position: absolute;
+    bottom: 10px;
+    right: 80px;
+    transform: rotate(0deg);
+  }
+  .skills-cloud > *:nth-child(8) {
+    position: absolute;
+    top: 140px;
+    right: -19px;
+    transform: rotate(45deg);
   }
 }
 </style>
