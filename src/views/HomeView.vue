@@ -60,26 +60,18 @@ onUnmounted(() => {
     </div>
 
     <div
+    class="flex justify-center flex-col md:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full min-w-0"
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full"
     >
-      <FirstSlotComponent>
-        <template #header>
-          <BtnTitle title="My Experience" />
-        </template>
-        <template #default>
-          <ExperienceView />
-        </template>
-      </FirstSlotComponent>
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]">
-        <template #header>
-          <BtnTitle title="Skills" />
-        </template>
-        <template #default>
-          <SkillsView />
-        </template>
-      </SecondSlotComponent>
+      <div class="flex flex-col gap-8 justify-center items-start pt-6 px-6 sm:pt-5 sm:px-5 lg:pt-8 lg:px-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow max-w-[780px] w-full">
+        <BtnTitle title="My Experience" />
+        <ExperienceView />
+      </div>
+      <div class="flex flex-col gap-8 justify-start items-start self-stretch shrink-0 pt-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full md:w-[380px]">
+        <BtnTitle title="Skills" class="relative left-6" />
+        <SkillsView />
+      </div>
     </div>
 
     <div
