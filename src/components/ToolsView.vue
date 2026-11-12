@@ -1,19 +1,19 @@
 <template>
-  <div class="relative flex justify-start items-center flex-wrap w-full h-full">
+  <div class="relative flex justify-center items-stretch w-full max-md:min-h-[345px] h-full">
     <img
       src="../assets/images/Tools/2P.png"
       alt="tool"
-      class="w-[72px] absolute md:right-[20px] -right-[10px] bottom-[135px]"
+      class="w-[72px] absolute right-[30px] bottom-[135px]"
     />
     <img
       src="../assets/images/Tools/3P.png"
       alt="tool"
-      class="w-[72px] absolute left-[105px] bottom-[177px]"
+      class="w-[72px] absolute left-[125px] bottom-[177px]"
     />
     <img
       src="../assets/images/Tools/4P.png"
       alt="tool"
-      class="w-[72px] absolute md:left-[15px] left-[0px] bottom-[121px]"
+      class="w-[72px] absolute left-[45px] bottom-[101px]"
     />
     <img
       src="../assets/images/Tools/5P.png"
@@ -23,12 +23,12 @@
     <img
       src="../assets/images/Tools/6P.png"
       alt="tool"
-      class="w-[64px] absolute left-[201px] bottom-[23.53px]"
+      class="w-[64px] absolute right-14 bottom-[23.53px]"
     />
     <img
       src="../assets/images/Tools/Canva.png"
       alt="tool"
-      class="w-[72px] absolute md:left-[109px] left-[100px] bottom-[80px]"
+      class="w-[72px] absolute left-1/2 -translate-x-1/2 bottom-[80px]"
     />
     <img
       src="../assets/images/Tools/Visual Studio Code.png"

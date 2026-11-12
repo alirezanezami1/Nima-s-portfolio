@@ -62,9 +62,9 @@ const onSlideChange = (swiper) => {
 </script>
 
 <template>
-  <section id="howIWork">
+  <section id="howIWork" class="w-full xl:h-[250px]">
     <!-- //// desktop  -->
-    <div class="hidden xl:flex flex-col justify-center items-start gap-6 w-[345px] sm:w-[330px] lg:w-full">
+    <div class="hidden xl:flex flex-col justify-center items-start gap-6 w-full h-full">
       <div
         class="flex justify-center items-start flex-grow flex-basis-0 flex-shrink-0 w-full rounded-[50px] bg-mainBg"
       >
@@ -82,7 +82,7 @@ const onSlideChange = (swiper) => {
           {{ item.title }}
         </button>
       </div>
-      <div class="flex flex-col justify-center items-start gap-2 mb-5">
+      <div class="flex flex-col justify-end h-full items-start gap-2">
         <div class="relative h-[64px] w-full flex items-end">
           <span class="text-textColor4 text-[64px] font-bold leading-[140%] absolute -bottom-1">{{
             filtered[0].id
@@ -98,7 +98,7 @@ const onSlideChange = (swiper) => {
     </div>
 
     <!-- //// mobile  -->
-        <div class="xl:hidden h-full">
+        <div class="xl:hidden w-full min-w-0">
       <Swiper
         :modules="[Pagination, Autoplay]"
         :slides-per-view="1"
@@ -114,13 +114,13 @@ const onSlideChange = (swiper) => {
           disableOnInteraction: false,
         }"
         @slide-change="onSlideChange"
-        class="how-i-work-swiper"
+        class="how-i-work-swiper w-full"
       >
-        <SwiperSlide v-for="item in items" :key="item.id" class="px-4">
-          <div class="relative flex flex-col justify-center items-center">
+        <SwiperSlide v-for="item in items" :key="item.id">
+          <div class="relative flex flex-col justify-between items-center w-full min-w-0">
             <!-- Step Indicator -->
             <div
-              class="w-[295px] md:w-[270px] flex items-center gap-3 justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
+              class="w-full max-w-[295px] md:max-w-[270px] flex items-center gap-3 justify-center text-[16px] leading-[140%] font-medium relative mb-6 py-[10px] border-[1px] border-borderColor2 rounded-[50px]"
             >
               <div v-html="item.icon" class="opacity-35"></div>
               <span class="text-textColor2">{{ item.title }}</span>

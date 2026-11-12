@@ -77,26 +77,18 @@ onUnmounted(() => {
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="flex justify-center xl:justify-between  flex-col sm:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full"
+      class="grid grid-cols-1 md:grid-cols-[minmax(0,380px)_minmax(0,1fr)] justify-center sm:gap-2 lg:gap-5 gap-6 w-full min-w-0"
     >
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px]" class="h-[380px] sm:h-[430px] lg:h-[340px] xl:h-[360px]">
-        <template #header>
-          <BtnTitle title="Tools" />
-        </template>
-        <template #default>
-          <ToolsView />
-        </template>
-      </SecondSlotComponent>
-      <FirstSlotComponent
-        id="howIWork"
-      >
-        <template #header>
-          <BtnTitle title="How I Work" class="relative top-2" />
-        </template>
-        <template #default>
-          <HowIWork />
-        </template>
-      </FirstSlotComponent>
+
+     <div class="flex flex-col gap-8 justify-start items-start pt-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full min-w-0">
+        <BtnTitle title="Tools" class="relative left-6" />
+        <ToolsView />
+      </div>
+
+      <div class="flex flex-col gap-8 justify-between items-start py-6 px-6 sm:pt-5 sm:px-5 lg:pt-8 lg:px-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full max-lg:h-fit max-xl:h-[340px] min-w-0 max-w-[780px]">
+        <BtnTitle title="How I Work" />
+        <HowIWork />
+      </div>
     </div>
 
     <div
