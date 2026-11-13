@@ -94,27 +94,16 @@ onUnmounted(() => {
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="flex flex-col  md:flex-row md:justify-between justify-center items-center gap-2 lg:gap-5 w-full"
+      class="flex justify-center flex-col xl:flex-row items-center sm:gap-2 lg:gap-5 gap-6 w-full min-w-0"
     >
-      <FirstSlotComponent class="w-[345px] sm:w-[680px] lg:w-[780px] h-[380px]">
-        <template #header>
-          <BtnTitle title="Comments" />
-        </template>
-        <template #default>
-          <CommentsView />
-        </template>
-      </FirstSlotComponent>
-      <SecondSlotComponent
-        v-if="isLargeScreen"
-        width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]"
-      >
-        <template #header>
-          <BtnTitle title="Contact Me" />
-        </template>
-        <template #default>
-          <ContactMeView />
-        </template>
-      </SecondSlotComponent>
+     <div class="flex flex-col gap-8 justify-center items-start py-6 px-6 sm:py-5 sm:px-5 lg:py-8 lg:px-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow  max-xl:w-full xl:max-w-[780px] w-full">
+        <BtnTitle title="Comments" />
+        <CommentsView />
+      </div>
+      <div class="flex flex-col gap-8 justify-between items-start self-stretch shrink-0 pt-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+        <BtnTitle title="Contact Me" class="relative left-6" />
+        <ContactMeView />
+      </div>
     </div>
 
     <div
@@ -122,17 +111,6 @@ onUnmounted(() => {
       data-animation="animate__animated animate__fadeInUp"
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-5 w-full"
     >
-      <SecondSlotComponent
-        v-if="!isLargeScreen"
-        width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]"
-      >
-        <template #header>
-          <BtnTitle title="Contact Me" />
-        </template>
-        <template #default>
-          <ContactMeView />
-        </template>
-      </SecondSlotComponent>
       <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" paddingX="px-0">
         <template #header>
           <BtnTitle title="My last articles" class="mx-5" />

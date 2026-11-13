@@ -34,10 +34,10 @@ const {
 </script>
 
 <template>
-  <div v-if="isLoading"></div>
-  <div v-else-if="error">مشکل در ارتباط با سرور</div>
+  <div v-if="isLoading" class="pb-6"></div>
+  <div v-else-if="error" class="pb-6">مشکل در ارتباط با سرور</div>
   <div
-    class="w-full custom-swiper-container bg-transparent flex justify-center -mt-4 items-center relative"
+    class="w-full custom-swiper-container bg-transparent flex justify-center items-center relative"
     v-else
   >
     <div class="absolute top-1/2 -translate-y-1/2 justify-between w-full z-10 hidden md:flex">
@@ -96,6 +96,17 @@ const {
 </template>
 
 <style scoped>
+.background {
+  width: 100% !important;
+  left: -0px !important;
+  height: 100% !important;
+  position: absolute;
+  bottom: 0px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+}
+
 :deep(.swiper-pagination) {
   position: relative !important;
   bottom: 0px !important;

@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+
+import { ref, onMounted, onUnmounted } from 'vue'
 
 import avatarDefault from '@/assets/images/contact/Nima.png'
 import avatarRight from '@/assets/images/contact/Nima (2).png'
@@ -10,6 +11,11 @@ import InstaIcon from './icons/InstaIcon.vue'
 import LinkedInIcon from './icons/LinkedInIcon.vue'
 import DribbbleIcon from './icons/DribbbleIcon.vue'
 import BeIcon from './icons/BeIcon.vue'
+
+const isMobile = ref(false)
+
+let mediaQuery
+
 
 const media = [
   { icon: InstaIcon, link: 'https://www.instagram.com/uiuxnm?igsh=MXFnczg1NThsdjN3bA==' },
@@ -30,60 +36,63 @@ const avatars = {
 
 const currentAvatarSrc = ref(avatars.default)
 
-const avatarContainer = ref(null)
-
-function handleMouseLeave() {
-  currentAvatarSrc.value = avatars.default
-}
-
-function handleIconMouseEnter() {
-  currentAvatarSrc.value = avatars.bottom
-}
-
-function handleIconMouseLeave() {
-  currentAvatarSrc.value = avatars.default
-}
-
-function handleIconMouseMove(event) {
-  event.stopPropagation()
-  currentAvatarSrc.value = avatars.bottom
-}
-
 function handleMouseMove(event) {
   const container = event.currentTarget
-  if (!container) return
+  const rect = container.getBoundingClientRect()
 
-  const { offsetX, offsetY } = event
-  const { offsetWidth: width, offsetHeight: height } = container
+  const x = (event.clientX - rect.left) / rect.width
+  const y = (event.clientY - rect.top) / rect.height
 
-  const leftZoneEnd = width * 0.4
-  const rightZoneStart = width * 0.6
-  const bottomZoneStart = height * 0.5
-
-  if (offsetY > bottomZoneStart + 50) {
-    currentAvatarSrc.value = avatars.bottom
-  } else if (offsetX < leftZoneEnd) {
+  if (x <= 0.32) {
     currentAvatarSrc.value = avatars.left
-  } else if (offsetX > rightZoneStart) {
+  } else if (x >= 0.68) {
     currentAvatarSrc.value = avatars.right
+  } else if (y >= 0.65) {
+    currentAvatarSrc.value = avatars.bottom
   } else {
     currentAvatarSrc.value = avatars.default
   }
 }
+
+function handleMouseLeave() {
+   if (isMobile.value) return
+  currentAvatarSrc.value = avatars.default
+}
+
+
+function checkDevice() {
+  isMobile.value = mediaQuery.matches
+
+  if (isMobile.value) {
+    currentAvatarSrc.value = avatars.default
+  }
+}
+
+onMounted(() => {
+  mediaQuery = window.matchMedia('(max-width: 767px)')
+
+  checkDevice()
+
+  mediaQuery.addEventListener('change', checkDevice)
+})
+
+onUnmounted(() => {
+  mediaQuery?.removeEventListener('change', checkDevice)
+})
 </script>
 
 <template>
-  <section id="contact" class="relative">
+  <section id="contact" class="relative w-full min-w-0">
     <div
-      ref="avatarContainer"
-      @mousemove="handleMouseMove"
-      @mouseleave="handleMouseLeave"
-      class="w-full h-full bg-transparent rounded-2xl flex flex-col gap-2 -mt-5 items-center justify-center cursor-pointer"
+      @mousemove="!isMobile && handleMouseMove($event)"
+      @mouseleave="!isMobile && handleMouseLeave()"
+      class="w-full min-h-[260px] bg-transparent rounded-2xl flex flex-col gap-2 items-center justify-center cursor-pointer"
     >
       <div
         class="pt-6 px-[22px] w-[124px] flex justify-center overflow-hidden items-center aspect-square bg-white shadow-menuShadow rounded-[500px]"
       >
         <img
+          :key="currentAvatarSrc"
           :src="currentAvatarSrc"
           alt="Interactive Avatar"
           class="w-[80px] h-[104px] transition-opacity duration-200 object-cover"
@@ -97,9 +106,6 @@ function handleMouseMove(event) {
         <div
           v-for="item in media"
           :key="item"
-          @mouseenter="handleIconMouseEnter"
-          @mouseleave="handleIconMouseLeave"
-          @mousemove="handleIconMouseMove"
           class="p-3 w-[56px] h-[56px] border-[1px] hover:text-white hover:bg-black hover:border-black border-borderColor2 rounded-full bg-white aspect-square flex-shrink-0 flex justify-center items-center"
         >
           <div class="w-[32px] h-[32px] flex justify-center items-center">
