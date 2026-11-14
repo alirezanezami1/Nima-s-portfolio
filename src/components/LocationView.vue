@@ -7,7 +7,7 @@ import BtnTitle from './BtnTitle.vue'
     <div
       class="flex justify-center items-center w-full h-full"
     >
-      <img src="../assets/images/location/image.jpg" alt="location" class="rounded-[40px] object-cover" />
+      <img src="../assets/images/location/image.jpg" alt="location" class="rounded-[40px] object-cover self-stretch" />
     </div>
     <div class="absolute top-6 left-6">
       <BtnTitle title="My Location" class="bg-white" />

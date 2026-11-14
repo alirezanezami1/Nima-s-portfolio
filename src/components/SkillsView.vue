@@ -12,19 +12,19 @@ const {
 </script>
 
 <template>
-  <div v-if="isLoading" class="w-full max-md:min-h-[345px] flex items-center justify-center">
+  <div v-if="isLoading" class="w-full max-[769px]:min-h-[345px] flex items-center justify-center">
     <div class="flex items-center justify-center">
       <div
         class="border-2 border-textColor4 border-solid rounded-full border-t-transparent w-5 h-5 animate-spin"
       ></div>
     </div>
   </div>
-  <div v-else-if="error" class="w-full max-md:min-h-[345px] flex items-center justify-center">
+  <div v-else-if="error" class="w-full max-[769px]:min-h-[345px] flex items-center justify-center">
     مشکل در ارتباط با سرور
   </div>
-  <div v-else class="relative h-full w-full max-md:min-h-[345px]">
+  <div v-else class="relative h-full w-full max-[769px]:min-h-[345px]">
     <div
-      class="relative skills-cloud flex justify-start items-center gap-2 w-full max-md:min-h-[345px]"
+      class="relative skills-cloud flex justify-start items-center gap-2 w-full max-[769px]:min-h-[345px]"
     >
       <div
         v-for="skill in skills"
@@ -100,7 +100,7 @@ const {
   transform: rotate(30deg);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .skills-cloud > *:nth-child(5) {
     position: absolute;
     right: 0px;

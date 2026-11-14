@@ -1,10 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import AboutmeView from '@/components/AboutmeView.vue'
-import mouseArrow from '@/components/mouseArrow.vue'
 import projectsView from '@/components/projectsView.vue'
-import FirstSlotComponent from '@/components/FirstSlotComponent.vue'
-import SecondSlotComponent from '@/components/SecondSlotComponent.vue'
 import SkillsView from '@/components/SkillsView.vue'
 import ToolsView from '@/components/ToolsView.vue'
 import HowIWork from '@/components/HowIWork.vue'

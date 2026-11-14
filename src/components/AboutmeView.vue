@@ -55,7 +55,7 @@ const openModal = inject('openModal')
           </div>
 
           <p
-            class="text-[24px] sm:text-[40px] leading-[140%] flex justify-center items-center gap-2 text-textColor font-light text-center"
+            class="text-[24px] sm:text-[40px] leading-[140%] flex justify-center flex-wrap items-center gap-2 text-textColor font-light text-center"
           >
             I'm a <span class="text-textColor2 font-normal">freelance</span>
             <span class="text-textColor3 font-bold">UIUX Designer</span>
