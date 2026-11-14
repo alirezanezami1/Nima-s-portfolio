@@ -3,27 +3,32 @@ import BtnTitle from './BtnTitle.vue'
 </script>
 
 <template>
-  <div class="flex justify-center flex-col items-center relative background4">
+  <div class="flex justify-center flex-col items-center relative w-full min-w-0 max-md:min-h-[345px]">
     <div
-      class="flex justify-center items-center md:w-[364px] w-[333px] md:h-[364px] h-[330px] absolute md:-top-[65px] -top-[62px] z-10"
+      class="flex justify-center items-center w-full h-full"
     >
-      <img src="../assets/images/location/image.jpg" alt="location" class="rounded-[40px]" />
+      <img src="../assets/images/location/image.jpg" alt="location" class="rounded-[40px] object-cover" />
     </div>
-    <div class="absolute z-20 -top-8 left-0">
+    <div class="absolute top-6 left-6">
       <BtnTitle title="My Location" class="bg-white" />
     </div>
-    <div class="inline-flex flex-col justify-center items-center z-40 absolute top-52">
+    <div class="inline-flex flex-col justify-center items-center z-40 absolute bottom-0">
       <p class="text-[32px] font-semibold leading-[140%] text-textColor2">Tehran</p>
       <p class="text-[20px] font-normal leading-[140%] text-textColor">Tehran , Iran</p>
     </div>
-    <div
-      class="background4 md:w-[370px] w-[345px] md:h-[380px] h-[345px] absolute z-30 md:-top-20 -top-10 rounded-e-[35px] rounded-b-[35px]"
-    ></div>
+    <div class="backgroundLocation"></div>
   </div>
 </template>
 
 <style>
-.background4 {
+.backgroundLocation {
+  position: absolute;
+  width: 100% !important;
+  left: 0px !important;
+  height: 100% !important;
+  bottom: -8px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
 </style>
