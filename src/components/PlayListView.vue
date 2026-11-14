@@ -24,7 +24,7 @@ const onSlideChange = (swiper) => {
 
 <template>
   <div
-    class="relative flex flex-col justify-center items-center gap-3 w-full min-w-0 min-h-[320px] mt-auto"
+    class="relative flex flex-col justify-center items-center gap-3 pb-6 w-full min-w-0 min-h-[320px] mt-auto"
   >
     <!-- Playlist Slider -->
     <Swiper
