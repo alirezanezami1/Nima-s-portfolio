@@ -41,7 +41,7 @@ const {
 <style>
 .background2 {
   width: 100% !important;
-  left: -0px !important;
+  left: 0px !important;
   height: 100% !important;
   position: absolute;
   bottom: 0px;

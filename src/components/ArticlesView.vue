@@ -12,7 +12,7 @@ const {
 })
 </script>
 <template>
-  <div class="flex flex-col justify-center items-center overflow-x-hidden w-full relative">
+  <div class="flex flex-col justify-center items-center overflow-x-hidden pb-6 w-full min-w-0 max-md:min-h-[345px] mt-auto relative">
     <div class="flex justify-center items-end gap-2 w-full h-[188px] flex-shrink-0">
       <img
         v-for="(item, index) in Articles"
