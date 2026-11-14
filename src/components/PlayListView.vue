@@ -1,34 +1,72 @@
+
+<script setup>
+import { ref } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
+import 'swiper/css'
+
+import playList1 from '@/assets/images/playList/Frame 92.png'
+import playList2 from '@/assets/images/playList/Frame 93.png'
+import playList3 from '@/assets/images/playList/Frame 94.png'
+
+const PlayList = ref([
+  { name: 'Imagine Dragons', cover: playList1 },
+  { name: 'Shayea', cover: playList2 },
+  { name: 'Arcane', cover: playList3 },
+])
+
+const activeIndex = ref(1)
+
+const onSlideChange = (swiper) => {
+  activeIndex.value = swiper.realIndex
+}
+</script>
+
 <template>
-  <div class="flex relative flex-col justify-center items-center w-full gap-1">
+  <div
+    class="relative flex flex-col justify-center items-center gap-3 w-full min-w-0 min-h-[320px] mt-auto"
+  >
+    <!-- Playlist Slider -->
     <Swiper
-      :slides-per-view="2"
-      :space-between="24"
+      :slides-per-view="'auto'"
+      :space-between="0"
       :centered-slides="true"
       :initial-slide="1"
-      class="w-full h-[200px] flex justify-center items-center z-50"
+      :loop="false"
+      :grab-cursor="true"
+      :allow-touch-move="true"
+      class="playlist-swiper w-full"
       @slideChange="onSlideChange"
     >
       <SwiperSlide
         v-for="(item, index) in PlayList"
-        :key="index"
-        class="flex flex-col justify-center items-center relative -bottom-6 z-50"
-        :class="{ 'relative -top-0': index === activeIndex }"
+        :key="item.name"
+        class="playlist-slide"
+        :class="{ 'playlist-slide-active': index === activeIndex }"
       >
-        <img :src="item.cover" alt="playlist cover" class="rounded-3xl w-[156px]" />
-        <p
-          class="text-center relative md:-left-2 md:text-[20px] text-[18px] left-0 font-semibold leading-[140%] text-textColor2 mt-2"
-          v-if="index === activeIndex"
-        >
-          {{ item.name }}
-        </p>
+        <div class="flex flex-col justify-center items-center w-full">
+          <img
+            :src="item.cover"
+            :alt="item.name"
+            class="playlist-cover"
+          />
+
+          <p
+            v-if="index === activeIndex"
+            class="text-center text-[18px] md:text-[20px] font-semibold leading-[140%] text-textColor2 mt-3 whitespace-nowrap"
+          >
+            {{ item.name }}
+          </p>
+        </div>
       </SwiperSlide>
     </Swiper>
 
-    <!-- //// btn  -->
+    <!-- SoundCloud Button -->
     <a
-      class="flex justify-center items-center gap-2 relative -left-2 cursor-pointer z-50"
+      class="flex justify-center items-center gap-2 cursor-pointer relative z-50 "
       href="https://soundcloud.com/nima-masoumi-566658420"
       target="_blank"
+      rel="noopener noreferrer"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -43,40 +81,49 @@
           stroke-width="1.5"
         />
       </svg>
-      <p class="text-[16px] leading-[140%] text-textColor">Play On Soundcloud</p>
+
+      <p class="text-[16px] leading-[140%] text-textColor">
+        Play On Soundcloud
+      </p>
     </a>
-    <div class="background3 md:w-[380px] w-[345px] md:h-[232px] h-[232px] z-0"></div>
+    <div class="background2 pointer-events-none"></div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-
-import playList1 from '@/assets/images/playList/Frame 92.png'
-import playList2 from '@/assets/images/playList/Frame 93.png'
-import playList3 from '@/assets/images/playList/Frame 94.png'
-
-const PlayList = ref([
-  { name: 'Amagine Dragons', cover: playList1 },
-  { name: 'Shayea', cover: playList2 },
-  { name: 'Arcane', cover: playList3 },
-])
-
-const activeIndex = ref(1)
-
-// Update activeIndex when slide changes
-const onSlideChange = (swiper) => {
-  activeIndex.value = swiper.realIndex
+<style scoped>
+.background2 {
+  z-index: 10;
 }
-</script>
 
-<style>
-.background3 {
-  position: absolute;
-  bottom: -25px;
+.playlist-swiper {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.playlist-slide {
+  width: min(156px, 44%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(24px) scale(0.82);
+  opacity: 0.85;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.playlist-slide-active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.playlist-cover {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
 }
 </style>
