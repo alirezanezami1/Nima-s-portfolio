@@ -3,7 +3,7 @@ import BtnTitle from './BtnTitle.vue'
 </script>
 
 <template>
-  <div class="flex justify-center flex-col items-center relative w-full min-w-0 max-md:min-h-[345px]">
+  <div class="flex flex-col justify-center items-center relative w-full min-w-0 max-md:min-h-[345px]">
     <div
       class="flex justify-center items-center w-full h-full"
     >
@@ -12,7 +12,7 @@ import BtnTitle from './BtnTitle.vue'
     <div class="absolute top-6 left-6">
       <BtnTitle title="My Location" class="bg-white" />
     </div>
-    <div class="inline-flex flex-col justify-center items-center z-40 absolute bottom-0">
+    <div class="flex flex-col justify-center items-center z-40 fixed bottom-6">
       <p class="text-[32px] font-semibold leading-[140%] text-textColor2">Tehran</p>
       <p class="text-[20px] font-normal leading-[140%] text-textColor">Tehran , Iran</p>
     </div>

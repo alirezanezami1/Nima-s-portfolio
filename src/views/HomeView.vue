@@ -123,7 +123,7 @@ onUnmounted(() => {
         <BtnTitle title="My Music Playlist" class="relative left-6" />
         <PlayListView />
       </div>
-      <div class="flex flex-col gap-8 justify-between items-start self-stretch shrink-0 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+      <div class="flex flex-col gap-8 justify-start items-start self-stretch shrink-0 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
         <LocationView />
       </div>
     </div>
