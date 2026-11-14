@@ -69,7 +69,7 @@ const {
           <AudioPlayer
             :audio-url="comment.audio_url"
             :total-duration-seconds="comment.duration_in_seconds"
-            class="w-[281px] md:w-[388px] h-[64px] md:h-[72px]"
+            class="max-[376px]:w-[220px] w-[281px] md:w-[388px] h-[64px] md:h-[72px]"
           />
           <div class="flex flex-col justify-center items-center gap-4">
             <div class="flex justify-center items-center md:w-[56px] w-[48px]">

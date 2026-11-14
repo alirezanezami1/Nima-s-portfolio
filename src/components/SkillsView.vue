@@ -24,7 +24,7 @@ const {
   </div>
   <div v-else class="relative h-full w-full max-[769px]:min-h-[345px]">
     <div
-      class="relative skills-cloud flex justify-start items-center gap-2 w-full max-[769px]:min-h-[345px]"
+      class="relative skills-cloud flex justify-center items-center gap-2 w-full max-[769px]:min-h-[345px]"
     >
       <div
         v-for="skill in skills"
@@ -149,6 +149,58 @@ const {
     top: 140px;
     right: -19px;
     transform: rotate(45deg);
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 769px) {
+   .skills-cloud > *:nth-child(5) {
+    position: absolute;
+    right: 0px;
+    bottom: 30px;
+    transform: rotate(20deg);
+  }
+
+  .skills-cloud > *:nth-child(4) {
+    position: absolute;
+    bottom: 130px;
+    left: 60px;
+    transform: rotate(-30deg);
+  }
+  .skills-cloud > *:nth-child(1) {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: rotate(6deg);
+  }
+  .skills-cloud > *:nth-child(3) {
+    position: absolute;
+    bottom: 205px;
+    left: 120px;
+    transform: rotate(10deg);
+  }
+  .skills-cloud > *:nth-child(2) {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    transform: rotate(0deg);
+  }
+  .skills-cloud > *:nth-child(6) {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    transform: rotate(-15deg);
+  }
+  .skills-cloud > *:nth-child(7) {
+    position: absolute;
+    bottom: 10px;
+    right: 80px;
+    transform: rotate(0deg);
+  }
+  .skills-cloud > *:nth-child(8) {
+    position: absolute;
+    top: 130px;
+    right: 29px;
+    transform: rotate(20deg);
   }
 }
 </style>
