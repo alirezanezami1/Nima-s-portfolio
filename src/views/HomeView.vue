@@ -100,7 +100,7 @@ onUnmounted(() => {
         <BtnTitle title="Comments" />
         <CommentsView />
       </div>
-      <div class="flex flex-col gap-8 justify-between items-start self-stretch shrink-0 pt-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+      <div class="hidden xl:flex flex-col gap-8 justify-between items-start self-stretch shrink-0 pt-8 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
         <BtnTitle title="Contact Me" class="relative left-6" />
         <ContactMeView />
       </div>
@@ -109,32 +109,23 @@ onUnmounted(() => {
     <div
       data-scroll-based-animate="true"
       data-animation="animate__animated animate__fadeInUp"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-5 w-full"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center items-center gap-5 w-full"
     >
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px]" paddingX="px-0">
-        <template #header>
-          <BtnTitle title="My last articles" class="mx-5" />
-        </template>
-        <template #default>
-          <ArticlesView />
-        </template>
-      </SecondSlotComponent>
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] " paddingX="px-0">
-        <template #header>
-          <BtnTitle title="My Music Playlist" class="mx-5" />
-        </template>
-        <template #default>
-          <PlayListView />
-        </template>
-      </SecondSlotComponent>
-      <SecondSlotComponent width="w-[345px] sm:w-[330px] lg:w-[380px] h-[380px] relative" >
-        <template #header>
-          <BtnTitle title="My Location" class="hidden" />
-        </template>
-        <template #default>
-          <LocationView />
-        </template>
-      </SecondSlotComponent>
+      <div class="flex xl:hidden flex-col gap-8 justify-between items-start self-stretch shrink-0 p-6 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+        <BtnTitle title="Contact Me" />
+        <ContactMeView />
+      </div>
+      <div class="flex flex-col gap-8 justify-start items-start self-stretch shrink-0 pt-6 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+        <BtnTitle title="My last articles" class="relative left-6" />
+        <ArticlesView />
+      </div>
+      <div class="flex flex-col gap-8 justify-start items-start self-stretch shrink-0 pt-6 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+        <BtnTitle title="My Music Playlist" class="relative left-6" />
+        <PlayListView />
+      </div>
+      <div class="flex flex-col gap-8 justify-between items-start self-stretch shrink-0 bg-white rounded-[40px] border-8 border-borderColor shadow-menuShadow w-full xl:w-[380px]">
+        <LocationView />
+      </div>
     </div>
   </div>
 </template>
